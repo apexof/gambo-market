@@ -1,0 +1,6 @@
+{
+    "watch": [
+        "./next.config.js",
+        "./babel.config.json"
+    ]
+}

@@ -11,22 +11,24 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
     header: {
-        height: '127px',
     },
-    img: {
-        width: "125px",
+    logo: {
+        display: "flex",
+        alignItems: "center",
+        "& img": {
+            width: "125px",
+        },
     },
     toolbar: {
-        height: '60px',
         display: "flex",
         justifyContent: "space-between",
-        borderBottom: `1px solid #efefef`
-
+        borderBottom: `1px solid #efefef`,
+        alignItems: "center",
     },
     toolbar2: {
-        height: '67px',
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        paddingRight: 0,
     }
 }));
 
@@ -72,7 +74,7 @@ export default function HeaderTop(props) {
     return (
         <AppBar position="sticky" className={classes.header}>
             <Toolbar className={classes.toolbar}>
-                <Link href="#" onClick={e => e.preventDefault}>
+                <Link href="#" onClick={e => e.preventDefault} className={classes.logo}>
                     <img
                         className={classes.img}
                         src={nightMode ? "/dark-logo.svg" : "/main-logo.svg"}

@@ -1,17 +1,25 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
+const commonTheme = {
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 540,
+            md: 720,
+            lg: 1200,
+            xl: 1400,
+        },
+    },
+}
+
 export const WhiteTheme = createMuiTheme({
+    ...commonTheme,
     palette: {
         type: "light",
         primary: {
             main: "#fff",
-            // dark: "#f7f7f7",
             light: "#f7f7f7",
-            // white: "#fff",
-            // orange: "#f55d2c",
-            // grey: "#f7f7f7",
-            // darkBlue: "#2b2f4c",
-            // black: "#2b2f4c",
+            dark: "#e5e5e5",
             contrastText: "#2b2f4c",
         },
         secondary: {
@@ -56,6 +64,7 @@ export const WhiteTheme = createMuiTheme({
     }
 });
 export const DarkTheme = createMuiTheme({
+    ...commonTheme,
     palette: {
         type: "dark",
         primary: {

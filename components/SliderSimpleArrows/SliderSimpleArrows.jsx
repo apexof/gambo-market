@@ -1,7 +1,5 @@
 import React from 'react'
-import NextIcon from './NextIcon'
 import Slider from "react-slick";
-import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -12,18 +10,20 @@ const useStyles = makeStyles(theme => ({
         left: 0,
     },
     nextBtn: {
-        width: "30px",
-        height: "30px",
-        backgroundColor: theme.palette.primary.white,
-        right: 0,
+        margin: "0 -0.8rem",
+        width: "50px",
+        height: "50px",
+        // backgroundColor: theme.palette.primary.main,
+        // border: `10px solid ${theme.palette.primary.dark}`,
+        backgroundColor: theme.palette.primary.main,
+        border: `10px solid ${theme.palette.background.default}`,
+        left: "calc(100% - 20px)",
         zIndex: 1,
-        top: "calc(50% - 15px)",
+        top: "calc(50% - 25px)",
         position: "absolute",
-        boxShadow: "0px 2px 2px 0px rgb(0 0 0 / 7%)",
-        border: "1px solid #e5e5e5 !important",
         "&:hover": {
-            backgroundColor: theme.palette.primary.orange,
-            color: theme.palette.primary.white,
+            backgroundColor: theme.palette.secondary.main,
+            color: theme.palette.secondary.contrastText,
         }
     },
 }))

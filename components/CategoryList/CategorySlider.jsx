@@ -8,7 +8,7 @@ import { Container } from '@material-ui/core';
 const categories = [
     {
         id: 0,
-        title: "Fruits and Vegetables",
+        title: " Electronics",
         img: "/img/categoryIcons/icon-1.svg"
     },
     {
@@ -23,7 +23,7 @@ const categories = [
     },
     {
         id: 3,
-        title: "Fruits and Vegetables",
+        title: " Electronics",
         img: "/img/categoryIcons/icon-1.svg"
     },
     {
@@ -38,7 +38,7 @@ const categories = [
     },
     {
         id: 6,
-        title: "Fruits and Vegetables",
+        title: " Electronics",
         img: "/img/categoryIcons/icon-1.svg"
     },
     {
@@ -53,7 +53,7 @@ const categories = [
     },
     {
         id: 9,
-        title: "Fruits and Vegetables",
+        title: " Electronics",
         img: "/img/categoryIcons/icon-1.svg"
     },
     {
@@ -83,7 +83,7 @@ export default function CategorySlider() {
     const classes = useStyles();
 
     return (
-        <div className={classes.categorySlider}>
+        <section className={classes.categorySlider}>
             <Container>
                 <SectionTitle title="Categories" clarification="Shop By" />
                 <div className={classes.list}>
@@ -98,6 +98,6 @@ export default function CategorySlider() {
                     </Slider>
                 </div>
             </Container>
-        </div>
+        </section>
     )
 }

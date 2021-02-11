@@ -7,6 +7,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         padding: 20,
         margin: "0 15px",
+        boxShadow: "1px 1px 2px 1px rgb(0 0 0 / 3%)",
     },
     imgWrap: {
         textAlign: 'center',

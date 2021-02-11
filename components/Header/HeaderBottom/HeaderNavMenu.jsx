@@ -117,6 +117,8 @@ const useStyles = makeStyles(theme => ({
         transformOrigin: 'top',
         transition: 'all 0.3s ease',
         zIndex: '2',
+        borderRadius: '0 0 5px 3px',
+        boxShadow: `1px 2px 2px 1px ${theme.palette.primary.dark}`
     },
 }))
 

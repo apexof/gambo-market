@@ -50,6 +50,7 @@ const useStyles = makeStyles(theme => ({
         background: theme.palette.primary.light,
         padding: 15,
         textTransform: 'none',
+        whiteSpace: "nowrap",
     },
     img: {
         height: "30px",

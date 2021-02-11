@@ -1,16 +1,13 @@
-import { Button } from '@material-ui/core';
+import { Button, Container } from '@material-ui/core';
 import MainLayout from '../components/MainLayout'
+import CategorySlider from '../components/CategoryList/CategorySlider'
 
 
 
 export default function Home() {
     return (
         <MainLayout>
-            <div className="qwe">
-
-                qwe
-            </div>
-            <Button color="primary">Hello World</Button>
+            <CategorySlider />
         </MainLayout>
     )
 }

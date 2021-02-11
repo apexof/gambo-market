@@ -1,34 +1,55 @@
 import React from 'react'
-import { MenuItem, Select } from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
+import { FormControl, InputLabel, MenuItem, Select, Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
     formControl: {
-        margin: theme.spacing(1),
+        marginLeft: theme.spacing(15),
         minWidth: 120,
     },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
+    select: {
+        "& svg": {
+            color: theme.palette.primary.contrastText,
+        }
+    },
+    menuItem: {
+        display: 'flex',
+        alignItems: 'center',
+        width: "120px"
+    },
+    menuText: {
+        display: "inline",
+        marginLeft: '5px'
     },
 }))
 
 export default function HeaderSelect({ selectItems }) {
-    const c = useStyles();
+    const classes = useStyles();
     const [field, setField] = React.useState(1);
 
     const handleChange = (event) => {
         setField(event.target.value);
     };
     return (
-        <FormControl className={c.formControl}>
+        <FormControl className={classes.formControl}>
             <Select
-                labelId="demo-simple-select-helper-label"
+                disableUnderline
                 id="demo-simple-select-helper"
+                // ariaLabelledby="select"
                 value={field}
                 onChange={handleChange}
+                className={classes.select}
             >
                 {selectItems.map(item => (
-                    <MenuItem key={item.title} value={item.id}>{item.title}</MenuItem>
+                    <MenuItem key={item.title} value={item.id}>
+                        <div className={classes.menuItem}>
+                            <Icon>room</Icon>
+                            <Typography className={classes.menuText}>
+                                {item.title}
+                            </Typography>
+                        </div>
+                    </MenuItem>
                 ))}
             </Select>
         </FormControl>

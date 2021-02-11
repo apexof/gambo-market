@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormControl, Input, InputAdornment } from '@material-ui/core';
+import { FormControl, Input, InputAdornment, InputLabel } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -8,8 +8,9 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(5),
     },
     input: {
-        background: theme.palette.primary.grey,
+        background: theme.palette.primary.light,
         padding: "5px 10px",
+        height: '36px'
     },
 }));
 
@@ -21,7 +22,7 @@ export default function HeaderSearch() {
                 className={classes.input}
                 id="input-with-icon-adornment"
                 placeholder="Search for products"
-
+                disableUnderline
                 startAdornment={
                     <InputAdornment position="start">
                         <SearchIcon />

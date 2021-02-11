@@ -1,39 +1,22 @@
 import React from 'react'
 import Head from 'next/head'
-import HeaderTop from './Header/HeaderTop/HeaderTop'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-
-const theme = createMuiTheme({
-    palette: {
-        primary: {
-            main: "#fff",
-            orange: "#f55d2c",
-            grey: "#f7f7f7",
-            darkBlue: "#2b2f4c",
-        },
-        secondary: {
-            main: "#fff",
-        },
-    },
-});
+import Header from './Header/Header'
 
 export default function MainLayout({ children }) {
     return (
         <div>
             <Head>
                 <title>Gambo</title>
+                <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-                <meta
-                    name="viewport"
-                    content="minimum-scale=1, initial-scale=1, width=device-width"
-                />
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+
             </Head>
-            <ThemeProvider theme={theme}>
-                <HeaderTop />
-                {children}
-            </ThemeProvider>
+            <Header />
+            {children}
         </div>
     )
 }

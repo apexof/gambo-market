@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import { mergeDeep } from './helpers';
 
 const commonTheme = {
     breakpoints: {
@@ -10,10 +11,35 @@ const commonTheme = {
             xl: 1400,
         },
     },
+    typography: {
+        h2: {
+            fontSize: 24,
+            fontWeight: 600,
+            margin: "0 0 27px 0",
+        },
+        h3: {
+            fontSize: 14,
+            fontWeight: 600,
+            margin: "0 0 10px 0",
+        },
+        subtitle1: {
+            margin: 0,
+            fontSize: 16,
+            fontWeight: 700,
+            lineHeight: "24px",
+            textAlign: "center",
+        },
+        subtitle2: {
+            textAlign: "center",
+            fontSize: 12,
+            fontWeight: 500,
+            margin: 0,
+            lineHeight: "24px",
+        },
+    }
 }
 
-export const WhiteTheme = createMuiTheme({
-    ...commonTheme,
+const WhiteThemeNotMerged = createMuiTheme({
     palette: {
         type: "light",
         primary: {
@@ -44,27 +70,23 @@ export const WhiteTheme = createMuiTheme({
         }
     },
     typography: {
-        // allVariants: {
-        //     color: '#2b2f4c',
-        // },
         h2: {
-            fontSize: "24px",
-            fontWeight: "600",
-            color: "#2b2f4c",
-            margin: "0 0 27px 0",
-            display: "block",
+            // color: "#2b2f4c",
         },
         h3: {
-            fontSize: 14,
-            fontWeight: 600,
-            textAlign: "left",
             color: "#f55d2c",
-            marginBottom: 10,
+        },
+        subtitle1: {
+            color: "#2b2f4c",
+        },
+        subtitle2: {
+            color: "#8f91ac",
         },
     }
 });
-export const DarkTheme = createMuiTheme({
-    ...commonTheme,
+export const WhiteTheme = mergeDeep(WhiteThemeNotMerged, commonTheme);
+
+const DarkThemeNotMerged = createMuiTheme({
     palette: {
         type: "dark",
         primary: {
@@ -91,22 +113,19 @@ export const DarkTheme = createMuiTheme({
         }
     },
     typography: {
-        // allVariants: {
-        //     color: '#2b2f4c',
-        // },
         h2: {
-            fontSize: "24px",
-            fontWeight: "600",
             color: "#fff",
-            margin: "0 0 27px 0",
-            display: "block",
         },
         h3: {
-            fontSize: 14,
-            fontWeight: 600,
-            textAlign: "left",
             color: "#f55d2c",
-            marginBottom: 10,
+        },
+        subtitle1: {
+            color: "#fff",
+        },
+        subtitle2: {
+            color: "#c7c7c7",
         },
     }
 });
+
+export const DarkTheme = mergeDeep(DarkThemeNotMerged, commonTheme);

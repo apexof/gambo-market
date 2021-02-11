@@ -13,8 +13,6 @@ const useStyles = makeStyles(theme => ({
         margin: "0 -0.8rem",
         width: "50px",
         height: "50px",
-        // backgroundColor: theme.palette.primary.main,
-        // border: `10px solid ${theme.palette.primary.dark}`,
         backgroundColor: theme.palette.primary.main,
         border: `10px solid ${theme.palette.background.default}`,
         left: "calc(100% - 20px)",
@@ -44,7 +42,7 @@ export default function SliderSimpleArrows({ children, slidesToShow }) {
     const settings = {
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 300,
         slidesToShow,
         slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,

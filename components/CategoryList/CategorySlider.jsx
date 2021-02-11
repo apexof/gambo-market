@@ -74,6 +74,7 @@ const useStyles = makeStyles(theme => ({
     },
     list: {
         margin: "-10px -15px",
+        width: "100%",
         "& .slick-track": {
             padding: "10px 0",
         }
@@ -85,7 +86,7 @@ export default function CategorySlider() {
     return (
         <section className={classes.categorySlider}>
             <Container>
-                <SectionTitle title="Categories" clarification="Shop By" />
+                <SectionTitle title="Categories" clarification="Shop By" seeAllLink={false} />
                 <div className={classes.list}>
                     <Slider slidesToShow={6}>
                         {categories.map(item => (

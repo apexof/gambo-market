@@ -12,17 +12,19 @@ const useStyles = makeStyles(theme => ({
         height: "50px",
         backgroundColor: theme.palette.primary.main,
         border: `10px solid ${theme.palette.background.default}`,
-        left: "calc(100% - 27px)",
+        right: "-7px",
         zIndex: 1,
         top: "calc(50% - 25px)",
         position: "absolute",
+        display: "flex",
+        alignItems: "center",
         "&:hover": {
             backgroundColor: theme.palette.secondary.main,
             color: theme.palette.secondary.contrastText,
-        }
+        },
     },
     prevBtn: {
-        left: 0,
+        left: "-7px",
     },
 }))
 

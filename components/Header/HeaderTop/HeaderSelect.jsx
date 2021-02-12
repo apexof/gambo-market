@@ -7,6 +7,9 @@ const useStyles = makeStyles(theme => ({
     formControl: {
         marginLeft: 34,
         minWidth: 120,
+        flexShrink: 0,
+        background: theme.palette.primary.light,
+        borderRadius: "5px",
     },
     select: {
         "& svg": {

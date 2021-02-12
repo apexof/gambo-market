@@ -5,12 +5,19 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     form: {
-        marginLeft: theme.spacing(5),
+        margin: "0 auto 0 35px",
+        width: "100%",
     },
     input: {
         background: theme.palette.primary.light,
         padding: "5px 10px",
-        height: '36px'
+        height: '36px',
+        width: "50%",
+        minWidth: "220px",
+        transition: "width .2s ease",
+        "&.Mui-focused": {
+            width: "100%",
+        }
     },
 }));
 
@@ -23,6 +30,7 @@ export default function HeaderSearch() {
                 id="input-with-icon-adornment"
                 placeholder="Search for products"
                 disableUnderline
+                autoFocus
                 startAdornment={
                     <InputAdornment position="start">
                         <SearchIcon />

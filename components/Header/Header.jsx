@@ -15,6 +15,8 @@ const useStyles = makeStyles(theme => ({
     logo: {
         display: "flex",
         alignItems: "center",
+        flexShrink: 0,
+        width: "125px",
         "& img": {
             width: "125px",
         },

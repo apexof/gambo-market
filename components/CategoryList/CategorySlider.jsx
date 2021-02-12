@@ -77,6 +77,9 @@ const useStyles = makeStyles(theme => ({
         width: "calc(100% + 30px)",
         "& .slick-track": {
             padding: "10px 0",
+        },
+        "& button": {
+            right: "3px",
         }
     },
 }))

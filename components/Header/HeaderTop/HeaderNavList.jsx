@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row',
         padding: 0,
-        marginLeft: "auto"
     },
     link: {
         whiteSpace: 'nowrap',

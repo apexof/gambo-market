@@ -8,7 +8,7 @@ import Slider from './SliderSimpleArrows/SliderSimpleArrows';
 const useStyles = makeStyles(theme => ({
     list: {
         margin: "-10px -5px",
-        width: "100%",
+        width: "calc(100% + 10px)",
         "& .slick-track": {
             padding: "10px 0",
         }

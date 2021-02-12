@@ -39,6 +39,13 @@ const slides = [
         title: "Buy More & Save More",
         description: "Nuts & Snacks"
     },
+    {
+        id: 5,
+        img: "/img/topSlider/slide-2.jpg",
+        discount: "3",
+        title: "Buy More & Save More",
+        description: "Nuts & Snacks"
+    },
 ]
 
 const useStyles = makeStyles(theme => ({
@@ -78,18 +85,42 @@ const useStyles = makeStyles(theme => ({
         bottom: "20px",
         right: "20px",
     },
+    discount: {
+        fontSize: "12px",
+        fontWeight: 600,
+        color: "#f55d2c",
+        marginBottom: "3px",
+        textAlign: "left",
+        textTransform: "uppercase",
+    },
+    title: {
+        fontSize: "16px",
+        fontWeight: 500,
+        color: "#2b2f4c",
+        marginBottom: "5px",
+        lineHeight: "24px",
+        textAlign: "left",
+    },
+    description: {
+        fontWeight: 500,
+        fontSize: "14px",
+        color: "#8f91ac",
+        textAlign: "left",
+        lineHeight: "24px",
+    },
 }))
 export default function CategorySlider() {
     const classes = useStyles();
     const settings = {
+        dots: false,
         infinite: true,
-        dots: true,
         speed: 300,
-        arrows: false,
         slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1000
+        autoplaySpeed: 1500,
+        draggable: false,
+        pauseOnHover: false
     };
     return (
         <section className={classes.topSlider}>
@@ -102,13 +133,13 @@ export default function CategorySlider() {
                                     <img src={item.img} alt="" />
                                 </div>
                                 <div className={classes.slideContent}>
-                                    <Typography>
-                                        {item.discount}
+                                    <Typography className={classes.discount}>
+                                        {item.discount}% OFF
                                     </Typography>
-                                    <Typography>
+                                    <Typography className={classes.title}>
                                         {item.title}
                                     </Typography>
-                                    <Typography>
+                                    <Typography className={classes.description}>
                                         {item.description}
                                     </Typography>
                                 </div>

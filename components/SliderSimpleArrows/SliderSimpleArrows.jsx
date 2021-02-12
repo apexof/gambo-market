@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: theme.palette.secondary.main,
             color: theme.palette.secondary.contrastText,
         },
+        "& .MuiIconButton-label": {
+            alignItems: "center",
+        }
     },
     prevBtn: {
         left: "-7px",

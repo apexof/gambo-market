@@ -21,7 +21,7 @@ export default function ProductList({ productArray, title, clarification }) {
         <Container>
             <SectionTitle title={title} clarification={clarification} />
             <div className={classes.list}>
-                <Slider slidesToShow={4}>
+                <Slider slidesToShow={5}>
                     {productArray.map(item => (
                         <ProductCard
                             key={item.id}

@@ -57,17 +57,17 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
 
     return (
         <Card className={classes.card}>
-            {/* <CardHeader disableSpacing>
+            {/* <CardHeader >
             </CardHeader> */}
             <div className={classes.discount}>
                 {`${discount} OFF`}
             </div>
-            <CardMedia disableSpacing>
+            <CardMedia >
                 <Link href="#" className={classes.imgWrapper}>
                     <img src={img} alt="" />
                 </Link>
             </CardMedia>
-            <CardContent disableSpacing>
+            <CardContent >
                 <Typography variant="subtitle2">
                     {available}
                 </Typography>
@@ -84,7 +84,7 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
                 </div>
             </CardContent>
 
-            {/* <CardActions disableSpacing>
+            {/* <CardActions >
 
             </CardActions> */}
 

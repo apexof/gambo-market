@@ -53,6 +53,15 @@ const productArray = [
         available: "Available (In Stock)",
         discount: "6%",
     },
+    {
+        id: 6,
+        title: "Product Title Here",
+        img: "img/products/product-5.jpg",
+        price: "12",
+        oldPrice: "15",
+        available: "Available (In Stock)",
+        discount: "6%",
+    },
 ]
 
 export default function TopFeaturedProducts() {

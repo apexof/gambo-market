@@ -78,8 +78,11 @@ const useStyles = makeStyles(theme => ({
         "& .slick-track": {
             padding: "10px 0",
         },
-        "& button": {
+        "& button:last-child": {
             right: "3px",
+        },
+        "& button:first-child": {
+            left: "2px",
         }
     },
 }))

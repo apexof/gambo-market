@@ -27,6 +27,21 @@ const useStyles = makeStyles(theme => ({
         minWidth: "unset",
         marginLeft: 15,
     },
+    phone: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        "& svg": {
+            marginRight: "5px",
+            color: theme.palette.secondary.main,
+        }
+    },
+    phoneText: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: theme.palette.text.primary,
+    },
     icon: {
         color: theme.palette.primary.contrastText,
         transition: "all 0.3s ease",
@@ -61,12 +76,12 @@ export default function BannerSection() {
         <div className={classes.topFooter}>
             <Container>
                 <div className={classes.list}>
-                    <div>
+                    <Link className={classes.phone} href="#">
                         <DialpadIcon />
-                        <Typography>
+                        <Typography className={classes.phoneText}>
                             1800-000-000
                         </Typography>
-                    </div>
+                    </Link>
                     <List className={classes.socMenu}>
                         {menuArray.map(item => (
                             <ListItem key={item.id} disableGutters>

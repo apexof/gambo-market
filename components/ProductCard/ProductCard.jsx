@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import WishIcon from '../WishIcon';
 import Price from './Price';
 import OldPrice from './OldPrice';
+import Discount from './DiscountBlock';
 import CartControls from './CartControls/CartControls';
 
 const useStyles = makeStyles(theme => ({
@@ -22,20 +23,6 @@ const useStyles = makeStyles(theme => ({
         right: 15,
         zIndex: 1,
     },
-    discount: {
-        position: "absolute",
-        top: 15,
-        left: 15,
-        fontSize: 12,
-        fontWeight: 500,
-        color: "#fff",
-        background: "#f55d2c",
-        padding: "3px 10px",
-        borderRadius: 3,
-        lineHeight: "20px",
-        textTransform: "uppercase",
-        zIndex: 1,
-    },
     imgWrapper: {
         display: "block",
         padding: "10px 20px",
@@ -50,6 +37,12 @@ const useStyles = makeStyles(theme => ({
     cardActions: {
         padding: 0,
     },
+    discountWrapp: {
+        position: "absolute",
+        top: 15,
+        left: 15,
+        zIndex: 1,
+    },
 }))
 
 export default function ProductCard({ title, img, price, oldPrice, available, discount, }) {
@@ -59,8 +52,8 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
         <Card className={classes.card}>
             {/* <CardHeader className={classes.header}>
             </CardHeader> */}
-            <div className={classes.discount}>
-                {`${discount} OFF`}
+            <div className={classes.discountWrapp}>
+                <Discount>{discount}</Discount>
             </div>
             <div className={classes.wishIcon}>
                 <WishIcon />

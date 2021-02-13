@@ -49,6 +49,7 @@ const useStyles = makeStyles(theme => ({
     footer: {
         marginTop: "auto",
         flexWrap: "wrap",
+        padding: "20px 0",
         alignItems: "center",
         background: theme.palette.background.default,
     },
@@ -56,7 +57,23 @@ const useStyles = makeStyles(theme => ({
         width: "100%",
         display: "flex",
         alignItems: "center",
+        padding: "0 20px",
         justifyContent: "space-between",
+    },
+    headerItemsCount: {
+        color: "#f69733",
+    },
+    footerConfirm: {
+        width: "100%",
+        display: "flex",
+        padding: "20px 20px 0",
+        marginTop: "20px",
+        alignItems: "center",
+        justifyContent: "space-between",
+        borderTop: `1px solid ${theme.palette.grey["50"]}`,
+    },
+    confirmBtn: {
+        flexShrink: 0,
     },
 }))
 
@@ -80,7 +97,7 @@ export default function TemporaryDrawer() {
                 >
                     <Toolbar className={classes.header}>
                         <Typography>
-                            My Cart (2 Items)
+                            My Cart<span className={classes.headerItemsCount}>{` (2 Items)`}</span>
                         </Typography>
                         <CloseIcon
                             fontSize="large"
@@ -99,12 +116,20 @@ export default function TemporaryDrawer() {
                             </OldPrice>
                         </div>
                         <div className={classes.footerPrice}>
-                            <Typography>
+                            <Typography variant="h4">
                                 Total
                             </Typography>
                             <Price>
                                 21
                             </Price>
+                        </div>
+                        <div className={classes.footerConfirm}>
+                            <Typography variant="body1">
+                                Have a promocode?
+                            </Typography>
+                            <Button variant="contained" color="secondary" className={classes.confirmBtn}>
+                                Checkout
+                            </Button>
                         </div>
                     </Toolbar>
                 </div>

@@ -2,15 +2,31 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import CartList from './CartDrawer/CartList';
 import Icon from '@material-ui/core/Icon';
+import { Toolbar, Typography } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
+import Price from '../../ProductCard/Price';
+import OldPrice from '../../ProductCard/OldPrice';
 
 const useStyles = makeStyles(theme => ({
     list: {
         width: 250,
+    },
+    header: {
+        background: theme.palette.type === "dark" ? "#000" : "#2b2f4c",
+        padding: "15px 20px",
+        color: "#fff",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+    drawer: {
+        width: 400,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100%",
+        justifyContent: "space-between",
     },
     fullList: {
         width: 'auto',
@@ -26,32 +42,30 @@ const useStyles = makeStyles(theme => ({
             backgroundImage: "linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9))"
         }
     },
+    closeIcon: {
+        cursor: "pointer",
+        color: "#fff"
+    },
+    footer: {
+        marginTop: "auto",
+        flexWrap: "wrap",
+        alignItems: "center",
+        background: theme.palette.background.default,
+    },
+    footerPrice: {
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
 }))
-
-const listItems = [
-    {
-        id: 1,
-        title: "123",
-        icon: "phone",
-    },
-    {
-        id: 2,
-        title: "123",
-        icon: "phone",
-    },
-    {
-        id: 3,
-        title: "123",
-        icon: "phone",
-    },
-]
 
 export default function TemporaryDrawer() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
     const toggleDrawer = () => setOpen(!open)
-
+    const handleClose = () => setOpen(false)
 
     return (
         <>
@@ -61,22 +75,38 @@ export default function TemporaryDrawer() {
             </Button>
             <Drawer anchor="left" open={open} onClose={toggleDrawer}>
                 <div
-                    // className={`${classes.list} ${classes.fullList}`}
+                    className={`${classes.drawer} `}
                     role="presentation"
-                    onClick={toggleDrawer}
-                    onKeyDown={toggleDrawer}
                 >
-                    <List>
-                        {listItems.map(item => (
-                            <ListItem button key={item.id}>
-                                <ListItemIcon>
-                                    <Icon>{item.icon}</Icon>
-                                </ListItemIcon>
-                                <ListItemText >{item.title}
-                                </ListItemText >
-                            </ListItem>
-                        ))}
-                    </List>
+                    <Toolbar className={classes.header}>
+                        <Typography>
+                            My Cart (2 Items)
+                        </Typography>
+                        <CloseIcon
+                            fontSize="large"
+                            className={classes.closeIcon}
+                            onClick={handleClose}
+                        />
+                    </Toolbar>
+                    <CartList />
+                    <Toolbar className={classes.footer}>
+                        <div className={classes.footerPrice}>
+                            <Typography>
+                                Total Saving
+                            </Typography>
+                            <OldPrice>
+                                11
+                            </OldPrice>
+                        </div>
+                        <div className={classes.footerPrice}>
+                            <Typography>
+                                Total
+                            </Typography>
+                            <Price>
+                                21
+                            </Price>
+                        </div>
+                    </Toolbar>
                 </div>
             </Drawer>
         </>

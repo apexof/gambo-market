@@ -1,12 +1,15 @@
 import { Card, CardActions, CardContent, CardHeader, CardMedia, Link, Typography } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import WishIcon from './WishIcon';
+import WishIcon from '../WishIcon';
+import Price from './Price';
+import OldPrice from './OldPrice';
+import CartControls from './CartControls/CartControls';
 
 const useStyles = makeStyles(theme => ({
     card: {
         margin: "0 5px",
-        padding: 20,
+        padding: 15,
         position: "relative",
         boxShadow: "1px 1px 2px 1px rgb(0 0 0 / 3%)",
         "&:hover $imgWrapper": {
@@ -15,14 +18,14 @@ const useStyles = makeStyles(theme => ({
     },
     wishIcon: {
         position: "absolute",
-        top: 20,
-        right: 20,
+        top: 15,
+        right: 15,
         zIndex: 1,
     },
     discount: {
         position: "absolute",
-        top: 20,
-        left: 20,
+        top: 15,
+        left: 15,
         fontSize: 12,
         fontWeight: 500,
         color: "#fff",
@@ -44,18 +47,8 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "center",
         alignItems: "center"
     },
-    price: {
-        fontSize: 18,
-        fontWeight: 600,
-        lineHeight: "24px",
-        color: "#f55d2c",
-    },
-    oldPrice: {
-        fontSize: 18,
-        color: "#c7c7c7",
-        textDecoration: "line-through",
-        marginLeft: 10,
-        fontWeight: 600,
+    cardActions: {
+        padding: 0,
     },
 }))
 
@@ -85,19 +78,13 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
                     {title}
                 </Typography>
                 <div className={classes.priceBlock}>
-                    <Typography variant="body2" className={classes.price}>
-                        ${price}
-                    </Typography>
-                    <Typography variant="body2" className={classes.oldPrice}>
-                        ${oldPrice}
-                    </Typography>
+                    <Price>{price}</Price>
+                    <OldPrice>{oldPrice}</OldPrice>
                 </div>
             </CardContent>
-
-            {/* <CardActions >
-
-            </CardActions> */}
-
+            <CardActions disableSpacing className={classes.cardActions}>
+                <CartControls />
+            </CardActions>
         </Card>
     )
 }

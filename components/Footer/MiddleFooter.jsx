@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "space-between",
         padding: "50px 0",
     },
+    appBlock: {
+        width: '25%',
+    },
 }))
 
 const menu3 = [
@@ -99,39 +102,39 @@ const menu1 = [
         title: "Dairy & Eggs"
     },
     {
-        id: 3,
-        title: "Beverages"
-    },
-    {
         id: 4,
         title: "Beverages"
     },
     {
         id: 5,
-        title: "Snacks"
+        title: "Beverages"
     },
     {
         id: 6,
-        title: "Home Care"
+        title: "Snacks"
     },
     {
         id: 7,
-        title: "Noodles & Sauces"
+        title: "Home Care"
     },
     {
         id: 8,
-        title: "Personal Care"
+        title: "Noodles & Sauces"
     },
     {
         id: 9,
-        title: "Pet Care"
+        title: "Personal Care"
     },
     {
         id: 10,
-        title: "Meat & Seafood"
+        title: "Pet Care"
     },
     {
         id: 11,
+        title: "Meat & Seafood"
+    },
+    {
+        id: 12,
         title: "Electronics"
     },
 ]
@@ -146,7 +149,7 @@ export default function BannerSection() {
                     <MenuFooter title="Categories" items={menu1} />
                     <MenuFooter title="Useful Links" items={menu2} />
                     <MenuFooter title="Top Cities" items={menu3} />
-                    <div>
+                    <div className={classes.appBlock}>
                         <Typography gutterBottom variant="h4">Download App</Typography>
                         <Image
                             src="/img/footer/googlePlay.svg"

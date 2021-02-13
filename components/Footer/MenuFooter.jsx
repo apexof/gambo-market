@@ -17,8 +17,6 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-
-
 export default function MenuFooter({ title, items }) {
     const classes = useStyles();
     return (

@@ -85,6 +85,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'row',
         padding: 0,
+        marginRight: "auto",
     },
     listItem: {
         position: 'relative',

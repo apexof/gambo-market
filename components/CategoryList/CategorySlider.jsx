@@ -102,7 +102,7 @@ export default function CategorySlider() {
                 <div className={classes.list}>
                     <Slider slidesToShow={6}>
                         {categories.map(item => (
-                            <div>
+                            <div key={item.id}>
                                 <div className={classes.itemWrap}>
                                     <CategoryCard
                                         key={item.id}

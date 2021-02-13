@@ -7,7 +7,7 @@ import HeaderSearch from './HeaderTop/HeaderSearch'
 import HeaderMenu from './HeaderTop/HeaderMenu'
 import LeftDrawer from './HeaderBottom/LeftDrawer'
 import HeaderNavMenu from './HeaderBottom/HeaderNavMenu'
-import SelectCategoryModal from '../SelectCategoryModal'
+import SelectCategoryModal from './HeaderBottom/SelectCategoryModal'
 import { makeStyles } from "@material-ui/core/styles";
 import WishIcon from '../WishIcon';
 

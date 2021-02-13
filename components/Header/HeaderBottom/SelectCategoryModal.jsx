@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import AppsIcon from '@material-ui/icons/Apps';
-import CategoryCard from './CategoryList/CategoryCard';
+import CategoryCard from '../../CategoryList/CategoryCard';
 import { Backdrop, Button, Link, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
@@ -145,7 +145,7 @@ export default function SimpleModal() {
         <div className={classes.btnWrapp}>
             <Button onClick={handleOpen} className={classes.btn}>
                 <AppsIcon />
-                <Typography>
+                <Typography component="span">
                     Select Category
                 </Typography>
             </Button>
@@ -173,7 +173,7 @@ export default function SimpleModal() {
                     </Typography>
                         <div className={classes.list}>
                             {categories.map(item => (
-                                <div className={classes.itemWrap}>
+                                <div key={item.id} className={classes.itemWrap}>
                                     <CategoryCard
                                         key={item.id}
                                         title={item.title}

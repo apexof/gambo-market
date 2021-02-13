@@ -123,7 +123,7 @@ export default function CategorySlider() {
         pauseOnHover: false
     };
     return (
-        <section className={classes.topSlider}>
+        <div className={classes.topSlider}>
             <div className={classes.list}>
                 <Slider {...settings}>
                     {slides.map(item => (
@@ -151,6 +151,6 @@ export default function CategorySlider() {
                     ))}
                 </Slider>
             </div>
-        </section>
+        </div>
     )
 }

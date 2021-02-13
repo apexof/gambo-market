@@ -2,6 +2,7 @@ import { Container } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import SectionTitle from './SectionTitle';
+import Image from 'next/image'
 
 const useStyles = makeStyles(theme => ({
     section: {

@@ -1,6 +1,6 @@
 import { Container } from '@material-ui/core'
 import React from 'react'
-import ProductCard from './ProductCard'
+import ProductCard from './ProductCard/ProductCard'
 import SectionTitle from './SectionTitle'
 import { makeStyles } from '@material-ui/core/styles';
 import Slider from './SliderSimpleArrows/SliderSimpleArrows';

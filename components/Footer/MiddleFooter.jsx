@@ -1,8 +1,9 @@
 import React from 'react'
 import MenuFooter from './MenuFooter'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography } from '@material-ui/core';
+import { Button, Container, Grid, Input, TextField, Typography } from '@material-ui/core';
 import Image from 'next/image'
+import TelegramIcon from '@material-ui/icons/Telegram';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -13,8 +14,33 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "space-between",
         padding: "50px 0",
     },
-    appBlock: {
+    rightBlock: {
         width: '25%',
+    },
+    payIcon: {
+        width: 35,
+        height: 21,
+        marginRight: 5,
+        cursor: "pointer",
+    },
+    payBlock: {
+        margin: "20px 0",
+    },
+    sendNewsBtn: {
+        background: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText,
+        minWidth: 'unset',
+        "&:hover": {
+            backgroundImage: "linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9))",
+            background: theme.palette.secondary.main,
+        }
+    },
+    inputWrap: {
+        border: `1px solid ${theme.palette.grey["50"]}`,
+        justifyContent: "space-between",
+    },
+    input: {
+        // border: `1px solid ${theme.palette.grey["50"]}`,
     },
 }))
 
@@ -149,20 +175,48 @@ export default function BannerSection() {
                     <MenuFooter title="Categories" items={menu1} />
                     <MenuFooter title="Useful Links" items={menu2} />
                     <MenuFooter title="Top Cities" items={menu3} />
-                    <div className={classes.appBlock}>
-                        <Typography gutterBottom variant="h4">Download App</Typography>
-                        <Image
-                            src="/img/footer/googlePlay.svg"
-                            alt="Picture of the author"
-                            width={120}
-                            height={35}
-                        />
-                        <Image
-                            src="/img/footer/appStore.svg"
-                            alt="Picture of the author"
-                            width={120}
-                            height={35}
-                        />
+                    <div className={classes.rightBlock}>
+                        <div className={classes.appBlock}>
+                            <Typography gutterBottom variant="h4">Download App</Typography>
+                            <Image
+                                src="/img/footer/googlePlay.svg"
+                                alt="Picture of the author"
+                                width={120}
+                                height={35}
+                            />
+                            <Image
+                                src="/img/footer/appStore.svg"
+                                alt="Picture of the author"
+                                width={120}
+                                height={35}
+                            />
+                        </div>
+                        <div className={classes.payBlock}>
+                            <Typography gutterBottom variant="h4">Payment Method</Typography>
+                            <img className={classes.payIcon} src="/img/footer/pyicon-1.svg" alt="" />
+                            <img className={classes.payIcon} src="/img/footer/pyicon-2.svg" alt="" />
+                            <img className={classes.payIcon} src="/img/footer/pyicon-3.svg" alt="" />
+                            <img className={classes.payIcon} src="/img/footer/pyicon-4.svg" alt="" />
+                            <img className={classes.payIcon} src="/img/footer/pyicon-6.svg" alt="" />
+                        </div>
+                        <div className={classes.newsBlock}>
+                            <Typography gutterBottom variant="h4">Newsletter</Typography>
+                            <Grid container spacing={1} alignItems="flex-end" className={classes.inputWrap}>
+                                <Grid item>
+                                    <Input
+                                        className={classes.input}
+                                        id="input-with-icon-grid"
+                                        placeholder="Email Arrdess"
+                                        disableUnderline
+                                    />
+                                </Grid>
+                                <Grid item>
+                                    <Button className={classes.sendNewsBtn}>
+                                        <TelegramIcon />
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </div>
                     </div>
                 </div>
             </Container>

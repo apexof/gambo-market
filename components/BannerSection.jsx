@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
         padding: 15,
     },
     imgWrapPart: {
-        width: "33%",
+        width: "33.333%",
     },
     imgWrapFull: {
         width: "100%",

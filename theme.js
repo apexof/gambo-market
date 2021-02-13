@@ -22,6 +22,11 @@ const commonTheme = {
             fontWeight: 600,
             margin: "0 0 10px 0",
         },
+        h4: {
+            fontSize: "18px",
+            fontWeight: "500",
+            lineHeight: "24px",
+        },
         subtitle1: {
             margin: 0,
             fontSize: 16,
@@ -47,12 +52,16 @@ const WhiteThemeNotMerged = createMuiTheme({
             light: "#f7f7f7",
             dark: "#e5e5e5",
             contrastText: "#2b2f4c",
+            line: "#efefef",
         },
         secondary: {
             light: "#f69733",
             main: "#f55d2c",
             dark: "",
             contrastText: "#fff",
+        },
+        grey: {
+            50: "#efefef",
         },
         // error: {},
         // warning: {},
@@ -110,7 +119,10 @@ const DarkThemeNotMerged = createMuiTheme({
         background: {
             paper: "#242424",
             default: "#000",
-        }
+        },
+        grey: {
+            50: "#333",
+        },
     },
     typography: {
         h2: {

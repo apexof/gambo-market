@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 import Head from 'next/head'
 import Header from './Header/Header'
 
@@ -13,10 +14,10 @@ export default function MainLayout({ children }) {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-
             </Head>
             <Header />
             {children}
+            <Footer />
         </div>
     )
 }

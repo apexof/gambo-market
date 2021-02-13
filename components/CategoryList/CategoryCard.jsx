@@ -6,8 +6,9 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
     root: {
         padding: 20,
-        margin: "0 15px",
-        boxShadow: "1px 1px 2px 1px rgb(0 0 0 / 3%)",
+        borderRadius: 0,
+        background: "unset",
+        boxShadow: "unset",
     },
     imgWrap: {
         textAlign: 'center',
@@ -20,6 +21,7 @@ const useStyles = makeStyles(theme => ({
         whiteSpace: "nowrap",
         fontSize: "15px",
         paddingBottom: 0,
+        color: theme.palette.primary.contrastText,
     },
     cardContent: {
         padding: "0",

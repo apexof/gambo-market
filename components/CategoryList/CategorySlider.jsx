@@ -72,6 +72,12 @@ const useStyles = makeStyles(theme => ({
     categorySlider: {
         marginTop: 47,
     },
+    itemWrap: {
+        background: theme.palette.primary.main,
+        boxShadow: "1px 1px 2px 1px rgb(0 0 0 / 3%)",
+        borderRadius: 10,
+        margin: "0 15px",
+    },
     list: {
         margin: "-10px -15px",
         width: "calc(100% + 30px)",
@@ -96,11 +102,15 @@ export default function CategorySlider() {
                 <div className={classes.list}>
                     <Slider slidesToShow={6}>
                         {categories.map(item => (
-                            <CategoryCard
-                                key={item.id}
-                                title={item.title}
-                                img={item.img}
-                            />
+                            <div>
+                                <div className={classes.itemWrap}>
+                                    <CategoryCard
+                                        key={item.id}
+                                        title={item.title}
+                                        img={item.img}
+                                    />
+                                </div>
+                            </div>
                         ))}
                     </Slider>
                 </div>
@@ -108,3 +118,5 @@ export default function CategorySlider() {
         </section>
     )
 }
+
+

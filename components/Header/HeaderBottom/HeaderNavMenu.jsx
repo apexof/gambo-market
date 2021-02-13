@@ -127,12 +127,10 @@ export default function HederMenu() {
 
     return (
         <List className={classes.list}>
-
             {menuItems.map(item => (
                 <ListItem key={item.id} className={classes.listItem}>
                     <Link className={classes.link} href="#">
                         <Box>
-
                             {item.title}
                         </Box>
                         {item.subMenu && <ExpandMoreIcon className={classes.arrow} />}

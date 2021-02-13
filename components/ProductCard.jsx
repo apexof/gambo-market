@@ -1,6 +1,7 @@
 import { Card, CardActions, CardContent, CardHeader, CardMedia, Link, Typography } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+import WishIcon from './WishIcon';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -11,6 +12,12 @@ const useStyles = makeStyles(theme => ({
         "&:hover $imgWrapper": {
             transform: "scale(1.1)",
         }
+    },
+    wishIcon: {
+        position: "absolute",
+        top: 20,
+        right: 20,
+        zIndex: 1,
     },
     discount: {
         position: "absolute",
@@ -57,10 +64,13 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
 
     return (
         <Card className={classes.card}>
-            {/* <CardHeader >
+            {/* <CardHeader className={classes.header}>
             </CardHeader> */}
             <div className={classes.discount}>
                 {`${discount} OFF`}
+            </div>
+            <div className={classes.wishIcon}>
+                <WishIcon />
             </div>
             <CardMedia >
                 <Link href="#" className={classes.imgWrapper}>

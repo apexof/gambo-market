@@ -7,7 +7,9 @@ import HeaderSearch from './HeaderTop/HeaderSearch'
 import HeaderMenu from './HeaderTop/HeaderMenu'
 import LeftDrawer from './HeaderBottom/LeftDrawer'
 import HeaderNavMenu from './HeaderBottom/HeaderNavMenu'
+import SelectCategoryModal from '../SelectCategoryModal'
 import { makeStyles } from "@material-ui/core/styles";
+import WishIcon from '../WishIcon';
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -24,14 +26,32 @@ const useStyles = makeStyles(theme => ({
     toolbar: {
         display: "flex",
         justifyContent: "space-between",
-        borderBottom: `1px solid #efefef`,
+        borderBottom: `1px solid ${theme.palette.grey["50"]}`,
         alignItems: "center",
     },
     toolbar2: {
         display: "flex",
         justifyContent: "space-between",
-        paddingRight: 0,
-    }
+        padding: 0,
+    },
+    wishLink: {
+        position: "relative",
+        margin: "0 10px",
+    },
+    countWishes: {
+        background: "#f55d2c",
+        fontSize: "11px",
+        fontWeight: "600",
+        position: "absolute",
+        top: "-4px",
+        right: "8px",
+        color: "#fff",
+        width: "16px",
+        height: "16px",
+        textAlign: "center",
+        borderRadius: "50%",
+        right: "-4px",
+    },
 }));
 
 const selectItems = [
@@ -83,14 +103,17 @@ export default function HeaderTop(props) {
                         alt=""
                     />
                 </Link>
-
                 <HeaderSelect selectItems={selectItems} />
                 <HeaderSearch />
-
                 <HeaderNavList />
+                <Link className={classes.wishLink}>
+                    <WishIcon />
+                    <div className={classes.countWishes}>3</div>
+                </Link>
                 <HeaderMenu />
             </Toolbar>
             <Toolbar className={classes.toolbar2}>
+                <SelectCategoryModal />
                 <HeaderNavMenu />
                 <LeftDrawer />
             </Toolbar>

@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from '../Footer'
 import CommonHead from './CommonHead'
 import Header from '../Header/Header'
-import BreadCrumbs from '../BreadCrumbs'
+import BreadCrumbs from '../Elements/BreadCrumbs'
 import LeftNavMenu from '../PagesData/Account/LeftNavMenu'
 import ProfileHeader from '../PagesData/Account/ProfileHeader'
 import { makeStyles } from '@material-ui/core/styles';

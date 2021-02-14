@@ -30,7 +30,6 @@ export default function HeaderSearch() {
                 id="input-with-icon-adornment"
                 placeholder="Search for products"
                 disableUnderline
-                autoFocus
                 startAdornment={
                     <InputAdornment position="start">
                         <SearchIcon />

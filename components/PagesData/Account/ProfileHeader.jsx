@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
         width: 100,
     },
     bgc: {
-        background: "rgba(245,93,44, 0.3)",
+        background: theme.palette.type === "dark" ? "rgba(51,51,51, 0.3)" : "rgba(245,93,44, 0.3)",
         position: "relative",
         padding: "50px 0",
         display: "flex",

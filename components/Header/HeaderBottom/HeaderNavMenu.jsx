@@ -1,6 +1,6 @@
-import { Box, Link, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core'
+import { Box, List, ListItem, } from '@material-ui/core'
 import React from 'react'
-import Icon from '@material-ui/core/Icon';
+import Link from "../../Link";
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const menuItems = [
@@ -69,6 +69,13 @@ const menuItems = [
         id: 4,
         title: "Pages",
         green: true,
+        subMenu: [
+            {
+                id: 1,
+                title: "Account",
+                href: "/account",
+            },
+        ]
     },
     {
         id: 5,
@@ -140,7 +147,7 @@ export default function HederMenu() {
                         <List className={classes.subMenu}>
                             {item.subMenu.map(subItem => (
                                 <ListItem key={subItem.id}>
-                                    <Link href="#" className={classes.link}>
+                                    <Link href={subItem.href || "#"} className={classes.link}>
                                         {subItem.title}
                                     </Link>
                                 </ListItem>

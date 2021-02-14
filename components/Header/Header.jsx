@@ -1,5 +1,6 @@
-import { AppBar, Container, Toolbar, Link } from '@material-ui/core';
+import { AppBar, Container, Toolbar } from '@material-ui/core';
 import React from 'react'
+import Link from '../Link'
 import HeaderSelect from './HeaderTop/HeaderSelect'
 import { useThemeContext } from '../ThemeSwither/MyThemeProvider'
 import HeaderNavList from './HeaderTop/HeaderNavList'
@@ -13,6 +14,7 @@ import WishIcon from '../WishIcon';
 
 const useStyles = makeStyles(theme => ({
     header: {
+        boxShadow: "none",
     },
     logo: {
         display: "flex",
@@ -96,7 +98,7 @@ export default function HeaderTop(props) {
     return (
         <AppBar position="sticky" className={classes.header}>
             <Toolbar className={classes.toolbar}>
-                <Link href="#" onClick={e => e.preventDefault} className={classes.logo}>
+                <Link href="/" onClick={e => e.preventDefault} className={classes.logo}>
                     <img
                         className={classes.img}
                         src={nightMode ? "/dark-logo.svg" : "/main-logo.svg"}
@@ -106,7 +108,7 @@ export default function HeaderTop(props) {
                 <HeaderSelect selectItems={selectItems} />
                 <HeaderSearch />
                 <HeaderNavList />
-                <Link className={classes.wishLink}>
+                <Link href="#" className={classes.wishLink}>
                     <WishIcon />
                     <div className={classes.countWishes}>3</div>
                 </Link>

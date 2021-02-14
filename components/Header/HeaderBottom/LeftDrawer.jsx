@@ -111,17 +111,13 @@ export default function TemporaryDrawer() {
                             <Typography>
                                 Total Saving
                             </Typography>
-                            <OldPrice>
-                                11
-                            </OldPrice>
+                            <OldPrice>11</OldPrice>
                         </div>
                         <div className={classes.footerPrice}>
                             <Typography variant="h4">
                                 Total
                             </Typography>
-                            <Price>
-                                21
-                            </Price>
+                            <Price>21</Price>
                         </div>
                         <div className={classes.footerConfirm}>
                             <Typography variant="body1">

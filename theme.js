@@ -41,6 +41,10 @@ const commonTheme = {
             margin: 0,
             lineHeight: "24px",
         },
+        body1: {
+            fontSize: 14,
+            fontWeight: 500,
+        },
     }
 }
 

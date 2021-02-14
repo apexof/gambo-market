@@ -2,6 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { mergeDeep } from './helpers';
 
 const commonTheme = {
+    spacing: factor => `${8 * factor}px`,
     breakpoints: {
         values: {
             xs: 0,

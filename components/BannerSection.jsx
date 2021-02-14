@@ -11,11 +11,12 @@ const useStyles = makeStyles(theme => ({
     list: {
         display: "flex",
         flexWrap: "wrap",
-        margin: "-15px",
+        margin: `-${theme.spacing(1.5)}`,
+
         justifyContent: "space-between"
     },
     imgWrap: {
-        padding: 15,
+        padding: theme.spacing(1.5),
     },
     imgWrapPart: {
         width: "33.333%",

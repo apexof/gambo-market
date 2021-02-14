@@ -76,19 +76,19 @@ const useStyles = makeStyles(theme => ({
         background: theme.palette.primary.main,
         boxShadow: "1px 1px 2px 1px rgb(0 0 0 / 3%)",
         borderRadius: 10,
-        margin: "0 15px",
+        margin: `0 ${theme.spacing(1.5)}`,
     },
     list: {
-        margin: "-10px -15px",
-        width: "calc(100% + 30px)",
+        margin: `-10px -${theme.spacing(1.5)}`,
+        width: `calc(100% + ${theme.spacing(3)})`,
         "& .slick-track": {
             padding: "10px 0",
         },
         "& button:last-child": {
-            right: "3px",
+            // right: "3px",
         },
         "& button:first-child": {
-            left: "2px",
+            // left: "2px",
         }
     },
 }))

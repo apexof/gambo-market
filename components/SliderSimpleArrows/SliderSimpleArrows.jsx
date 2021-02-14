@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
         height: "50px",
         backgroundColor: theme.palette.primary.main,
         border: `10px solid ${theme.palette.background.default}`,
-        right: "-7px",
+        right: "0px",
         zIndex: 1,
         top: "calc(50% - 25px)",
         position: "absolute",
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     prevBtn: {
-        left: "-7px",
+        left: "0px",
     },
 }))
 

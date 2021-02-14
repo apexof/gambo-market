@@ -9,7 +9,7 @@ import CartControls from './CartControls/CartControls';
 
 const useStyles = makeStyles(theme => ({
     card: {
-        margin: "0 5px",
+        margin: `0 ${theme.spacing(1.5)}`,
         padding: 15,
         position: "relative",
         boxShadow: "1px 1px 2px 1px rgb(0 0 0 / 3%)",

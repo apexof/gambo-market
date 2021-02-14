@@ -70,11 +70,11 @@ const useStyles = makeStyles(theme => ({
     },
     imgWrap: {
         position: "relative",
-        margin: "0 15px",
+        margin: `0 ${theme.spacing(1.5)}`,
     },
     list: {
-        margin: "-10px -15px",
-        width: "calc(118% + 30px)",
+        margin: `-10px -${theme.spacing(1.5)}`,
+        width: `calc(118% + ${theme.spacing(3)})`,
         transform: "translate(-9%)",
         "& .slick-track": {
             padding: "10px 0",

@@ -9,14 +9,23 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
+    page: {
+    },
+    containerMui: {
+        overflow: "visible",
+    },
     container: {
         display: "flex",
         justifyContent: "space-between",
         marginTop: 50,
     },
-    menu: {
+    menuWrap: {
         width: "30%",
+    },
+    menu: {
         paddingRight: 15,
+        position: "sticky",
+        top: 167,
     },
     content: {
         width: "70%",
@@ -27,15 +36,17 @@ const useStyles = makeStyles(theme => ({
 export default function AccountLayout({ children, title }) {
     const classes = useStyles();
     return (
-        <div>
+        <div className={classes.page}>
             <CommonHead />
             <Header />
             <BreadCrumbs />
             <ProfileHeader />
-            <Container>
+            <Container className={classes.containerMui}>
                 <div className={classes.container}>
-                    <div className={classes.menu}>
-                        <LeftNavMenu />
+                    <div className={classes.menuWrap}>
+                        <div className={classes.menu}>
+                            <LeftNavMenu />
+                        </div>
                     </div>
                     <div className={classes.content}>
                         <Typography variant="h2">{title}</Typography>

@@ -94,6 +94,7 @@ export default function BannerSection() {
                 <img
                     src="/img/account/avatar.jpg"
                     className={classes.avatar}
+                    alt=""
                 />
                 <div>
                     <input

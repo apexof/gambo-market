@@ -108,7 +108,7 @@ export default function HeaderTop(props) {
                 <HeaderSelect selectItems={selectItems} />
                 <HeaderSearch />
                 <HeaderNavList />
-                <Link href="#" className={classes.wishLink}>
+                <Link href="/" className={classes.wishLink}>
                     <WishIcon />
                     <div className={classes.countWishes}>3</div>
                 </Link>

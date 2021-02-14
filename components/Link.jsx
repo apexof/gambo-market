@@ -1,11 +1,11 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { Link as MuiLink } from '@material-ui/core'
 
-const NextLink = ({ href, as, prefetch, ...props }, ref) => (
-    <Link href={href} as={as} prefetch={prefetch} passHref>
-        <MuiLink ref={ref} {...props} />
+const NextLink = ({ href, as, prefetch, ...props }) => (
+    <Link href={href} as={as} prefetch={prefetch} >
+        <MuiLink href={href} {...props} />
     </Link>
 )
 
-export default forwardRef(NextLink)
+export default NextLink

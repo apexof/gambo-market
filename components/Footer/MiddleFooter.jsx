@@ -1,7 +1,7 @@
 import React from 'react'
 import MenuFooter from './MenuFooter'
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Container, Grid, Input, TextField, Typography } from '@material-ui/core';
+import { Box, Button, Container, Grid, Input, TextField, Typography } from '@material-ui/core';
 import Image from 'next/image'
 import TelegramIcon from '@material-ui/icons/Telegram';
 
@@ -11,11 +11,20 @@ const useStyles = makeStyles(theme => ({
     },
     middleFooter: {
         display: "flex",
+        flexWrap: "wrap",
         justifyContent: "space-between",
         padding: "50px 0",
+        margin: `-${theme.spacing(2)}`,
     },
-    rightBlock: {
+    footerPart: {
         width: '25%',
+        padding: theme.spacing(2),
+        [theme.breakpoints.down('sm')]: {
+            width: "50%",
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: "100%",
+        },
     },
     payIcon: {
         width: 35,
@@ -172,10 +181,16 @@ export default function BannerSection() {
         <div className={classes.container}>
             <Container>
                 <div className={classes.middleFooter}>
-                    <MenuFooter title="Categories" items={menu1} />
-                    <MenuFooter title="Useful Links" items={menu2} />
-                    <MenuFooter title="Top Cities" items={menu3} />
-                    <div className={classes.rightBlock}>
+                    <Box className={classes.footerPart}>
+                        <MenuFooter title="Categories" items={menu1} />
+                    </Box>
+                    <Box className={classes.footerPart}>
+                        <MenuFooter title="Useful Links" items={menu2} />
+                    </Box>
+                    <Box className={classes.footerPart}>
+                        <MenuFooter title="Top Cities" items={menu3} />
+                    </Box>
+                    <Box className={classes.footerPart}>
                         <div className={classes.appBlock}>
                             <Typography gutterBottom variant="h4">Download App</Typography>
                             <Image
@@ -217,7 +232,7 @@ export default function BannerSection() {
                                 </Grid>
                             </Grid>
                         </div>
-                    </div>
+                    </Box>
                 </div>
             </Container>
         </div>

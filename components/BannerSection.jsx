@@ -35,12 +35,6 @@ const useStyles = makeStyles(theme => ({
                 display: "block",
             }
         },
-        // [theme.breakpoints.dowm('sm')]: {
-        //     width: "100%",
-        //     "&:first-child": {
-        //         display: "block",
-        //     }
-        // },
     },
     imgWrapFull: {
         width: "100%",

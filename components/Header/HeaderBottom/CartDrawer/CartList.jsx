@@ -12,7 +12,7 @@ const productArray = [
     {
         id: 1,
         title: "Product Title Here",
-        img: "img/products/product-2.jpg",
+        img: "/img/products/product-2.jpg",
         price: 12,
         oldPrice: 15,
         discount: "6%",
@@ -21,7 +21,7 @@ const productArray = [
     {
         id: 2,
         title: "Product Title Here",
-        img: "img/products/product-1.jpg",
+        img: "/img/products/product-1.jpg",
         price: 12,
         oldPrice: 15,
         discount: "6%",

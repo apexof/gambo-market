@@ -13,11 +13,11 @@ const useStyles = makeStyles(theme => ({
     box: {
         display: "flex",
         justifyContent: "space-between",
-        margin: `-${theme.spacing(1.5)}`,
+        margin: `-${theme.spacing(2)}`,
         flexWrap: "wrap",
     },
     itemWrap: {
-        padding: theme.spacing(1.5),
+        padding: theme.spacing(2),
     },
     itemPart: {
         width: "50%",

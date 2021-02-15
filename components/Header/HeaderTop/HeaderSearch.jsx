@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
     form: {
         margin: "0 auto 0 35px",
         width: "100%",
+        [theme.breakpoints.down('md')]: {
+            display: "none",
+        },
     },
     input: {
         background: theme.palette.primary.light,

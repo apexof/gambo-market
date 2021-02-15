@@ -174,7 +174,7 @@ const menu1 = [
     },
 ]
 
-export default function BannerSection() {
+export default function MiddleFooter() {
     const classes = useStyles();
 
     return (

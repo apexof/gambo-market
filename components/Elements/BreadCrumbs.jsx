@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function BannerSection() {
+export default function BreadCrumbs() {
     const classes = useStyles();
     const router = useRouter()
     let breadArray = router.pathname.split("/");
@@ -39,13 +39,13 @@ export default function BannerSection() {
                         {breadArray.map((item, i) => {
                             if (i === breadArray.length - 1) {
                                 return (
-                                    <Typography variant="body1" className={classes.currentItem}>
+                                    <Typography key={item} variant="body1" className={classes.currentItem}>
                                         {item}
                                     </Typography>
                                 )
                             }
                             return (
-                                <Link href="/" className={classes.prevLinks}>
+                                <Link key={item} href="/" className={classes.prevLinks}>
                                     <Typography variant="body1">
                                         {item}
                                     </Typography>

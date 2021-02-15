@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function BannerSection() {
+export default function LeftNavMenu() {
     const classes = useStyles();
     const router = useRouter();
     const menu = [

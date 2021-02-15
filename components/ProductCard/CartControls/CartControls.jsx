@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function BannerSection() {
+export default function CartControl() {
     const classes = useStyles();
     const [count, setCount] = useState(0);
 

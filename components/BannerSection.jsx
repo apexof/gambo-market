@@ -1,8 +1,8 @@
 import { Container } from '@material-ui/core'
 import React from 'react'
+import cx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles';
 import SectionTitle from './SectionTitle';
-import Image from 'next/image'
 
 const useStyles = makeStyles(theme => ({
     section: {
@@ -41,6 +41,26 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
+const banners = [
+    {
+        id: 1,
+        img: "/img/banners/banner-1.jpg",
+    },
+    {
+        id: 2,
+        img: "/img/banners/banner-2.jpg",
+    },
+    {
+        id: 3,
+        img: "/img/banners/banner-3.jpg",
+    },
+    {
+        id: 4,
+        img: "/img/banners/banner-4.jpg",
+        full: true,
+    },
+]
+
 export default function BannerSection() {
     const classes = useStyles();
     return (
@@ -48,18 +68,14 @@ export default function BannerSection() {
             <Container>
                 <SectionTitle title="Best Values" clarification="Offers" />
                 <div className={classes.list}>
-                    <div className={`${classes.imgWrap} ${classes.imgWrapPart}`}>
-                        <img src="/img/banners/banner-1.jpg" alt="" />
-                    </div>
-                    <div className={`${classes.imgWrap} ${classes.imgWrapPart}`}>
-                        <img src="/img/banners/banner-2.jpg" alt="" />
-                    </div>
-                    <div className={`${classes.imgWrap} ${classes.imgWrapPart}`}>
-                        <img src="/img/banners/banner-3.jpg" alt="" />
-                    </div>
-                    <div className={`${classes.imgWrap} ${classes.imgWrapFull}`}>
-                        <img src="/img/banners/banner-4.jpg" alt="" />
-                    </div>
+                    {banners.map(item => (
+                        <div
+                            key={item.id}
+                            className={cx(classes.imgWrap, item.full ? classes.imgWrapFull : classes.imgWrapPart)}
+                        >
+                            <img src={item.img} alt="" />
+                        </div>
+                    ))}
                 </div>
             </Container>
         </section>

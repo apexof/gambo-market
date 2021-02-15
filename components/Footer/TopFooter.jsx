@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function BannerSection() {
+export default function TopFooter() {
     const classes = useStyles();
     const menuArray = [
         {

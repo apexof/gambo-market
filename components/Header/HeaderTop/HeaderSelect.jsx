@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
         flexShrink: 0,
         background: theme.palette.primary.light,
         borderRadius: "5px",
+        [theme.breakpoints.down('md')]: {
+            display: "none",
+        },
     },
     select: {
         "& svg": {

@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function BannerSection({ title, footerTitle, contentTitle, children }) {
+export default function OverBox({ title, footerTitle, contentTitle, children }) {
     const classes = useStyles();
 
     return (

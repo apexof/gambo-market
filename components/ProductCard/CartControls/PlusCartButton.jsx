@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function BannerSection({ type, onClick }) {
+export default function PlusCartBtc({ type, onClick }) {
     const classes = useStyles();
     const typeClass = type === "left" ? "leftBtn" : "rightBtn";
     return (

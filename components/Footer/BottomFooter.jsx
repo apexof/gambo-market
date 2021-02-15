@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function BannerSection() {
+export default function BottomFooter() {
     const classes = useStyles();
 
     return (

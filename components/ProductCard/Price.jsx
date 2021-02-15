@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function BannerSection({ children }) {
+export default function Price({ children }) {
     const classes = useStyles();
 
     return (

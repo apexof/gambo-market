@@ -11,6 +11,8 @@ import HeaderNavMenu from './HeaderBottom/HeaderNavMenu'
 import SelectCategoryModal from './HeaderBottom/SelectCategoryModal'
 import { makeStyles } from "@material-ui/core/styles";
 import WishIcon from '../WishIcon';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -20,9 +22,9 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         alignItems: "center",
         flexShrink: 0,
-        width: "125px",
+        height: "45px",
         "& img": {
-            width: "125px",
+            height: "45px",
         },
     },
     toolbar: {
@@ -39,6 +41,9 @@ const useStyles = makeStyles(theme => ({
     wishLink: {
         position: "relative",
         margin: "0 10px",
+        [theme.breakpoints.down('sm')]: {
+            marginLeft: "auto",
+        },
     },
     countWishes: {
         background: "#f55d2c",
@@ -94,14 +99,17 @@ const selectItems = [
 export default function HeaderTop(props) {
     const { nightMode } = useThemeContext()
     const classes = useStyles();
+    const theme = useTheme();
 
+    const matches = useMediaQuery(theme.breakpoints.down('md'));
+    const logo = matches ? "/min-logo.svg" : nightMode ? "/dark-logo.svg" : "/main-logo.svg"
     return (
         <AppBar position="sticky" className={classes.header}>
             <Toolbar className={classes.toolbar}>
                 <Link href="/" onClick={e => e.preventDefault} className={classes.logo}>
                     <img
                         className={classes.img}
-                        src={nightMode ? "/dark-logo.svg" : "/main-logo.svg"}
+                        src={logo}
                         alt=""
                     />
                 </Link>

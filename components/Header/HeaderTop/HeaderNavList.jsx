@@ -8,6 +8,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row',
         padding: 0,
+        [theme.breakpoints.down('md')]: {
+            marginLeft: "auto",
+        },
+        [theme.breakpoints.down('sm')]: {
+            display: "none",
+        },
     },
     link: {
         whiteSpace: 'nowrap',

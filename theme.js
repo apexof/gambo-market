@@ -34,6 +34,14 @@ const commonTheme = {
             fontSize: "18px",
             fontWeight: "500",
             lineHeight: "24px",
+            margin: "0 0 0 0",
+        },
+        h5: {
+            marginLeft: 20,
+            marginBottom: 20,
+            fontWeight: 700,
+            fontSize: 15,
+            margin: "0 0 0 0",
         },
         subtitle1: {
             margin: 0,

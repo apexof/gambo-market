@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function BannerSection() {
+export default function ProfileHeader() {
     const classes = useStyles();
 
     return (

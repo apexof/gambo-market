@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
-import Link from '../../Link'
+import Link from '../../../Link'
 
 const useStyles = makeStyles(theme => ({
     item: {
@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
         padding: "15px 20px",
-
     },
 }))
 

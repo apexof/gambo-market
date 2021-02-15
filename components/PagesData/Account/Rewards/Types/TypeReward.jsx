@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "space-between",
         flexDirection: "column",
         background: theme.palette.background.paper,
-        border: `1px solid ${theme.palette.grey["50"]}`,
     },
     icon: {
         display: "flex",

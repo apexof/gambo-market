@@ -40,12 +40,12 @@ const useStyles = makeStyles(theme => ({
     date: {
         marginTop: 20,
         fontWeight: 500,
-        background: "#f9f9f9",
+        background: theme.palette.background.default,
         border: "1px dashed #efefef",
         padding: "2px 15px",
         borderRadius: 5,
         fontSize: 12,
-        color: "#2b2f4c",
+        color: theme.palette.primary.contrastText,
     }
 }))
 

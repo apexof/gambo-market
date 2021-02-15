@@ -1,6 +1,6 @@
-import AccountLayout from '../../components/Layouts/AccountLayout'
-import TypesList from '../../components/PagesData/Rewards/Types/TypesList'
-import RewardsList from '../../components/PagesData/Rewards/Rewards/RewardsList'
+import AccountLayout from '../../components/Layouts/AccountLayout/AccountLayout'
+import TypesList from '../../components/PagesData/Account/Rewards/Types/TypesList'
+import RewardsList from '../../components/PagesData/Account/Rewards/Rewards/RewardsList'
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
 import MoneyIcon from '@material-ui/icons/Money';
 

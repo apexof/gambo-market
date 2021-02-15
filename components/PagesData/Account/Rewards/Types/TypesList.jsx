@@ -11,6 +11,10 @@ const useStyles = makeStyles(theme => ({
     },
     item: {
         width: "33.333%",
+        border: `1px solid ${theme.palette.grey["50"]}`,
+        "& + $item": {
+            borderLeft: 0,
+        }
     },
 }))
 

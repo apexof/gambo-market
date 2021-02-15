@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     },
     itemWrap: {
         "& + $itemWrap": {
-            marginTop: 30
+            marginTop: theme.spacing(4)
         }
     },
 }))

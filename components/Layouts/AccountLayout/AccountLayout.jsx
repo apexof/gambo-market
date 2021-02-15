@@ -1,10 +1,10 @@
 import React from 'react'
-import Footer from '../Footer'
-import CommonHead from './CommonHead'
-import Header from '../Header/Header'
-import BreadCrumbs from '../Elements/BreadCrumbs'
-import LeftNavMenu from '../PagesData/Account/LeftNavMenu'
-import ProfileHeader from '../PagesData/Account/ProfileHeader'
+import Footer from '../../Footer'
+import CommonHead from '../CommonHead'
+import Header from '../../Header/Header'
+import BreadCrumbs from '../../Elements/BreadCrumbs'
+import LeftNavMenu from './LeftNavMenu'
+import ProfileHeader from './ProfileHeader'
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography } from '@material-ui/core'
 
@@ -23,13 +23,13 @@ const useStyles = makeStyles(theme => ({
         width: "30%",
     },
     menu: {
-        paddingRight: 15,
+        paddingRight: theme.spacing(2),
         position: "sticky",
         top: 167,
     },
     content: {
         width: "70%",
-        paddingLeft: 15,
+        paddingLeft: theme.spacing(2),
     },
 }))
 

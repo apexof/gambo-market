@@ -1,7 +1,7 @@
 import { Box, Button, Fab, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core'
 import Link from '../../components/Link'
-import OverviewBox from '../../components/PagesData/Account/OverviewBox'
-import AccountLayout from '../../components/Layouts/AccountLayout'
+import OverviewBox from '../../components/PagesData/Account/Overview/OverviewBox'
+import AccountLayout from '../../components/Layouts/AccountLayout/AccountLayout'
 import { makeStyles } from '@material-ui/core/styles';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';

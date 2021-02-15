@@ -1,4 +1,4 @@
-import AccountLayout from '../../components/Layouts/AccountLayout'
+import AccountLayout from '../../components/Layouts/AccountLayout/AccountLayout'
 
 export default function ShoppingWishlist() {
     return (

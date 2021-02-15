@@ -1,4 +1,4 @@
-import AccountLayout from '../../components/Layouts/AccountLayout'
+import AccountLayout from '../../components/Layouts/AccountLayout/AccountLayout'
 import OrderList from '../../components/PagesData/Account/Order/OrderList'
 
 const list = [

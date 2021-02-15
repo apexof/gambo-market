@@ -68,6 +68,39 @@ const categories = [
     },
 ]
 
+const responsive = [
+    {
+        breakpoint: 1280,
+        settings: {
+            slidesToShow: 5,
+        }
+    },
+    {
+        breakpoint: 959,
+        settings: {
+            slidesToShow: 4,
+        }
+    },
+    {
+        breakpoint: 730,
+        settings: {
+            slidesToShow: 3,
+        }
+    },
+    {
+        breakpoint: 520,
+        settings: {
+            slidesToShow: 2,
+        }
+    },
+    {
+        breakpoint: 350,
+        settings: {
+            slidesToShow: 1,
+        }
+    },
+]
+
 const useStyles = makeStyles(theme => ({
     categorySlider: {
         marginTop: 47,
@@ -100,7 +133,7 @@ export default function CategorySlider() {
             <Container>
                 <SectionTitle title="Categories" clarification="Shop By" seeAllLink={false} />
                 <div className={classes.list}>
-                    <Slider slidesToShow={6}>
+                    <Slider slidesToShow={6} responsive={responsive}>
                         {categories.map(item => (
                             <div key={item.id}>
                                 <div className={classes.itemWrap}>

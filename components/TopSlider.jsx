@@ -79,6 +79,10 @@ const useStyles = makeStyles(theme => ({
         "& .slick-track": {
             padding: "10px 0",
         },
+        [theme.breakpoints.down('md')]: {
+            width: `calc(100% + ${theme.spacing(3)})`,
+            transform: "unset",
+        },
     },
     btn: {
         position: "absolute",
@@ -120,7 +124,33 @@ export default function CategorySlider() {
         autoplay: true,
         autoplaySpeed: 1500,
         draggable: false,
-        pauseOnHover: false
+        pauseOnHover: false,
+        responsive: [
+            {
+                breakpoint: 1280,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },
+            {
+                breakpoint: 1050,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 850,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 490,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+        ]
     };
     return (
         <div className={classes.topSlider}>

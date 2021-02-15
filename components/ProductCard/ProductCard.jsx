@@ -27,6 +27,8 @@ const useStyles = makeStyles(theme => ({
         display: "block",
         padding: "10px 20px",
         transition: "transform .5s ease",
+        display: "flex",
+        justifyContent: "center",
     },
     priceBlock: {
         marginTop: 10,
@@ -58,12 +60,12 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
             <div className={classes.wishIcon}>
                 <WishIcon />
             </div>
-            <CardMedia >
+            <CardMedia>
                 <Link href="#" className={classes.imgWrapper}>
                     <img src={img} alt="" />
                 </Link>
             </CardMedia>
-            <CardContent >
+            <CardContent>
                 <Typography variant="subtitle2">
                     {available}
                 </Typography>

@@ -12,14 +12,35 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         flexWrap: "wrap",
         margin: `-${theme.spacing(1.5)}`,
-
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
     imgWrap: {
         padding: theme.spacing(1.5),
+        "& img": {
+            width: "100%",
+            height: "100%",
+        },
     },
     imgWrapPart: {
         width: "33.333%",
+        [theme.breakpoints.down('md')]: {
+            width: "50%",
+            "&:first-child": {
+                display: "none",
+            }
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: "100%",
+            "&:first-child": {
+                display: "block",
+            }
+        },
+        // [theme.breakpoints.dowm('sm')]: {
+        //     width: "100%",
+        //     "&:first-child": {
+        //         display: "block",
+        //     }
+        // },
     },
     imgWrapFull: {
         width: "100%",

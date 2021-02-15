@@ -26,7 +26,6 @@ export default function BannerSection() {
     breadArray = breadArray.filter(item => item.length)
     breadArray = breadArray.map(item => capitalizeFirstLetter(item))
     breadArray = breadArray.map(item => item.replace("-", " "))
-    console.log(breadArray);
     return (
         <div className={classes.breadList}>
             <Container>

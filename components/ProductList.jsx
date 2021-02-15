@@ -14,6 +14,34 @@ const useStyles = makeStyles(theme => ({
         }
     },
 }))
+
+const responsive = [
+    {
+        breakpoint: 1200,
+        settings: {
+            slidesToShow: 4,
+        }
+    },
+    {
+        breakpoint: 980,
+        settings: {
+            slidesToShow: 3,
+        }
+    },
+    {
+        breakpoint: 760,
+        settings: {
+            slidesToShow: 2,
+        }
+    },
+    {
+        breakpoint: 520,
+        settings: {
+            slidesToShow: 1,
+        }
+    },
+]
+
 export default function ProductList({ productArray, title, clarification }) {
     const classes = useStyles();
 
@@ -21,7 +49,7 @@ export default function ProductList({ productArray, title, clarification }) {
         <Container>
             <SectionTitle title={title} clarification={clarification} />
             <div className={classes.list}>
-                <Slider slidesToShow={5}>
+                <Slider slidesToShow={5} responsive={responsive}>
                     {productArray.map(item => (
                         <ProductCard
                             key={item.id}

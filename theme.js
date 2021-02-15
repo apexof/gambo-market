@@ -4,13 +4,20 @@ import { mergeDeep } from './helpers';
 const commonTheme = {
     spacing: factor => `${8 * factor}px`,
     breakpoints: {
-        values: {
-            xs: 0,
-            sm: 540,
-            md: 720,
-            lg: 1200,
-            xl: 1400,
-        },
+        // values: {
+        //     xs: 540,
+        //     sm: 720,
+        //     md: 960,
+        //     lg: 1200,
+        //     xl: 1400,
+        // },
+        // values: {
+        //     xs: 0,
+        //     sm: 540,
+        //     md: 720,
+        //     lg: 960,
+        //     xl: 1200,
+        // },
     },
     typography: {
         h2: {

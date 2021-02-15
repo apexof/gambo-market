@@ -93,6 +93,9 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'row',
         padding: 0,
         marginRight: "auto",
+        [theme.breakpoints.down('md')]: {
+            display: "none",
+        },
     },
     listItem: {
         position: 'relative',

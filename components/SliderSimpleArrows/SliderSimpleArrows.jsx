@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function SliderSimpleArrows({ children, slidesToShow }) {
+export default function SliderSimpleArrows({ children, slidesToShow, responsive }) {
     const classes = useStyles();
 
     const SampleNextArrow = ({ onClick }) =>
@@ -50,8 +50,10 @@ export default function SliderSimpleArrows({ children, slidesToShow }) {
         speed: 300,
         slidesToShow,
         slidesToScroll: 1,
+        draggable: false,
         nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
+        prevArrow: <SamplePrevArrow />,
+        responsive: responsive
     };
     return (
         <Slider {...settings}>

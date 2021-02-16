@@ -60,7 +60,7 @@ export default function Order({ timing, way, subTotal, charges, trackStatus, cas
     const classes = useStyles();
 
     return (
-        <div className={classes.order}>
+        <div className="shadow1">
             <Box className={classes.block}>
                 <Typography variant="body2">
                     {`Delivery Timing ${timing}`}

@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 
@@ -12,6 +13,7 @@ const useStyles = makeStyles(theme => ({
         background: theme.palette.background.paper,
         border: `1px solid ${theme.palette.grey["50"]}`,
         position: "relative",
+        height: "100%",
     },
     icon: {
         width: 80,
@@ -38,7 +40,6 @@ const useStyles = makeStyles(theme => ({
         border: "1px dashed #fff",
     },
     date: {
-        marginTop: 20,
         fontWeight: 500,
         background: theme.palette.background.default,
         border: "1px dashed #efefef",
@@ -49,11 +50,11 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Reward({ value, type, date, icon, desc, }) {
+export default function Reward({ value, type, date, icon, desc, info }) {
     const classes = useStyles();
 
     return (
-        <div className={classes.item}>
+        <div className={cx(classes.item, "shadow1")}>
             {desc &&
                 <div className={classes.desc}>
                     {desc}
@@ -62,13 +63,23 @@ export default function Reward({ value, type, date, icon, desc, }) {
             <div className={classes.icon}>
                 <img width={40} src={icon} alt="" />
             </div>
-            <Box mt={2} mb={2}>
+            <Box mt={2}>
                 <Typography variant="body1">{type}</Typography>
             </Box>
-            <Typography variant="h4">{value}</Typography>
-            <div className={classes.date}>
-                {date}
-            </div>
+            <Box my={2} >
+                <Typography variant="h4">{value}</Typography>
+            </Box>
+
+            {date &&
+                <div className={classes.date}>
+                    {date}
+                </div>
+            }
+            {info &&
+                <Box>
+                    <Typography variant="body1">{info}</Typography>
+                </Box>
+            }
         </div>
     )
 }

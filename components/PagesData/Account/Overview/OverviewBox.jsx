@@ -1,15 +1,13 @@
 import React from 'react'
+import cx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import Link from '../../../Link'
+import BlockTitle from '../../../Elements/BlockTitle';
 
 const useStyles = makeStyles(theme => ({
     item: {
         background: theme.palette.background.paper,
-    },
-    itemTitle: {
-        padding: "15px 20px",
-        borderBottom: `1px solid ${theme.palette.grey["50"]}`,
     },
     itemFooter: {
         padding: "15px 20px",
@@ -30,8 +28,8 @@ export default function OverBox({ title, footerTitle, contentTitle, children }) 
     const classes = useStyles();
 
     return (
-        <Box className={classes.item}>
-            <Typography className={classes.itemTitle} variant="h4">{title}</Typography>
+        <Box className={cx(classes.item, "shadow1")}>
+            <BlockTitle >{title}</BlockTitle>
             <Box className={classes.content}>
                 <Typography className={classes.contentTitle} variant="h2">{contentTitle}</Typography>
                 {children}

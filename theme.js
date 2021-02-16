@@ -75,7 +75,7 @@ const WhiteThemeNotMerged = createMuiTheme({
             line: "#efefef",
         },
         secondary: {
-            light: "#f69733",
+            light: "#ffecec",
             main: "#f55d2c",
             dark: "",
             contrastText: "#fff",
@@ -125,7 +125,7 @@ const DarkThemeNotMerged = createMuiTheme({
             contrastText: "#fff",
         },
         secondary: {
-            light: "#f69733",
+            light: "#242424",
             main: "#f55d2c",
             dark: "",
             contrastText: "#fff",

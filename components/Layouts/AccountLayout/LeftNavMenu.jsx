@@ -97,7 +97,7 @@ export default function LeftNavMenu() {
         },
     ]
     return (
-        <List disablePadding className={classes.menu}>
+        <List disablePadding className={cx(classes.menu, "shadow1")}>
             {menu.map(item => {
                 const active = item.href === router.pathname;
                 return (

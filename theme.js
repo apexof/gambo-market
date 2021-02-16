@@ -125,7 +125,7 @@ const DarkThemeNotMerged = createMuiTheme({
             contrastText: "#fff",
         },
         secondary: {
-            light: "#242424",
+            light: "#333",
             main: "#f55d2c",
             dark: "",
             contrastText: "#fff",

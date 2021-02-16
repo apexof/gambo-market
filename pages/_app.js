@@ -1,6 +1,6 @@
 import '../styles/globals.scss'
 import React, { useEffect } from 'react';
-import globalCss from './globalCss';
+import globalCss from '../styles/globalCss';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { WhiteTheme, DarkTheme } from '../theme';

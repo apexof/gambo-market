@@ -26,7 +26,9 @@ export default function SectionTitle({ title, clarification, seeAllLink }) {
         <div>
             <Typography variant="h3">{clarification}</Typography>
             <div className={classes.titleBox}>
-                <Typography variant="h2">{title}</Typography>
+                <Box >
+                    <Typography variant="h2">{title}</Typography>
+                </Box>
                 {seeAllLink &&
                     <Link href={seeAllLink} className={classes.link}>See All</Link>
                 }

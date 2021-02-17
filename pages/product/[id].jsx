@@ -18,7 +18,13 @@ export default function Category(props) {
             <Container>
                 <Box mt={6}>
                     <FullProduct
+                        id={item.id}
                         img={item.img}
+                        title={item.title}
+                        available={item.available}
+                        price={item.price}
+                        oldPrice={item.oldPrice}
+                        weight={item.weight}
                     />
                 </Box>
                 <Box mt={6}>
@@ -38,6 +44,8 @@ export default function Category(props) {
                 <ProductList
                     title="Top Featured Products"
                     items={TopFeaturedProducts}
+                    id="top-featured-products"
+                    clarification="For You"
                 />
             </Box>
         </CategoryLayout >

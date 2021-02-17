@@ -6,12 +6,14 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-    nextBtn: {
+    nextBtn: props => ({
         margin: "0 -0.8rem",
-        width: "50px",
-        height: "50px",
+        width: props.border ? 50 : 30,
+        height: props.border ? 50 : 30,
+        height: props.border ? 50 : 30,
+        boxShadow: props.border ? "none" : "0px 2px 2px 0px rgb(0 0 0 / 7%)",
         backgroundColor: theme.palette.primary.main,
-        border: `10px solid ${theme.palette.background.default}`,
+        border: props.border ? `10px solid ${theme.palette.background.default}` : `1px solid ${theme.palette.grey["50"]}`,
         right: "0px",
         zIndex: 1,
         top: "calc(50% - 25px)",
@@ -25,25 +27,31 @@ const useStyles = makeStyles(theme => ({
         "& .MuiIconButton-label": {
             alignItems: "center",
         }
-    },
+    }),
     prevBtn: {
         left: "0px",
     },
 }))
 
-export default function SliderSimpleArrows({ children, slidesToShow, responsive }) {
-    const classes = useStyles();
-
-    const SampleNextArrow = ({ onClick }) =>
+export const SampleNextArrow = ({ onClick, border = true }) => {
+    const classes = useStyles({ border });
+    return (
         <IconButton aria-label="next" onClick={onClick} className={classes.nextBtn}>
             <ChevronRightIcon />
         </IconButton>
+    )
+}
 
-    const SamplePrevArrow = ({ onClick }) =>
+export const SamplePrevArrow = ({ onClick }) => {
+    const classes = useStyles();
+    return (
         <IconButton onClick={onClick} className={`${classes.nextBtn} ${classes.prevBtn}`}>
             <ChevronLeftIcon />
         </IconButton>
+    )
+}
 
+export default function SliderSimpleArrows({ children, slidesToShow, responsive }) {
     const settings = {
         dots: false,
         infinite: true,

@@ -89,7 +89,7 @@ const WhiteThemeNotMerged = createMuiTheme({
         // success: {},
         text: {
             primary: "#2b2f4c",
-            secondary: "#f55d2c",
+            secondary: "#8f91ac",
             disabled: "#c7c7c7",
             hint: "",
         },

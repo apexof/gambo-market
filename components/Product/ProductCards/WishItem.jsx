@@ -1,10 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import CreateIcon from '@material-ui/icons/Create';
 import Discount from './DiscountBlock';
+import Link from '../../Elements/Link';
 import Price from '../../Elements/Price';
 import OldPrice from '../../Elements/OldPrice';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -41,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function WishItem({ title, img, price, oldPrice, discount, }) {
+export default function WishItem({ title, img, price, oldPrice, discount, id }) {
     const classes = useStyles();
 
     return (
@@ -49,9 +47,11 @@ export default function WishItem({ title, img, price, oldPrice, discount, }) {
             <div className={classes.discountWrapp}>
                 <Discount>{discount}</Discount>
             </div>
-            <div className={classes.img}>
-                <img width={110} src={img} alt="" />
-            </div>
+            <Link href={`/product/${id}`}>
+                <div className={classes.img}>
+                    <img width={110} src={img} alt="" />
+                </div>
+            </Link>
             <Box ml={2}>
                 <Typography variant="h4">{title}</Typography>
                 <Box display="flex" mt={1}>

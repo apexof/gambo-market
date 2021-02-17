@@ -1,5 +1,6 @@
-import { Card, CardActions, CardContent, CardHeader, CardMedia, Link, Typography } from '@material-ui/core'
+import { Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core'
 import React from 'react'
+import Link from '../../Elements/Link'
 import cx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles';
 import WishIcon from '../../Elements/WishIcon';
@@ -65,7 +66,7 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
             </CardMedia>
             <CardContent>
                 <Typography variant="subtitle2">
-                    {available}
+                    {`Available ${available}`}
                 </Typography>
                 <Typography variant="subtitle1">
                     {title}

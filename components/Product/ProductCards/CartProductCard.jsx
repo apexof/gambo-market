@@ -1,5 +1,6 @@
-import { Card, CardActions, CardContent, CardMedia, Link, Typography } from '@material-ui/core'
+import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core'
 import React from 'react'
+import Link from '../../Elements/Link'
 import Discount from './DiscountBlock'
 import { makeStyles } from '@material-ui/core/styles';
 import Price from '../../Elements/Price';
@@ -85,7 +86,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function ProductCard({ title, img, price, oldPrice, discount, weight }) {
+export default function ProductCard({ title, img, price, oldPrice, discount, weight, id }) {
     const classes = useStyles();
 
     return (
@@ -99,7 +100,7 @@ export default function ProductCard({ title, img, price, oldPrice, discount, wei
             </div>
             <div className={classes.cardFlex}>
                 <CardMedia className={classes.cardMedia}>
-                    <Link href="#" className={classes.imgWrapper}>
+                    <Link href={`/product/${id}`} className={classes.imgWrapper}>
                         <img src={img} alt="" />
                     </Link>
                 </CardMedia>

@@ -23,6 +23,7 @@ export default function WishList({ items }) {
             {items.map(item => (
                 <div key={item.id} className={classes.item}>
                     <WishItem
+                        id={item.id}
                         title={item.title}
                         img={item.img}
                         price={item.price}

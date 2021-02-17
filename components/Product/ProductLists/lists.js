@@ -1,7 +1,5 @@
 export const getItemById = (itemID) => {
     const item = productItems.find(item => item.id === itemID)
-    console.log(itemID);
-    console.log(item);
     return item
 }
 export const getItemsFromCategory = (category) => {
@@ -10,7 +8,6 @@ export const getItemsFromCategory = (category) => {
 }
 export const getTitleOfCategory = (categoryId) => {
     const needCategory = categories.find(item => item.id === categoryId)
-    console.log(needCategory, "qwe");
     return needCategory.title
 }
 
@@ -36,8 +33,9 @@ export const productItems = [
         img: "/img/products/product-7.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "fresh-and-fruits",
     },
     {
@@ -46,8 +44,9 @@ export const productItems = [
         img: "/img/products/product-2.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "fresh-and-fruits",
     },
     {
@@ -56,8 +55,9 @@ export const productItems = [
         img: "/img/products/product-3.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "fresh-and-fruits",
     },
     {
@@ -66,8 +66,9 @@ export const productItems = [
         img: "/img/products/product-4.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "fresh-and-fruits",
     },
     {
@@ -76,8 +77,9 @@ export const productItems = [
         img: "/img/products/product-5.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "fresh-and-fruits",
     },
     {
@@ -86,8 +88,9 @@ export const productItems = [
         img: "/img/products/product-5.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "fresh-and-fruits",
     },
     {
@@ -96,8 +99,9 @@ export const productItems = [
         img: "/img/products/product-1.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -106,8 +110,9 @@ export const productItems = [
         img: "/img/products/product-2.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -116,8 +121,9 @@ export const productItems = [
         img: "/img/products/product-3.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -126,8 +132,9 @@ export const productItems = [
         img: "/img/products/product-4.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -136,8 +143,9 @@ export const productItems = [
         img: "/img/products/product-5.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -146,8 +154,9 @@ export const productItems = [
         img: "/img/products/product-5.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -156,8 +165,9 @@ export const productItems = [
         img: "/img/products/product-1.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -166,8 +176,9 @@ export const productItems = [
         img: "/img/products/product-2.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -176,8 +187,9 @@ export const productItems = [
         img: "/img/products/product-3.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -186,8 +198,9 @@ export const productItems = [
         img: "/img/products/product-4.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -196,8 +209,9 @@ export const productItems = [
         img: "/img/products/product-5.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -206,8 +220,9 @@ export const productItems = [
         img: "/img/products/product-5.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "top-featured-products",
     },
     {
@@ -216,8 +231,9 @@ export const productItems = [
         img: "/img/products/product-6.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "added-new-products",
     },
     {
@@ -226,8 +242,9 @@ export const productItems = [
         img: "/img/products/product-2.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "added-new-products",
     },
     {
@@ -236,8 +253,9 @@ export const productItems = [
         img: "/img/products/product-3.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "added-new-products",
     },
     {
@@ -246,8 +264,9 @@ export const productItems = [
         img: "/img/products/product-4.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "added-new-products",
     },
     {
@@ -256,8 +275,9 @@ export const productItems = [
         img: "/img/products/product-5.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "added-new-products",
     },
     {
@@ -266,8 +286,9 @@ export const productItems = [
         img: "/img/products/product-5.jpg",
         price: "12",
         oldPrice: "15",
-        available: "Available (In Stock)",
+        available: "(In Stock)",
         discount: "6%",
+        weight: [2, 3, 4],
         category: "added-new-products",
     },
 ]

@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import Link from '../Link'
+import Link from '../Elements/Link'
 import { useRouter } from 'next/router'
 import { capitalizeFirstLetter } from '../../helpers'
 import { Breadcrumbs, Container, Toolbar, Typography } from '@material-ui/core';

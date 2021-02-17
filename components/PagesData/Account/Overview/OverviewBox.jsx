@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
-import Link from '../../../Link'
+import Link from '../../../Elements/Link'
 import BlockTitle from '../../../Elements/BlockTitle';
 
 const useStyles = makeStyles(theme => ({

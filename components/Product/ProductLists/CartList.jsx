@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './ProductCard'
+import ProductCard from '../ProductCards/CartProductCard'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({

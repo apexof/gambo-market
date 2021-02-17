@@ -1,6 +1,6 @@
 import { Box, List, ListItem, } from '@material-ui/core'
 import React from 'react'
-import Link from "../../Link";
+import Link from "../../Elements/Link";
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const menuItems = [

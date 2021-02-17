@@ -13,7 +13,7 @@ const globalCss = theme => ({
             },
         },
         ".shadow1": {
-            boxShadow: `0 1px 2px 0 ${theme.palette.type === "dark" ? "#242424" : "#e9e9e9"}`,
+            boxShadow: `0 1px 2px 0 ${theme.palette.type === "dark" ? "#242424" : "#e9e9e9"} !important`,
         }
     },
 })

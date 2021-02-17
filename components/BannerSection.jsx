@@ -2,7 +2,7 @@ import { Container } from '@material-ui/core'
 import React from 'react'
 import cx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles';
-import SectionTitle from './SectionTitle';
+import SectionTitle from './Elements/SectionTitle';
 
 const useStyles = makeStyles(theme => ({
     section: {

@@ -1,6 +1,6 @@
 import { AppBar, Container, Toolbar } from '@material-ui/core';
 import React from 'react'
-import Link from '../Link'
+import Link from '../Elements/Link'
 import HeaderSelect from './HeaderTop/HeaderSelect'
 import { useThemeContext } from '../ThemeSwither/MyThemeProvider'
 import HeaderNavList from './HeaderTop/HeaderNavList'
@@ -10,7 +10,7 @@ import LeftDrawer from './HeaderBottom/LeftDrawer'
 import HeaderNavMenu from './HeaderBottom/HeaderNavMenu'
 import SelectCategoryModal from './HeaderBottom/SelectCategoryModal'
 import { makeStyles } from "@material-ui/core/styles";
-import WishIcon from '../WishIcon';
+import WishIcon from '../Elements/WishIcon';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 

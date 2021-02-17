@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductList from './ProductList'
+import ProductList from './ProductListSlider'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -11,7 +11,7 @@ const productArray = [
     {
         id: 1,
         title: "Product Title Here",
-        img: "img/products/product-1.jpg",
+        img: "img/products/product-6.jpg",
         price: "12",
         oldPrice: "15",
         available: "Available (In Stock)",
@@ -64,14 +64,14 @@ const productArray = [
     },
 ]
 
-export default function TopFeaturedProducts() {
+export default function AddedNewProducts() {
     const classes = useStyles();
 
     return (
         <section className={classes.section}>
             <ProductList
                 productArray={productArray}
-                title="Top Featured Products"
+                title="Added New Products"
                 clarification="For You"
             />
         </section>

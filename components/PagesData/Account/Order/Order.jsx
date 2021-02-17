@@ -1,8 +1,8 @@
 import React from 'react'
 import cx from 'clsx'
-import OldPrice from '../../../ProductCard/OldPrice'
+import OldPrice from '../../../Elements/OldPrice'
 import Tracker from './Tracker'
-import Price from '../../../ProductCard/Price'
+import Price from '../../../Elements/Price'
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, Typography } from '@material-ui/core';
 import DoneAllIcon from '@material-ui/icons/DoneAll';

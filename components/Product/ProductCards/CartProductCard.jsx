@@ -1,11 +1,11 @@
 import { Card, CardActions, CardContent, CardMedia, Link, Typography } from '@material-ui/core'
 import React from 'react'
-import Discount from '../../../ProductCard/DiscountBlock'
+import Discount from './DiscountBlock'
 import { makeStyles } from '@material-ui/core/styles';
-import Price from '../../../ProductCard/Price';
-import Weight from './CardWeight';
-import OldPrice from '../../../ProductCard/OldPrice';
-import CartControls from '../../../ProductCard/CartControls/CartControls';
+import Price from '../../Elements/Price';
+import Weight from './Weight';
+import OldPrice from '../../Elements/OldPrice';
+import CartControls from './CartControls/CartControls';
 import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles(theme => ({

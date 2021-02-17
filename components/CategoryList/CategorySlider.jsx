@@ -1,7 +1,7 @@
 import React from 'react'
 import CategoryCard from './CategoryCard'
-import SectionTitle from '../SectionTitle'
-import Slider from '../SliderSimpleArrows/SliderSimpleArrows'
+import SectionTitle from '../Elements/SectionTitle'
+import Slider from '../SliderSimpleArrows'
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 

@@ -2,12 +2,12 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import CartList from './CartDrawer/CartList';
+import CartList from '../../Product/ProductLists/CartList';
 import Icon from '@material-ui/core/Icon';
 import { Toolbar, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import Price from '../../ProductCard/Price';
-import OldPrice from '../../ProductCard/OldPrice';
+import Price from '../../Elements/Price';
+import OldPrice from '../../Elements/OldPrice';
 
 const useStyles = makeStyles(theme => ({
     list: {

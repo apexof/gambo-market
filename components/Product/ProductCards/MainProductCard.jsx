@@ -1,18 +1,18 @@
 import { Card, CardActions, CardContent, CardHeader, CardMedia, Link, Typography } from '@material-ui/core'
 import React from 'react'
+import cx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles';
-import WishIcon from '../WishIcon';
-import Price from './Price';
-import OldPrice from './OldPrice';
+import WishIcon from '../../Elements/WishIcon';
+import Price from '../../Elements/Price';
+import OldPrice from '../../Elements/OldPrice';
 import Discount from './DiscountBlock';
 import CartControls from './CartControls/CartControls';
 
 const useStyles = makeStyles(theme => ({
     card: {
-        margin: `0 ${theme.spacing(1.5)}`,
         padding: 15,
         position: "relative",
-        boxShadow: "1px 1px 2px 1px rgb(0 0 0 / 3%)",
+        boxShadow: "none",
         "&:hover $imgWrapper": {
             transform: "scale(1.1)",
         }
@@ -51,9 +51,7 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
     const classes = useStyles();
 
     return (
-        <Card className={classes.card}>
-            {/* <CardHeader className={classes.header}>
-            </CardHeader> */}
+        <Card className={cx(classes.card, "shadow1")}>
             <div className={classes.discountWrapp}>
                 <Discount>{discount}</Discount>
             </div>

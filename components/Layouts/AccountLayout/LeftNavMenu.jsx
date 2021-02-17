@@ -7,7 +7,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import ViewListIcon from '@material-ui/icons/ViewList';
-import Link from '../../Link';
+import Link from '../../Elements/Link';
 import cx from 'clsx';
 import { useRouter } from 'next/router';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';

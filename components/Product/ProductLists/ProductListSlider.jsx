@@ -1,9 +1,9 @@
-import { Container } from '@material-ui/core'
+import { Box, Container } from '@material-ui/core'
 import React from 'react'
-import ProductCard from './ProductCard/ProductCard'
-import SectionTitle from './SectionTitle'
+import ProductCard from '../ProductCards/MainProductCard'
+import SectionTitle from '../../Elements/SectionTitle'
 import { makeStyles } from '@material-ui/core/styles';
-import Slider from './SliderSimpleArrows/SliderSimpleArrows';
+import Slider from '../../SliderSimpleArrows';
 
 const useStyles = makeStyles(theme => ({
     list: {
@@ -42,7 +42,7 @@ const responsive = [
     },
 ]
 
-export default function ProductList({ productArray, title, clarification }) {
+export default function ProductListSlider({ productArray, title, clarification }) {
     const classes = useStyles();
 
     return (
@@ -51,15 +51,18 @@ export default function ProductList({ productArray, title, clarification }) {
             <div className={classes.list}>
                 <Slider slidesToShow={5} responsive={responsive}>
                     {productArray.map(item => (
-                        <ProductCard
-                            key={item.id}
-                            title={item.title}
-                            img={item.img}
-                            price={item.price}
-                            oldPrice={item.oldPrice}
-                            available={item.available}
-                            discount={item.discount}
-                        />
+                        <div key={item.id}>
+                            <Box mx={1.5}>
+                                <ProductCard
+                                    title={item.title}
+                                    img={item.img}
+                                    price={item.price}
+                                    oldPrice={item.oldPrice}
+                                    available={item.available}
+                                    discount={item.discount}
+                                />
+                            </Box>
+                        </div>
                     ))}
                 </Slider>
             </div>

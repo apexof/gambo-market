@@ -80,6 +80,11 @@ const menuItems = [
                 title: "Store",
                 href: "/store",
             },
+            {
+                id: 3,
+                title: "Shop Grid",
+                href: "/shop-grid",
+            },
         ]
     },
     {

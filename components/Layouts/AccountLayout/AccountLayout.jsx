@@ -7,7 +7,6 @@ import LeftNavMenu from './LeftNavMenu'
 import ProfileHeader from './ProfileHeader'
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography } from '@material-ui/core'
-import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(theme => ({
     page: {
@@ -36,7 +35,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function AccountLayout({ children, title, rootPath = "/account" }) {
     const classes = useStyles();
-    const router = useRouter()
     return (
         <div className={classes.page}>
             <CommonHead />

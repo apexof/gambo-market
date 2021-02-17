@@ -48,51 +48,51 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function LeftNavMenu() {
+export default function LeftNavMenu({ rootPath }) {
     const classes = useStyles();
     const router = useRouter();
     const menu = [
         {
             id: 2,
             title: "Overview",
-            href: "/account",
+            href: "",
             icon: <ViewListIcon className={classes.icon} />,
         },
         {
             id: 1,
             title: "My Orders",
-            href: "/account/my-orders",
+            href: "/my-orders",
             icon: <DashboardIcon className={classes.icon} />,
         },
         {
             id: 4,
             title: "My Rewards",
-            href: "/account/my-rewards",
+            href: "/my-rewards",
             icon: <CardGiftcardIcon className={classes.icon} />,
 
         },
         {
             id: 5,
             title: "My Wallet",
-            href: "/account/my-wallet",
+            href: "/my-wallet",
             icon: <AccountBalanceWalletIcon className={classes.icon} />,
         },
         {
             id: 6,
             title: "Shopping Wishlist",
-            href: "/account/shopping-wishlist",
+            href: "/shopping-wishlist",
             icon: <FavoriteBorderIcon className={classes.icon} />,
         },
         {
             id: 7,
             title: "My Address",
-            href: "/account/my-address",
+            href: "/my-address",
             icon: <LocationOnIcon className={classes.icon} />,
         },
         {
             id: 8,
             title: "Logout",
-            href: "/account/logout",
+            href: "/logout",
             icon: <StarBorderIcon className={classes.icon} />,
         },
     ]
@@ -102,7 +102,7 @@ export default function LeftNavMenu() {
                 const active = item.href === router.pathname;
                 return (
                     <ListItem key={item.id} className={classes.item}>
-                        <Link href={item.href} className={cx(classes.link, active && classes.linkActive)}>
+                        <Link href={`${rootPath}${item.href}`} className={cx(classes.link, active && classes.linkActive)}>
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <ListItemText>
                                 {item.title}

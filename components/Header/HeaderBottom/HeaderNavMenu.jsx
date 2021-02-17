@@ -75,6 +75,11 @@ const menuItems = [
                 title: "Account",
                 href: "/account",
             },
+            {
+                id: 2,
+                title: "Store",
+                href: "/store",
+            },
         ]
     },
     {

@@ -21,12 +21,12 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function Weight({ children }) {
+export default function Weight({ children, measure = "kg" }) {
     const classes = useStyles();
 
     return (
         <div className={classes.weight}>
-            {`${children} kg`}
+            {`${children} ${measure}`}
         </div>
     )
 }

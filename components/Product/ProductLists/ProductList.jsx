@@ -43,9 +43,8 @@ const sort = [
     },
 ]
 
-export default function ProductListSlider({ listData }) {
+export default function ProductListSlider({ items, title, }) {
     const classes = useStyles();
-    const { items, title, } = listData;
 
     return (
         <Container>
@@ -60,6 +59,7 @@ export default function ProductListSlider({ listData }) {
                 {items.map(item => (
                     <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
                         <ProductCard
+                            id={item.id}
                             title={item.title}
                             img={item.img}
                             price={item.price}

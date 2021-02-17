@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function ProductCard({ title, img, price, oldPrice, available, discount, }) {
+export default function ProductCard({ title, img, price, oldPrice, available, discount, id }) {
     const classes = useStyles();
 
     return (
@@ -59,7 +59,7 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
                 <WishIcon />
             </div>
             <CardMedia>
-                <Link href="#" className={classes.imgWrapper}>
+                <Link href={`/product/${id}`} className={classes.imgWrapper}>
                     <img src={img} alt="" />
                 </Link>
             </CardMedia>

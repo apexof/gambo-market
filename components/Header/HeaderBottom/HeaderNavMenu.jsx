@@ -82,8 +82,8 @@ const menuItems = [
             },
             {
                 id: 3,
-                title: "Shop Grid",
-                href: "/shop-grid",
+                title: "Example Category Page",
+                href: "/category/added-new-products",
             },
         ]
     },

@@ -43,8 +43,9 @@ const sort = [
     },
 ]
 
-export default function ProductListSlider({ productArray, title, }) {
+export default function ProductListSlider({ listData }) {
     const classes = useStyles();
+    const { items, title, } = listData;
 
     return (
         <Container>
@@ -56,7 +57,7 @@ export default function ProductListSlider({ productArray, title, }) {
                 </Box>
             </Box>
             <Grid container spacing={4}>
-                {productArray.map(item => (
+                {items.map(item => (
                     <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
                         <ProductCard
                             title={item.title}

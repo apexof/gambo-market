@@ -42,15 +42,15 @@ const responsive = [
     },
 ]
 
-export default function ProductListSlider({ productArray, title, clarification }) {
+export default function ProductListSlider({ listData }) {
     const classes = useStyles();
-
+    const { items, title, clarification, id } = listData;
     return (
         <Container>
-            <SectionTitle title={title} clarification={clarification} />
+            <SectionTitle title={title} clarification={clarification} seeAllLink={`/category/${id}`} />
             <div className={classes.list}>
                 <Slider slidesToShow={5} responsive={responsive}>
-                    {productArray.map(item => (
+                    {items.map(item => (
                         <div key={item.id}>
                             <Box mx={1.5}>
                                 <ProductCard

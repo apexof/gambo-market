@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 export default function BreadCrumbs() {
     const classes = useStyles();
     const router = useRouter()
-    let breadArray = router.pathname.split("/");
+    let breadArray = router.asPath.split("/");
     breadArray = breadArray.filter(item => item.length)
     breadArray = breadArray.map(item => capitalizeFirstLetter(item))
     breadArray = breadArray.map(item => item.replace("-", " "))

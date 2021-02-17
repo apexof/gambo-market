@@ -20,16 +20,15 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function SectionTitle({ title, clarification, seeAllLink = true }) {
+export default function SectionTitle({ title, clarification, seeAllLink }) {
     const classes = useStyles();
-
     return (
         <div>
             <Typography variant="h3">{clarification}</Typography>
             <div className={classes.titleBox}>
                 <Typography variant="h2">{title}</Typography>
                 {seeAllLink &&
-                    <Link href="#" className={classes.link}>See All</Link>
+                    <Link href={seeAllLink} className={classes.link}>See All</Link>
                 }
             </div>
         </div>

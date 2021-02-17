@@ -1,6 +1,7 @@
 import React from 'react'
+import Link from './Link'
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Link, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     link: {

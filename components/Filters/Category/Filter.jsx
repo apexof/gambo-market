@@ -1,8 +1,9 @@
 import React from 'react';
+import FilterList from './FilterList';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import { Toolbar, Typography } from '@material-ui/core';
+import { Box, Toolbar, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles(theme => ({
@@ -25,6 +26,145 @@ const useStyles = makeStyles(theme => ({
         color: "#fff"
     },
 }))
+
+const filterList = [
+    {
+        id: 1,
+        title: "Brand",
+        filters: [
+            {
+                id: 1,
+                filter: "Samsung",
+            },
+            {
+                id: 2,
+                filter: "Apple",
+            },
+            {
+                id: 3,
+                filter: "Xiaomi",
+            },
+            {
+                id: 4,
+                filter: "Samsung",
+            },
+            {
+                id: 5,
+                filter: "Apple",
+            },
+            {
+                id: 6,
+                filter: "Xiaomi",
+            },
+            {
+                id: 7,
+                filter: "Samsung",
+            },
+            {
+                id: 8,
+                filter: "Apple",
+            },
+            {
+                id: 9,
+                filter: "Xiaomi",
+            },
+        ]
+    },
+    {
+        id: 2,
+        title: "Price",
+        filters: [
+            {
+                id: 1,
+                filter: "Less than $2",
+            },
+            {
+                id: 2,
+                filter: "$2 to $5",
+            },
+            {
+                id: 3,
+                filter: "$6 to $10",
+            },
+            {
+                id: 4,
+                filter: "$11 to $15",
+            },
+            {
+                id: 5,
+                filter: "$15 to $20",
+            },
+            {
+                id: 6,
+                filter: "$21 to $25",
+            },
+            {
+                id: 7,
+                filter: "More than $25",
+            },
+        ]
+    },
+    {
+        id: 3,
+        title: "Discount",
+        filters: [
+            {
+                id: 1,
+                filter: "2% - 5%",
+            },
+            {
+                id: 2,
+                filter: "6% - 10%",
+            },
+            {
+                id: 3,
+                filter: "11% - 15%",
+            },
+            {
+                id: 4,
+                filter: "16% - 25%",
+            },
+        ]
+    },
+    {
+        id: 4,
+        title: "Pack Size",
+        filters: [
+            {
+                id: 1,
+                filter: "Combo 1 Items",
+            },
+            {
+                id: 2,
+                filter: "Combo 2 Items",
+            },
+            {
+                id: 3,
+                filter: "Combo 3 Items",
+            },
+            {
+                id: 4,
+                filter: "1 kg",
+            },
+            {
+                id: 5,
+                filter: "2 kg",
+            },
+            {
+                id: 6,
+                filter: "3 kg",
+            },
+            {
+                id: 7,
+                filter: "4 kg",
+            },
+            {
+                id: 8,
+                filter: "5 kg",
+            },
+        ]
+    },
+]
 
 export default function TemporaryDrawer() {
     const classes = useStyles();
@@ -53,6 +193,9 @@ export default function TemporaryDrawer() {
                             onClick={handleClose}
                         />
                     </Toolbar>
+                    <Box p={2}>
+                        <FilterList filterList={filterList} />
+                    </Box>
                 </div>
             </Drawer>
         </>

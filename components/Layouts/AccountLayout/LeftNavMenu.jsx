@@ -11,6 +11,7 @@ import Link from '../../Elements/Link';
 import cx from 'clsx';
 import { useRouter } from 'next/router';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import ListAltIcon from '@material-ui/icons/ListAlt';
 
 const useStyles = makeStyles(theme => ({
     menu: {
@@ -93,7 +94,7 @@ export default function LeftNavMenu({ rootPath }) {
             id: 8,
             title: "Invoice",
             href: "/invoice",
-            icon: <StarBorderIcon className={classes.icon} />,
+            icon: <ListAltIcon className={classes.icon} />,
         },
         {
             id: 9,

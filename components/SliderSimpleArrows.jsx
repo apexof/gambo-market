@@ -42,8 +42,8 @@ export const SampleNextArrow = ({ onClick, border = true }) => {
     )
 }
 
-export const SamplePrevArrow = ({ onClick }) => {
-    const classes = useStyles();
+export const SamplePrevArrow = ({ onClick, border = true }) => {
+    const classes = useStyles({ border });
     return (
         <IconButton onClick={onClick} className={`${classes.nextBtn} ${classes.prevBtn}`}>
             <ChevronLeftIcon />

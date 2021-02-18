@@ -29,11 +29,11 @@ export default function Category(props) {
                 </Box>
                 <Box mt={6}>
                     <Grid container spacing={4}>
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={4}>
                             <BlockTitle>More Like This</BlockTitle>
                             <CartList />
                         </Grid>
-                        <Grid item xs={8} >
+                        <Grid item xs={12} md={8} >
                             <Texts />
                         </Grid>
                     </Grid>

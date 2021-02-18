@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
     list: {
         background: theme.palette.background.default,
@@ -37,29 +37,33 @@ export default function Features() {
 
     return (
         <div className={classes.list}>
-            {features.map(item => (
-                <Box
-                    key={item.id}
-                    display="flex"
-                    alignItems="center"
-                    width="50%" p={2.5}
-                    className={classes.item}
-                >
-                    <Box>
-                        {item.icon}
-                    </Box>
-                    <Box ml={2}>
-                        <Box mb={1}>
-                            <Typography variant="h4">
-                                {item.title}
-                            </Typography>
+            <Grid container>
+                {features.map(item => (
+                    <Grid item xs={12} md={6}>
+                        <Box
+                            key={item.id}
+                            display="flex"
+                            alignItems="center"
+                            p={2.5}
+                            className={classes.item}
+                        >
+                            <Box>
+                                {item.icon}
+                            </Box>
+                            <Box ml={2}>
+                                <Box mb={1}>
+                                    <Typography variant="h4">
+                                        {item.title}
+                                    </Typography>
+                                </Box>
+                                <Typography variant="body2">
+                                    {item.text}
+                                </Typography>
+                            </Box>
                         </Box>
-                        <Typography variant="body2">
-                            {item.text}
-                        </Typography>
-                    </Box>
-                </Box>
-            ))}
+                    </Grid>
+                ))}
+            </Grid>
         </div>
     )
 }

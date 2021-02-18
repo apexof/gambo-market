@@ -48,12 +48,18 @@ export default function ProductListSlider({ items, title, }) {
 
     return (
         <Container>
-            <Box display="flex" justifyContent="space-between" alignItems='flex-start' mb={2}>
-                <SectionTitle title={title} seeAllLink={false} />
-                <Box display="flex">
-                    <Select2 items={sort} />
-                    <Filter />
-                </Box>
+            <Grid container justify="space-between" >
+                <Grid item xs={12} sm={6}>
+                    <SectionTitle title={title} seeAllLink={false} />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <Box display="flex" flexDirection="row-reverse">
+                        <Filter />
+                        <Select2 items={sort} />
+                    </Box>
+                </Grid>
+            </Grid>
+            <Box mb={2}>
             </Box>
             <Grid container spacing={4}>
                 {items.map(item => (

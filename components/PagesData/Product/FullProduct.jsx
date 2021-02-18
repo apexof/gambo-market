@@ -37,12 +37,12 @@ export default function FullProduct({ img, title, id, available, weight, price, 
     return (
         <div className={classes.product}>
             <Grid container>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={4}>
                     <Box pr={3}>
                         <Slider items={sliderItems} />
                     </Box>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={12} md={8}>
                     <div>
                         <Typography variant="h2">{title}</Typography>
                         <Box display="flex" my={2}>

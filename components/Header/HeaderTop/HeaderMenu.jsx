@@ -1,8 +1,10 @@
-import { Button, Menu, MenuItem, Typography } from '@material-ui/core'
+import { Box, Button, Menu, MenuItem, Typography } from '@material-ui/core'
 import React from 'react'
+import cx from 'clsx'
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from "@material-ui/core/styles";
-import ThemeSwitcher from '../../ThemeSwither/ThemeSwitcher';
+import ThemeSwitcher from '../../ThemeSwitcher/ThemeSwitcher';
+import NightsStayIcon from '@material-ui/icons/NightsStay';
 
 const menuItems = [
     {
@@ -58,8 +60,16 @@ const useStyles = makeStyles(theme => ({
         marginRight: "10px",
         borderRadius: "50%",
     },
+    item: {
+        padding: `${theme.spacing(1)} ${theme.spacing(2.5)}`,
+        width: 275,
+
+    },
     menuIcon: {
         marginRight: "15px"
+    },
+    nightMode: {
+        borderBottom: `1px solid ${theme.palette.grey["50"]}`,
     },
 }));
 
@@ -82,7 +92,6 @@ export default function HeaderMenu() {
                     John Doe
                 </Typography>
             </Button>
-            <ThemeSwitcher />
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -90,8 +99,21 @@ export default function HeaderMenu() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
+                <MenuItem key={101} className={cx(classes.nightMode, classes.item)}>
+                    <Box display="flex" justifyContent="space-between" width="100%" alignItems="center">
+                        <Box display="flex" alignItems="center">
+                            <NightsStayIcon />
+                            <Box ml={2}>
+                                <Typography variant="body2">
+                                    Night Mode
+                                </Typography>
+                            </Box>
+                        </Box>
+                        <ThemeSwitcher />
+                    </Box>
+                </MenuItem>
                 {menuItems.map(item => (
-                    <MenuItem key={item.id} onClick={handleClose}>
+                    <MenuItem key={item.id} onClick={handleClose} className={classes.item}>
                         <Icon className={classes.menuIcon}>{item.icon}</Icon>
                         <Typography variant="body2">
                             {item.title}

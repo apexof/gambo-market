@@ -2,7 +2,7 @@ import { AppBar, Container, Toolbar } from '@material-ui/core';
 import React from 'react'
 import Link from '../Elements/Link'
 import HeaderSelect from './HeaderTop/HeaderSelect'
-import { useThemeContext } from '../ThemeSwither/MyThemeProvider'
+import { useThemeContext } from '../ThemeSwitcher/MyThemeProvider'
 import HeaderNavList from './HeaderTop/HeaderNavList'
 import HeaderSearch from './HeaderTop/HeaderSearch'
 import HeaderMenu from './HeaderTop/HeaderMenu'

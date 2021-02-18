@@ -4,7 +4,7 @@ import globalCss from '../styles/globalCss';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { WhiteTheme, DarkTheme } from '../theme';
-import { MyThemeProvider, useThemeContext } from '../components/ThemeSwither/MyThemeProvider'
+import { MyThemeProvider, useThemeContext } from '../components/ThemeSwitcher/MyThemeProvider'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(globalCss);

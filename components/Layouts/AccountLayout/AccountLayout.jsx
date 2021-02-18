@@ -57,7 +57,7 @@ export default function AccountLayout({ children, title, rootPath = "/account" }
                         </div>
                     </div>
                     <div className={classes.content}>
-                        <Typography variant="h2">{title}</Typography>
+                        {title && <Typography variant="h2">{title}</Typography>}
                         {children}
                     </div>
                 </div>

@@ -91,6 +91,12 @@ export default function LeftNavMenu({ rootPath }) {
         },
         {
             id: 8,
+            title: "Invoice",
+            href: "/invoice",
+            icon: <StarBorderIcon className={classes.icon} />,
+        },
+        {
+            id: 9,
             title: "Logout",
             href: "/logout",
             icon: <StarBorderIcon className={classes.icon} />,

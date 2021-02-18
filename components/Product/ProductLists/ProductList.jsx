@@ -59,8 +59,7 @@ export default function ProductListSlider({ items, title, }) {
                     </Box>
                 </Grid>
             </Grid>
-            <Box mb={2}>
-            </Box>
+
             <Grid container spacing={4}>
                 {items.map(item => (
                     <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>

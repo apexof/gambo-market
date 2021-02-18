@@ -48,18 +48,19 @@ export default function ProductListSlider({ items, title, }) {
 
     return (
         <Container>
-            <Grid container justify="space-between" >
-                <Grid item xs={12} sm={6}>
-                    <SectionTitle title={title} seeAllLink={false} />
+            <Box mb={1}>
+                <Grid container justify="space-between" >
+                    <Grid item xs={12} sm={6}>
+                        <SectionTitle title={title} seeAllLink={false} />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <Box display="flex" flexDirection="row-reverse">
+                            <Filter />
+                            <Select2 items={sort} />
+                        </Box>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Box display="flex" flexDirection="row-reverse">
-                        <Filter />
-                        <Select2 items={sort} />
-                    </Box>
-                </Grid>
-            </Grid>
-
+            </Box>
             <Grid container spacing={4}>
                 {items.map(item => (
                     <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>

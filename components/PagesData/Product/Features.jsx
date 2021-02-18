@@ -39,7 +39,7 @@ export default function Features() {
         <div className={classes.list}>
             <Grid container>
                 {features.map(item => (
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} sm={6}>
                         <Box
                             key={item.id}
                             display="flex"

@@ -99,7 +99,7 @@ export default function LeftNavMenu({ rootPath }) {
     return (
         <List disablePadding className={cx(classes.menu, "shadow1")}>
             {menu.map(item => {
-                const active = item.href === router.pathname;
+                const active = `${rootPath}${item.href}` === router.pathname;
                 return (
                     <ListItem key={item.id} className={classes.item}>
                         <Link href={`${rootPath}${item.href}`} className={cx(classes.link, active && classes.linkActive)}>

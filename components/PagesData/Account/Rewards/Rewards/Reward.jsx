@@ -67,7 +67,7 @@ export default function Reward({ value, type, date, icon, desc, info }) {
                 <Typography variant="body1">{type}</Typography>
             </Box>
             <Box my={2} >
-                <Typography variant="h4">{value}</Typography>
+                <Typography align="center" variant="h4">{value}</Typography>
             </Box>
 
             {date &&

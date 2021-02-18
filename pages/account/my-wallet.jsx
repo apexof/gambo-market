@@ -2,7 +2,7 @@ import AccountLayout from '../../components/Layouts/AccountLayout/AccountLayout'
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '../../components/Elements/Table';
 import Reward from '../../components/PagesData/Account/Rewards/Rewards/Reward';
-import { Box } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import cx from 'clsx';
 import HistoryList from '../../components/PagesData/Account/Wallet/History/HistoryList';
 import Balance from '../../components/PagesData/Account/Wallet/Balance';
@@ -91,14 +91,15 @@ export default function MyWallet() {
             <Box my={4}>
                 <Table title="Active Offers" />
             </Box>
-            <Box display="flex" m={-2}>
-                <Box width="50%" p={2}>
+
+            <Grid container spacing={4}>
+                <Grid item xs={12} sm={6} md={12} lg={6}>
                     <Balance />
-                </Box>
-                <Box width="50%" p={2} >
+                </Grid>
+                <Grid item xs={12} sm={6} md={12} lg={6}>
                     <HistoryList items={history} />
-                </Box>
-            </Box>
+                </Grid>
+            </Grid>
         </AccountLayout>
     )
 }

@@ -11,7 +11,10 @@ const useStyles = makeStyles(theme => ({
         background: theme.palette.background.paper,
         display: "flex",
         padding: theme.spacing(3),
-    }
+    },
+    title: {
+        marginBottom: theme.spacing(2),
+    },
 }))
 
 export default function FullProduct({ img, title, id, available, weight, price, oldPrice }) {
@@ -44,8 +47,8 @@ export default function FullProduct({ img, title, id, available, weight, price, 
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <div>
-                        <Typography variant="h2">{title}</Typography>
-                        <Box display="flex" my={2}>
+                        <Typography className={classes.title} variant="h2">{title}</Typography>
+                        <Box display="flex" mb={2}>
                             <Box mr={4}>
                                 <Typography variant="h5">Product No.
                             <Typography component="span" color="textSecondary">

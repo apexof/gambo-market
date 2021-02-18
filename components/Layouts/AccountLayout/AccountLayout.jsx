@@ -17,19 +17,27 @@ const useStyles = makeStyles(theme => ({
     container: {
         display: "flex",
         justifyContent: "space-between",
+        flexWrap: "wrap",
+        margin: theme.spacing(-2),
         marginTop: 50,
     },
     menuWrap: {
-        width: "30%",
+        width: "100%",
+        padding: theme.spacing(2),
+        [theme.breakpoints.up('md')]: {
+            width: "30%",
+        },
     },
     menu: {
-        paddingRight: theme.spacing(2),
         position: "sticky",
         top: 167,
     },
     content: {
-        width: "70%",
-        paddingLeft: theme.spacing(2),
+        padding: theme.spacing(2),
+        width: "100%",
+        [theme.breakpoints.up('md')]: {
+            width: "70%",
+        },
     },
 }))
 

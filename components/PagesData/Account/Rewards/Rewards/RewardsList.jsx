@@ -1,6 +1,7 @@
 import React from 'react'
 import Reward from './Reward'
 import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     list: {
@@ -21,9 +22,9 @@ export default function RewardList({ items }) {
     const classes = useStyles();
 
     return (
-        <div className={classes.list}>
+        <Grid container spacing={4}>
             {items.map(item => (
-                <div key={item.id} className={classes.item}>
+                <Grid xs={12} sm={4} md={6} lg={4} item key={item.id} >
                     <Reward
                         value={item.value}
                         type={item.type}
@@ -31,8 +32,8 @@ export default function RewardList({ items }) {
                         icon={item.icon}
                         desc={item.desc}
                     />
-                </div>
+                </Grid>
             ))}
-        </div>
+        </Grid>
     )
 }

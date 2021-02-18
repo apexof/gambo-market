@@ -8,6 +8,10 @@ import BlockTitle from '../../../Elements/BlockTitle';
 const useStyles = makeStyles(theme => ({
     item: {
         background: theme.palette.background.paper,
+        height: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "column",
     },
     itemFooter: {
         padding: "15px 20px",
@@ -21,6 +25,9 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
         padding: "15px 20px",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
     },
 }))
 
@@ -32,7 +39,9 @@ export default function OverBox({ title, footerTitle, contentTitle, children }) 
             <BlockTitle >{title}</BlockTitle>
             <Box className={classes.content}>
                 <Typography className={classes.contentTitle} variant="h2">{contentTitle}</Typography>
-                {children}
+                <Box my="auto">
+                    {children}
+                </Box>
             </Box>
             <Typography className={classes.itemFooter} variant="body2">
                 <Link className={classes.itemFooterLink} href="/">

@@ -13,6 +13,10 @@ export const getTitleOfCategory = (categoryId) => {
 
 export const categories = [
     {
+        id: "all",
+        title: "All",
+    },
+    {
         id: "top-featured-products",
         title: "Top Featured Products",
     },
@@ -23,6 +27,14 @@ export const categories = [
     {
         id: "added-new-products",
         title: "Added New Products",
+    },
+    {
+        id: "grocery-staples",
+        title: "Grocery & Staples",
+    },
+    {
+        id: "dairy-eggs",
+        title: "Dairy & Eggs",
     },
 ]
 

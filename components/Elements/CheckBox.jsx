@@ -5,7 +5,12 @@ import { Checkbox, FormControlLabel } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
     root: {
         padding: `3px ${theme.spacing(1)}`,
-    }
+    },
+    checked: {
+        color: `${theme.palette.secondary.main} !important`,
+        background: theme.palette.background.paper,
+        // background: "red",
+    },
 }))
 
 export default function CheckBox({ label }) {
@@ -25,6 +30,7 @@ export default function CheckBox({ label }) {
                     color="primary"
                     classes={{
                         root: classes.root,
+                        checked: classes.checked,
                     }}
                 />
             }

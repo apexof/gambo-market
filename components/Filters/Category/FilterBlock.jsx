@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function FilterBlock({ title, filters }) {
     const classes = useStyles();
-    console.log(filters);
 
     return (
         <Box>

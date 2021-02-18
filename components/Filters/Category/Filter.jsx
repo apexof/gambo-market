@@ -5,10 +5,12 @@ import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import { Box, Toolbar, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import CategoryList from './CategoryList';
+import { categories } from '../../Product/ProductLists/lists';
 
 const useStyles = makeStyles(theme => ({
-    list: {
-        width: 250,
+    root: {
+        overflowY: "hidden",
     },
     header: {
         background: theme.palette.type === "dark" ? "#000" : "#2b2f4c",
@@ -20,11 +22,16 @@ const useStyles = makeStyles(theme => ({
     },
     drawer: {
         width: 400,
+        height: "100%",
     },
     closeIcon: {
         cursor: "pointer",
         color: "#fff"
     },
+    content: {
+        maxHeight: "calc(100% - 65px)",
+        overflowY: "auto",
+    }
 }))
 
 const filterList = [
@@ -178,9 +185,16 @@ export default function TemporaryDrawer() {
             <Button onClick={toggleDrawer} variant="contained" color="primary" className="shadow1">
                 Filters
             </Button>
-            <Drawer anchor="right" open={open} onClose={toggleDrawer}>
+            <Drawer
+                anchor="right"
+                open={open}
+                onClose={toggleDrawer}
+                classes={{
+                    root: classes.root,
+                }}
+            >
                 <div
-                    className={`${classes.drawer} `}
+                    className={`${classes.drawer}`}
                     role="presentation"
                 >
                     <Toolbar className={classes.header}>
@@ -193,7 +207,8 @@ export default function TemporaryDrawer() {
                             onClick={handleClose}
                         />
                     </Toolbar>
-                    <Box p={2}>
+                    <Box p={2} className={`${classes.content} scrollstyle_4`}>
+                        <CategoryList list={categories} />
                         <FilterList filterList={filterList} />
                     </Box>
                 </div>

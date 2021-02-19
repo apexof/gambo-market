@@ -21,8 +21,8 @@ export default function FilterBlock({ title, filters }) {
             </Box>
             <Box className={cx(classes.filters, "scrollstyle_4")}>
                 {filters.map(item => (
-                    <Box>
-                        <CheckBox key={item.id} label={item.filter} />
+                    <Box key={item.id}>
+                        <CheckBox label={item.filter} />
                     </Box>
                 ))}
             </Box>

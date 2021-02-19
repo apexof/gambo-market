@@ -7,8 +7,9 @@ const useStyles = makeStyles((theme) => ({
     form: {
         margin: "0 auto 0 35px",
         width: "100%",
-        [theme.breakpoints.down('md')]: {
-            display: "none",
+        display: "none",
+        [theme.breakpoints.up('sm')]: {
+            display: "block",
         },
     },
     input: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
         height: '36px',
         width: "50%",
         minWidth: "220px",
+        borderRadius: 5,
         transition: "width .2s ease",
         "&.Mui-focused": {
             width: "100%",

@@ -99,7 +99,7 @@ export default function LeftNavMenu({ rootPath }) {
         {
             id: 9,
             title: "Logout",
-            href: "/logout",
+            href: "/logIn",
             icon: <StarBorderIcon className={classes.icon} />,
         },
     ]
@@ -107,9 +107,10 @@ export default function LeftNavMenu({ rootPath }) {
         <List disablePadding className={cx(classes.menu, "shadow1")}>
             {menu.map(item => {
                 const active = `${rootPath}${item.href}` === router.pathname;
+                const href = item.href === "/logIn" ? item.href : `${rootPath}${item.href}`;
                 return (
                     <ListItem key={item.id} className={classes.item}>
-                        <Link href={`${rootPath}${item.href}`} className={cx(classes.link, active && classes.linkActive)}>
+                        <Link href={href} className={cx(classes.link, active && classes.linkActive)}>
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <ListItemText>
                                 {item.title}

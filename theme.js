@@ -61,7 +61,7 @@ const commonTheme = {
             fontSize: 14,
             fontWeight: 500,
         },
-    }
+    },
 }
 
 const WhiteThemeNotMerged = createMuiTheme({
@@ -111,7 +111,17 @@ const WhiteThemeNotMerged = createMuiTheme({
         subtitle2: {
             color: "#8f91ac",
         },
-    }
+    },
+    // overrides: {
+    //     MuiButton: {
+    //         contained: {
+    //             boxShadow: "0 1px 2px 0 #e9e9e9",
+    //         },
+    //         "&:hover": {
+    //             boxShadow: "2px 3px 3px 2px #e9e9e9",
+    //         }
+    //     }
+    // }
 });
 export const WhiteTheme = mergeDeep(WhiteThemeNotMerged, commonTheme);
 
@@ -157,7 +167,17 @@ const DarkThemeNotMerged = createMuiTheme({
         subtitle2: {
             color: "#c7c7c7",
         },
-    }
+    },
+    // overrides: {
+    //     MuiButton: {
+    //         contained: {
+    //             boxShadow: "0 1px 2px 0 #242424",
+    //         },
+    //         "&:hover": {
+    //             boxShadow: "2px 3px 3px 2px #242424",
+    //         }
+    //     }
+    // }
 });
 
 export const DarkTheme = mergeDeep(DarkThemeNotMerged, commonTheme);

@@ -37,6 +37,9 @@ const useStyles = makeStyles(theme => ({
         left: 15,
         zIndex: 1,
     },
+    delIcon: {
+        cursor: "pointer",
+    },
 }))
 
 export default function WishItem({ title, img, price, oldPrice, discount, id }) {
@@ -60,7 +63,7 @@ export default function WishItem({ title, img, price, oldPrice, discount, id }) 
                 </Box>
             </Box>
             <Box ml="auto">
-                <DeleteIcon />
+                <DeleteIcon className={classes.delIcon} />
             </Box>
         </div>
     )

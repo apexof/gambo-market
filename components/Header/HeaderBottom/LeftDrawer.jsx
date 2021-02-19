@@ -4,7 +4,7 @@ import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import CartList from '../../Product/ProductLists/CartList';
 import Icon from '@material-ui/core/Icon';
-import { Toolbar, Typography } from '@material-ui/core';
+import { Box, Toolbar, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import Price from '../../Elements/Price';
 import OldPrice from '../../Elements/OldPrice';
@@ -88,7 +88,9 @@ export default function TemporaryDrawer() {
         <>
             <Button onClick={toggleDrawer} className={classes.btn}>
                 <Icon>shopping-cart</Icon>
-                Cart 2
+                <Box ml={1}>
+                    Cart
+                </Box>
             </Button>
             <Drawer anchor="left" open={open} onClose={toggleDrawer}>
                 <div

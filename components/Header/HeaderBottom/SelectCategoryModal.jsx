@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import AppsIcon from '@material-ui/icons/Apps';
 import CategoryCard from '../../CategoryList/CategoryCard';
-import { Backdrop, Button, Link, Typography } from '@material-ui/core';
+import { Backdrop, Button, Grid, Link, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 
@@ -64,10 +64,17 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         position: 'absolute',
-        top: "10%",
-        left: "calc(50% - 250px)",
-        width: 500,
-        height: 500,
+        top: 0,
+        bottom: 119,
+        left: 0,
+        width: "100%",
+        [theme.breakpoints.up('sm')]: {
+            height: 500,
+            bottom: "unset",
+            top: "10%",
+            left: "calc(50% - 250px)",
+            width: 500,
+        },
         "&:focus": {
             outline: "none",
             border: "none",
@@ -95,17 +102,18 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     list: {
-        display: "flex",
-        flexWrap: "wrap",
-        width: "100%"
+        width: "100%",
+        background: theme.palette.primary.main,
+        height: "100%",
+        [theme.breakpoints.up('sm')]: {
+            height: "auto",
+        },
     },
     itemWrap: {
-        width: "33.333%",
         cursor: "pointer",
         background: theme.palette.primary.main,
         "&:hover": {
             background: theme.palette.primary.dark,
-
         }
     },
     moreCategory: {
@@ -126,10 +134,13 @@ const useStyles = makeStyles((theme) => ({
     },
     closeIcon: {
         position: "absolute",
-        top: "-40px",
-        right: 0,
+        right: 10,
+        top: "10px",
         cursor: "pointer",
-        color: "#fff"
+        color: "#fff",
+        [theme.breakpoints.up('md')]: {
+            top: "-40px",
+        },
     }
 }));
 
@@ -170,18 +181,18 @@ export default function SimpleModal() {
                         />
                         <Typography variant="h4" className={classes.title}>
                             Select Category
-                    </Typography>
-                        <div className={classes.list}>
+                        </Typography>
+                        <Grid container className={classes.list}>
                             {categories.map(item => (
-                                <div key={item.id} className={classes.itemWrap}>
+                                <Grid item key={item.id} className={classes.itemWrap} xs={6} md={4}>
                                     <CategoryCard
                                         key={item.id}
                                         title={item.title}
                                         img={item.img}
                                     />
-                                </div>
+                                </Grid>
                             ))}
-                        </div>
+                        </Grid>
                         <Link className={classes.moreCategory} href="#">
                             <AppsIcon />
                             <Typography>

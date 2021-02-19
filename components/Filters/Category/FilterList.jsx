@@ -13,7 +13,7 @@ export default function FilterList({ filterList }) {
     return (
         <div className={classes.der}>
             {filterList.map(item => (
-                <Box mt={4}>
+                <Box key={item.id} mt={4}>
                     <FilterBlock
                         title={item.title}
                         filters={item.filters}

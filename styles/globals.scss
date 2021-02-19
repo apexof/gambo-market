@@ -42,3 +42,45 @@ h5.MuiTypography-h5{
         box-shadow: inset -1px -1px 0 rgba(0,0,0,.05), inset 1px 1px 0 rgba(0,0,0,.05);
     }    
 }
+// Koutt styles
+.w-100 {
+    width: 100% !important;
+}
+.blockBtn {
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+    font-size: 16px !important;
+}
+.blueBtn {
+    color: #ffffff !important;
+    background: #4d7df2 !important;
+}
+.social-login-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.social-list {
+    button + button {
+        margin-left: 15px;
+    }
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+.facebook-color {
+    background: #3c5a9a !important;
+}
+.github-color {
+    background: #000000 !important;
+}
+.twitter-color {
+    background: #1da1f2 !important;
+}
+.google-color {
+    background: #db4437 !important;
+}
+// Koutt styles

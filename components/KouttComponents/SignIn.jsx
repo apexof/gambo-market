@@ -1,5 +1,4 @@
-
-
+import Head from 'next/head';
 import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 import { TextField, Button, Fab, Box, Typography, Divider, AppBar, Tabs, Tab, Container } from "@material-ui/core";
@@ -148,6 +147,9 @@ class SigninFirebase extends Component {
         const { email, password, error, isDarkModeActive } = this.props;
         return (
             <Container>
+                <Head>
+                    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+                </Head>
                 <Box p={4} width={600} mx="auto">
                     <div className="session-wrapper session-wrapper-v2">
                         <Box className="session-box" mx="auto" display="flex" justifyContent="center" alignItems="center">
@@ -212,10 +214,10 @@ class SigninFirebase extends Component {
                                             </Box>
                                             <Box mb="20px">
                                                 <Button
-                                                    color="primary"
-                                                    className="btn-block blockBtn w-100"
+                                                    className="btn-block blockBtn w-100 blueBtn"
                                                     variant="contained"
                                                     size="large"
+
                                                     onClick={this.onUserLogin.bind(this)}
                                                 >
                                                     Sign In
@@ -223,8 +225,7 @@ class SigninFirebase extends Component {
                                             </Box>
                                             <Box mb="20px">
                                                 <Button
-                                                    color="primary"
-                                                    className="btn-block blockBtn w-100"
+                                                    className="btn-block blockBtn w-100 blueBtn"
                                                     variant="contained"
                                                     size="large"
                                                     onClick={() => this.loginAuth0()}

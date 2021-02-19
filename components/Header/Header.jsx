@@ -6,6 +6,7 @@ import { useThemeContext } from '../ThemeSwitcher/MyThemeProvider'
 import HeaderNavList from './HeaderTop/HeaderNavList'
 import HeaderSearch from './HeaderTop/HeaderSearch'
 import HeaderMenu from './HeaderTop/HeaderMenu'
+import HeaderMenu2 from './HeaderTop/HeaderMenu2'
 import LeftDrawer from './HeaderBottom/LeftDrawer'
 import HeaderNavMenu from './HeaderBottom/HeaderNavMenu'
 import SelectCategoryModal from './HeaderBottom/SelectCategoryModal'
@@ -113,15 +114,13 @@ export default function HeaderTop(props) {
                         alt=""
                     />
                 </Link>
-                <Box display={{ xs: "none", lg: "block" }}>
+                <Box display={{ xs: "none", md: "block" }}>
                     <HeaderSelect selectItems={selectItems} />
                 </Box>
                 <HeaderSearch />
-                <HeaderNavList />
-                <Link href="/" className={classes.wishLink}>
-                    <WishIcon />
-                    <div className={classes.countWishes}>3</div>
-                </Link>
+                <Box ml={2}>
+                    <HeaderMenu2 />
+                </Box>
                 <HeaderMenu />
             </Toolbar>
             <Toolbar className={classes.toolbar2}>

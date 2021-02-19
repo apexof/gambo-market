@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
         margin: "0 auto 0 35px",
         width: "100%",
         display: "none",
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up('sm')]: {
             display: "block",
         },
     },

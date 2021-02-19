@@ -1,11 +1,12 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, List, ListItemIcon, ListItem, Link, Typography } from '@material-ui/core';
+import { Container, List, ListItemIcon, ListItem, Link, Typography, Box } from '@material-ui/core';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import DialpadIcon from '@material-ui/icons/Dialpad';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 const useStyles = makeStyles(theme => ({
     topFooter: {
@@ -27,16 +28,19 @@ const useStyles = makeStyles(theme => ({
         minWidth: "unset",
         marginLeft: 15,
     },
-    phone: {
+    contactsMenuItem: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         "& svg": {
             marginRight: "5px",
             color: theme.palette.secondary.main,
+        },
+        "& + $contactsMenuItem": {
+            marginLeft: theme.spacing(2),
         }
     },
-    phoneText: {
+    contactsMenuText: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -76,12 +80,20 @@ export default function TopFooter() {
         <div className={classes.topFooter}>
             <Container>
                 <div className={classes.list}>
-                    <Link className={classes.phone} href="#">
-                        <DialpadIcon />
-                        <Typography className={classes.phoneText}>
-                            1800-000-000
+                    <Box display="flex">
+                        <Link className={classes.contactsMenuItem} href="#">
+                            <DialpadIcon />
+                            <Typography className={classes.contactsMenuText}>
+                                1800-000-000
                         </Typography>
-                    </Link>
+                        </Link>
+                        <Link className={classes.contactsMenuItem} href="#">
+                            <MailOutlineIcon />
+                            <Typography className={classes.contactsMenuText}>
+                                [email protected]
+                        </Typography>
+                        </Link>
+                    </Box>
                     <List className={classes.socMenu}>
                         {menuArray.map(item => (
                             <ListItem key={item.id} disableGutters>

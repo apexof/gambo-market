@@ -8,6 +8,7 @@ import Price from '../../Elements/Price';
 import OldPrice from '../../Elements/OldPrice';
 import Discount from './DiscountBlock';
 import CartControls from './CartControls/CartControls';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -41,6 +42,11 @@ const useStyles = makeStyles(theme => ({
     },
     cardActions: {
         padding: 0,
+        display: "flex",
+        justifyContent: "space-between",
+    },
+    cartIcon: {
+        cursor: "pointer",
     },
     discountWrapp: {
         position: "absolute",
@@ -80,6 +86,7 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
                 <CartControls />
+                <ShoppingCartIcon className={classes.cartIcon} />
             </CardActions>
         </Card>
     )

@@ -13,9 +13,11 @@ const useStyles = makeStyles(theme => ({
     card: {
         padding: 15,
         position: "relative",
-        boxShadow: "none",
         "&:hover $imgWrapper": {
             transform: "scale(1.1)",
+        },
+        "&:hover": {
+            boxShadow: `2px 2px 2px 2px ${theme.palette.type === "dark" ? "#242424" : "#e9e9e9"} !important`,
         }
     },
     wishIcon: {

@@ -1,7 +1,7 @@
-import { AppBar, Container, Toolbar } from '@material-ui/core';
+import { AppBar, Box, Container, Toolbar } from '@material-ui/core';
 import React from 'react'
 import Link from '../Elements/Link'
-import HeaderSelect from './HeaderTop/HeaderSelect'
+import HeaderSelect from '../Elements/Select1'
 import { useThemeContext } from '../ThemeSwitcher/MyThemeProvider'
 import HeaderNavList from './HeaderTop/HeaderNavList'
 import HeaderSearch from './HeaderTop/HeaderSearch'
@@ -113,7 +113,9 @@ export default function HeaderTop(props) {
                         alt=""
                     />
                 </Link>
-                <HeaderSelect selectItems={selectItems} />
+                <Box display={{ xs: "none", lg: "block" }}>
+                    <HeaderSelect selectItems={selectItems} />
+                </Box>
                 <HeaderSearch />
                 <HeaderNavList />
                 <Link href="/" className={classes.wishLink}>

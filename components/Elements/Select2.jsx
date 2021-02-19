@@ -1,11 +1,8 @@
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
+import { Typography, Select, MenuItem } from '@material-ui/core';
 
 const BootstrapInput = withStyles((theme) => ({
     input: {
@@ -40,18 +37,22 @@ export default function CustomizedSelects({ items }) {
     return (
         <div>
             <FormControl className={classes.margin}>
-                {/* <InputLabel htmlFor="demo-customized-select-native">Age</InputLabel> */}
-                <NativeSelect
+                <Select
                     id="demo-customized-select-native"
                     value={value}
                     onChange={handleChange}
                     input={<BootstrapInput />}
                 >
-                    {/* <option aria-label="None" value="" /> */}
                     {items.map(item => (
-                        <option key={item.id} value={item.id}>{item.title}</option>
+                        <MenuItem key={item.id} value={item.id}>
+                            <div className={classes.menuItem}>
+                                <Typography className={classes.menuText}>
+                                    {item.title}
+                                </Typography>
+                            </div>
+                        </MenuItem>
                     ))}
-                </NativeSelect>
+                </Select>
             </FormControl>
         </div>
     );

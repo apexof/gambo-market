@@ -3,7 +3,7 @@ import React from 'react'
 import Filter from '../../Filters/Category/Filter'
 import ProductCard from '../ProductCards/MainProductCard'
 import SectionTitle from '../../Elements/SectionTitle'
-import Select2 from '../../Elements/Select2'
+import Select1 from '../../Elements/Select1'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -55,15 +55,18 @@ export default function ProductListSlider({ items, title, }) {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <Box display="flex" flexDirection="row-reverse">
-                            <Filter />
-                            <Select2 items={sort} />
+                            <Box ml={2}>
+                                <Filter />
+                            </Box>
+                            <Select1 selectItems={sort} icons={false} shadow={true} bgc="paper" />
+
                         </Box>
                     </Grid>
                 </Grid>
             </Box>
-            <Grid container spacing={4}>
+            <Box m={-1.5} display="flex" flexWrap="wrap">
                 {items.map(item => (
-                    <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
+                    <Box p={1.5} width={{ xs: "100%", sm: "50%", md: "33.333%", lg: "20%" }} key={item.id} >
                         <ProductCard
                             id={item.id}
                             title={item.title}
@@ -73,9 +76,9 @@ export default function ProductListSlider({ items, title, }) {
                             available={item.available}
                             discount={item.discount}
                         />
-                    </Grid>
+                    </Box>
                 ))}
-            </Grid>
+            </Box>
             <Box mt={4} display="flex" justifyContent="center">
                 <Button variant="contained" color="secondary" className={classes.btn}>
                     Show More

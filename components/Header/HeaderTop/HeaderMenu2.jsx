@@ -62,7 +62,6 @@ export default function HeaderMenu() {
                 keepMounted
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
-                disablePadding
                 MenuListProps={{
                     classes: { padding: classes.padding },
                 }}

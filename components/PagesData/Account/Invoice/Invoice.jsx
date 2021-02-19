@@ -1,13 +1,13 @@
 import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Link from '../../../Elements/Link';
-import IntlMessages from './IntlMessages';
+import IntlMessages from '../../../KouttComponents/IntlMessages';
 import {
     Grid, Typography, Box, Table, TableBody, TableCell,
     TableContainer, TableHead, TableRow, Paper, Divider, Container
 } from '@material-ui/core';
-import { CustomCard } from './CustomCard';
-import { SmallTitleBar } from './SmallTitleBar';
+import { CustomCard } from '../../../KouttComponents/CustomCard';
+import { SmallTitleBar } from '../../../KouttComponents/SmallTitleBar';
 
 const StyledTableCell = withStyles(theme => ({
     body: {

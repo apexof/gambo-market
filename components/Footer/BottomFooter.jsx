@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Link, List, ListItem, Typography } from '@material-ui/core';
+import { Box, Container, Grid, Link, List, ListItem, Typography } from '@material-ui/core';
 
 const menu = [
     {
@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.type === "dark" ? "#c7c7c7" : "#f69733",
         background: theme.palette.primary.main,
         borderTop: `1px solid ${theme.palette.grey["50"]}`,
-
     },
     bottomFooter: {
         padding: "30px 0",
@@ -38,15 +37,7 @@ const useStyles = makeStyles(theme => ({
         borderTop: `1px solid ${theme.palette.grey["50"]}`,
     },
     menu: {
-        display: 'flex',
-        flexDirection: 'row',
         padding: 0,
-        margin: "0 -10px",
-        justifyContent: "center",
-    },
-    menuLi: {
-        width: "auto",
-        margin: "0 10px"
     },
     link: {
         color: theme.palette.primary.contrastText,
@@ -65,18 +56,20 @@ export default function BottomFooter() {
     return (
         <div className={classes.bottomFooter}>
             <Container>
-                <List className={classes.menu}>
+                <Grid container spacing={2} justify="center">
                     {menu.map(item => (
-                        <ListItem key={item.id} disableGutters className={classes.menuLi}>
+                        <Grid item key={item.id}>
                             <Link className={classes.link} href="#">
                                 {item.title}
                             </Link>
-                        </ListItem>
+                        </Grid>
                     ))}
-                </List>
-                <Typography align="center">
-                    Copyright 2020 Gambolthemes . All rights reserved
+                </Grid>
+                <Box mt={2}>
+                    <Typography align="center">
+                        Copyright 2020 Gambolthemes . All rights reserved
             </Typography>
+                </Box>
             </Container>
         </div>
     )

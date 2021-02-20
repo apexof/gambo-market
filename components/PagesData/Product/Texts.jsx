@@ -88,7 +88,7 @@ export default function SimpleTabs() {
             <AppBar position="static" className={cx(classes.appBar, "shadow1")}>
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                     {texts.map(item => (
-                        <Tab label={item.title} {...a11yProps(item.id)} />
+                        <Tab key={item.id} label={item.title} {...a11yProps(item.id)} />
                     ))}
                 </Tabs>
             </AppBar>

@@ -14,6 +14,10 @@ const useStyles = makeStyles(theme => ({
     card: {
         padding: 15,
         position: "relative",
+        transition: "all .25s ease !important",
+        "&:hover": {
+            transform: "scale(1.05)",
+        },
         "&:hover $imgWrapper": {
             // transform: "scale(1.1)",
         },

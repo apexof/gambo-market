@@ -18,7 +18,7 @@ export default function Home() {
         <MainLayout>
             <TopSlider />
             <CategorySlider />
-            <Box mt={6}>
+            <Box mt={5}>
                 <ProductListSlider
                     id="top-featured-products"
                     title="Top Featured Products"
@@ -26,7 +26,9 @@ export default function Home() {
                     items={TopFeaturedProducts}
                 />
             </Box>
-            <BannerSection />
+            <Box mt={4}>
+                <BannerSection />
+            </Box>
             <Box mt={6}>
                 <ProductListSlider
                     id="fresh-and-fruits"
@@ -35,7 +37,7 @@ export default function Home() {
                     items={FreshAndFruits}
                 />
             </Box>
-            <Box mt={6}>
+            <Box mt={4}>
                 <ProductListSlider
                     id="added-new-products"
                     title="Added New Products"

@@ -7,10 +7,10 @@ import Slider from '../../SliderSimpleArrows';
 
 const useStyles = makeStyles(theme => ({
     list: {
-        margin: `-10px -${theme.spacing(1.5)}`,
+        margin: `0 -${theme.spacing(1.5)}`,
         width: `calc(100% + ${theme.spacing(3)})`,
         "& .slick-track": {
-            padding: "10px 0",
+            padding: `${theme.spacing(2)} 0`,
         }
     },
 }))
@@ -46,7 +46,9 @@ export default function ProductListSlider({ items, title, clarification, id }) {
     const classes = useStyles();
     return (
         <Container>
-            <SectionTitle title={title} clarification={clarification} seeAllLink={`/category/${id}`} />
+            <Box mb={1.5}>
+                <SectionTitle title={title} clarification={clarification} seeAllLink={`/category/${id}`} />
+            </Box>
             <div className={classes.list}>
                 <Slider slidesToShow={5} responsive={responsive}>
                     {items.map(item => (

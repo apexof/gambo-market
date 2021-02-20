@@ -69,9 +69,11 @@ export default function Order({ timing, way, subTotal, charges, trackStatus, cas
             <Box className={cx(classes.block, classes.header)}>
                 <img height={50} src="/img/account/groceries.svg" alt="" />
                 <Box ml={1}>
-                    <Typography variant="h5">
-                        {way}
-                    </Typography>
+                    <Box mb={0.5}>
+                        <Typography variant="h5">
+                            {way}
+                        </Typography>
+                    </Box>
                     <Typography variant="body1">
                         Delivered - Gambo
                 </Typography>

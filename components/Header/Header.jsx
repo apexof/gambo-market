@@ -60,6 +60,11 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "50%",
         right: "-4px",
     },
+    icon: {
+        "&:hover": {
+            color: theme.palette.secondary.main,
+        },
+    },
 }));
 
 const selectItems = [
@@ -118,7 +123,7 @@ export default function HeaderTop({ loggedIn = false }) {
                     <HeaderSelect selectItems={selectItems} />
                 </Box>
                 <HeaderSearch />
-                {!loggedIn ?
+                {loggedIn ?
                     <>
                         <Box mx={2}>
                             <ContactMenu />

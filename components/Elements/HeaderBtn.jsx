@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Link from './Link'
-import { Box } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     logInLink: {
@@ -14,8 +14,13 @@ const useStyles = makeStyles(theme => ({
         whiteSpace: "nowrap",
         color: theme.palette.text.primary,
         display: "flex",
-        alignItems: "center"
-    }
+        alignItems: "center",
+        "&:hover": {
+            color: theme.palette.secondary.main,
+        },
+    },
+    text: {
+    },
 }))
 
 export default function HeaderBtn({ href, text, icon }) {
@@ -24,8 +29,10 @@ export default function HeaderBtn({ href, text, icon }) {
     return (
         <Link href={href} className={classes.logInLink}>
             {icon}
-            <Box ml={1}>
-                {text}
+            <Box ml={1} className={classes.text}>
+                <Typography variant="h5" className={classes.text}>
+                    {text}
+                </Typography>
             </Box>
         </Link>
     )

@@ -156,7 +156,7 @@ export default function HederMenu() {
         <List className={classes.list}>
             {menuItems.map(item => (
                 <ListItem key={item.id} className={classes.listItem}>
-                    <Link className={classes.link} href="#">
+                    <Link className={classes.link} href="/">
                         <Box>
                             {item.title}
                         </Box>

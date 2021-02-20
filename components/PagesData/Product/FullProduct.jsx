@@ -52,9 +52,9 @@ export default function FullProduct({ img, title, id, available, weight, price, 
                             <Typography className={classes.title} variant="h2">{title}</Typography>
                         </Box>
                         <Box display="flex" mb={2}>
-                            <Box mr={4}>
+                            <Box mr={4} mb={1}>
                                 <Typography variant="h5">Product No.
-                            <Typography component="span" color="textSecondary">
+                                    <Typography component="span" color="textSecondary">
                                         {id}
                                     </Typography>
                                 </Typography>

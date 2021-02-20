@@ -8,7 +8,7 @@ import Price from '../../Elements/Price';
 import OldPrice from '../../Elements/OldPrice';
 import Discount from './DiscountBlock';
 import CartControls from './CartControls/CartControls';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 const useStyles = makeStyles(theme => ({
     card: {

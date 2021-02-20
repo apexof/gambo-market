@@ -68,7 +68,7 @@ const texts = [
     {
         id: 3,
         title: "Seller",
-        text: `Gambolthemes Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001`,
+        text: `Koutt Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001`,
     },
     {
         id: 4,

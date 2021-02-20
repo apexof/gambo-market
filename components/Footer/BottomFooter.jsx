@@ -67,7 +67,7 @@ export default function BottomFooter() {
                 </Grid>
                 <Box mt={2}>
                     <Typography align="center">
-                        Copyright 2020 Gambolthemes . All rights reserved
+                        © Copyright 2021 Koutt . All rights reserved
             </Typography>
                 </Box>
             </Container>

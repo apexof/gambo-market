@@ -3,6 +3,7 @@ import React from 'react'
 import Link from "../../Elements/Link";
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 const menuItems = [
     {
         id: 1,
@@ -84,6 +85,11 @@ const menuItems = [
                 id: 3,
                 title: "Example Category Page",
                 href: "/category/added-new-products",
+            },
+            {
+                id: 4,
+                title: "Order Placed",
+                href: "/order-placed",
             },
         ]
     },

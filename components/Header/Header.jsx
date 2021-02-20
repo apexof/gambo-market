@@ -4,10 +4,10 @@ import Link from '../Elements/Link'
 import HeaderSelect from '../Elements/Select1'
 import { useThemeContext } from '../ThemeSwitcher/MyThemeProvider'
 import HeaderSearch from './HeaderTop/HeaderSearch'
-import HeaderMenu from './HeaderTop/HeaderMenu'
-import HeaderMenu2 from './HeaderTop/HeaderMenu2'
+import ProfileMenu from './HeaderTop/ProfileMenu'
+import ContactMenu from './HeaderTop/ContactMenu'
 import HeaderBtn from '../Elements/HeaderBtn'
-import LeftDrawer from './HeaderBottom/LeftDrawer'
+import CartDrawer from './HeaderBottom/CartDrawer'
 import HeaderNavMenu from './HeaderBottom/HeaderNavMenu'
 import SelectCategoryModal from './HeaderBottom/SelectCategoryModal'
 import { makeStyles } from "@material-ui/core/styles";
@@ -118,12 +118,12 @@ export default function HeaderTop({ loggedIn = false }) {
                     <HeaderSelect selectItems={selectItems} />
                 </Box>
                 <HeaderSearch />
-                {loggedIn ?
+                {!loggedIn ?
                     <>
                         <Box mx={2}>
-                            <HeaderMenu2 />
+                            <ContactMenu />
                         </Box>
-                        <HeaderMenu />
+                        <ProfileMenu />
                     </>
                     :
                     <>
@@ -137,7 +137,7 @@ export default function HeaderTop({ loggedIn = false }) {
             <Toolbar className={classes.toolbar2}>
                 <SelectCategoryModal />
                 <HeaderNavMenu />
-                <LeftDrawer />
+                <CartDrawer />
             </Toolbar>
         </AppBar >
     )

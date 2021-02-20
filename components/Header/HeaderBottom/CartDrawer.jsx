@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
         width: 'auto',
     },
     btn: {
-        width: 142,
+        width: 190,
         height: 64,
         background: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,
@@ -88,7 +88,7 @@ export default function TemporaryDrawer() {
         <>
             <Button onClick={toggleDrawer} className={classes.btn}>
                 <ShoppingCartOutlinedIcon />
-                <Box ml={1}>
+                <Box ml={1.5}>
                     Cart
                 </Box>
             </Button>

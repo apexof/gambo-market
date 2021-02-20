@@ -69,7 +69,8 @@ const useStyles = makeStyles(theme => ({
         marginRight: "15px"
     },
     nightMode: {
-        borderBottom: `1px solid ${theme.palette.grey["50"]}`,
+        borderTop: `1px solid ${theme.palette.grey["50"]}`,
+        background: theme.palette.background.default
     },
 }));
 
@@ -99,6 +100,14 @@ export default function HeaderMenu() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
+                {menuItems.map(item => (
+                    <MenuItem key={item.id} onClick={handleClose} className={classes.item}>
+                        <Icon className={classes.menuIcon}>{item.icon}</Icon>
+                        <Typography variant="body2">
+                            {item.title}
+                        </Typography>
+                    </MenuItem>
+                ))}
                 <MenuItem key={101} className={cx(classes.nightMode, classes.item)}>
                     <Box display="flex" justifyContent="space-between" width="100%" alignItems="center">
                         <Box display="flex" alignItems="center">
@@ -112,14 +121,6 @@ export default function HeaderMenu() {
                         <ThemeSwitcher />
                     </Box>
                 </MenuItem>
-                {menuItems.map(item => (
-                    <MenuItem key={item.id} onClick={handleClose} className={classes.item}>
-                        <Icon className={classes.menuIcon}>{item.icon}</Icon>
-                        <Typography variant="body2">
-                            {item.title}
-                        </Typography>
-                    </MenuItem>
-                ))}
             </Menu>
         </>
     )

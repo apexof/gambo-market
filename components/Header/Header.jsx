@@ -106,6 +106,8 @@ export default function HeaderTop({ loggedIn = false }) {
     const logo = matches ? "/min-logo.svg" : nightMode ? "/dark-logo.svg" : "/main-logo.svg"
     return (
         <AppBar position="sticky" className={classes.header}>
+            <div>qwe
+            </div>
             <Toolbar className={classes.toolbar}>
                 <Link href="/" onClick={e => e.preventDefault} className={classes.logo}>
                     <img

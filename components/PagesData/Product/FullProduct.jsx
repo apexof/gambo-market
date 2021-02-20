@@ -47,7 +47,9 @@ export default function FullProduct({ img, title, id, available, weight, price, 
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <div>
-                        <Typography className={classes.title} variant="h2">{title}</Typography>
+                        <Box mb={3.5}>
+                            <Typography className={classes.title} variant="h2">{title}</Typography>
+                        </Box>
                         <Box display="flex" mb={2}>
                             <Box mr={4}>
                                 <Typography variant="h5">Product No.

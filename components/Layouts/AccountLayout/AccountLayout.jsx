@@ -6,7 +6,7 @@ import BreadCrumbs from '../../Elements/BreadCrumbs'
 import LeftNavMenu from './LeftNavMenu'
 import ProfileHeader from './ProfileHeader'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography } from '@material-ui/core'
+import { Box, Container, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     page: {
@@ -57,7 +57,11 @@ export default function AccountLayout({ children, title, rootPath = "/account" }
                         </div>
                     </div>
                     <div className={classes.content}>
-                        {title && <Typography variant="h2">{title}</Typography>}
+                        {title &&
+                            <Box mb={3.5}>
+                                <Typography variant="h2">{title}</Typography>
+                            </Box>
+                        }
                         {children}
                     </div>
                 </div>

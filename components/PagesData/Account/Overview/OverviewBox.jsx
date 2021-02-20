@@ -38,7 +38,9 @@ export default function OverBox({ title, footerTitle, contentTitle, children }) 
         <Box className={cx(classes.item, "shadow1")}>
             <BlockTitle >{title}</BlockTitle>
             <Box className={classes.content}>
-                <Typography className={classes.contentTitle} variant="h2">{contentTitle}</Typography>
+                <Box mb={3.5}>
+                    <Typography className={classes.contentTitle} variant="h2">{contentTitle}</Typography>
+                </Box>
                 <Box my="auto">
                     {children}
                 </Box>

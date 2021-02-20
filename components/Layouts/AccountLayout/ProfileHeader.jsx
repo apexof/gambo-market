@@ -112,9 +112,11 @@ export default function ProfileHeader() {
                     </label>
                 </div>
             </div>
-            <Typography variant="h2">
-                John Doe
+            <Box mb={3.5}>
+                <Typography variant="h2">
+                    John Doe
             </Typography>
+            </Box>
             <Box className={classes.tel}>
                 <Typography variant="body1" >
                     +91999999999

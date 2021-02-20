@@ -2,9 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import CreateIcon from '@material-ui/icons/Create';
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 const useStyles = makeStyles(theme => ({
     item: {
         padding: theme.spacing(3),

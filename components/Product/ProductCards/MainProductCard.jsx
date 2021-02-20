@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core'
+import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core'
 import React from 'react'
 import Link from '../../Elements/Link'
 import cx from 'clsx'
@@ -8,18 +8,19 @@ import Price from '../../Elements/Price';
 import OldPrice from '../../Elements/OldPrice';
 import Discount from './DiscountBlock';
 import CartControls from './CartControls/CartControls';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 const useStyles = makeStyles(theme => ({
     card: {
         padding: 15,
         position: "relative",
-        "&:hover $imgWrapper": {
-            transform: "scale(1.1)",
-        },
+        transition: "all .25s ease !important",
         "&:hover": {
-            boxShadow: `2px 2px 2px 2px ${theme.palette.type === "dark" ? "#242424" : "#e9e9e9"} !important`,
-        }
+            transform: "scale(1.05)",
+        },
+        "&:hover $imgWrapper": {
+            // transform: "scale(1.1)",
+        },
     },
     wishIcon: {
         position: "absolute",
@@ -35,7 +36,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "center",
     },
     priceBlock: {
-        marginTop: 10,
+        marginTop: theme.spacing(1),
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
@@ -56,11 +57,11 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function ProductCard({ title, img, price, oldPrice, available, discount, id }) {
+export default function ProductCard({ title, img, price, oldPrice, available, discount, id, shadow }) {
     const classes = useStyles();
 
     return (
-        <Card className={cx(classes.card, "shadow1")}>
+        <Card className={cx(classes.card, shadow)}>
             <div className={classes.discountWrapp}>
                 <Discount>{discount}</Discount>
             </div>
@@ -76,9 +77,11 @@ export default function ProductCard({ title, img, price, oldPrice, available, di
                 <Typography variant="subtitle2">
                     {`Available ${available}`}
                 </Typography>
-                <Typography variant="subtitle1">
-                    {title}
-                </Typography>
+                <Box mb={1}>
+                    <Typography variant="subtitle1">
+                        {title}
+                    </Typography>
+                </Box>
                 <div className={classes.priceBlock}>
                     <Price>{price}</Price>
                     <OldPrice>{oldPrice}</OldPrice>

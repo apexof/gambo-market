@@ -3,7 +3,7 @@ import CategoryCard from './CategoryCard'
 import SectionTitle from '../Elements/SectionTitle'
 import Slider from '../SliderSimpleArrows'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 
 const categories = [
     {
@@ -103,7 +103,7 @@ const responsive = [
 
 const useStyles = makeStyles(theme => ({
     categorySlider: {
-        marginTop: 47,
+        margin: `${theme.spacing(6)} 0 0`,
     },
     itemWrap: {
         background: theme.palette.primary.main,
@@ -112,10 +112,10 @@ const useStyles = makeStyles(theme => ({
         margin: `0 ${theme.spacing(1.5)}`,
     },
     list: {
-        margin: `-10px -${theme.spacing(1.5)}`,
+        margin: `-${theme.spacing(1)} -${theme.spacing(1.5)}`,
         width: `calc(100% + ${theme.spacing(3)})`,
         "& .slick-track": {
-            padding: "10px 0",
+            padding: `${theme.spacing(1)} 0`,
         },
         "& button:last-child": {
             // right: "3px",
@@ -131,7 +131,9 @@ export default function CategorySlider() {
     return (
         <section className={classes.categorySlider}>
             <Container>
-                <SectionTitle title="Categories" clarification="Shop By" seeAllLink={false} />
+                <Box mb={3.5}>
+                    <SectionTitle title="Categories" clarification="Shop By" seeAllLink={false} />
+                </Box>
                 <div className={classes.list}>
                     <Slider slidesToShow={6} responsive={responsive}>
                         {categories.map(item => (

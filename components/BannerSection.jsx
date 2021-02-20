@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core'
+import { Box, Container } from '@material-ui/core'
 import React from 'react'
 import cx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,7 +6,6 @@ import SectionTitle from './Elements/SectionTitle';
 
 const useStyles = makeStyles(theme => ({
     section: {
-        margin: "47px 0 0",
     },
     list: {
         display: "flex",
@@ -66,7 +65,9 @@ export default function BannerSection() {
     return (
         <section className={classes.section}>
             <Container>
-                <SectionTitle title="Best Values" clarification="Offers" />
+                <Box mb={3.5}>
+                    <SectionTitle title="Best Values" clarification="Offers" />
+                </Box>
                 <div className={classes.list}>
                     {banners.map(item => (
                         <div

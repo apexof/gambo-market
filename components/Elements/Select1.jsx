@@ -22,11 +22,14 @@ const useStyles = makeStyles(theme => ({
             // color: theme.palette.primary.contrastText,
         },
     },
+    menuItemLi: {
+        height: props => (props.icons ? 42 : "auto"),
+    },
     menuItem: {
         display: 'flex',
         alignItems: 'center',
         width: 200,
-        padding: `0 ${theme.spacing(1)}`
+        padding: `0 ${theme.spacing(1)}`,
     },
     root: props => ({
         background: theme.palette.background[props.bgc],
@@ -37,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function HeaderSelect({ selectItems, icons = true, shadow = false, bgc = "default" }) {
-    const classes = useStyles({ bgc });
+    const classes = useStyles({ bgc, icons });
     const [field, setField] = React.useState(1);
 
     const handleChange = (event) => {
@@ -57,7 +60,7 @@ export default function HeaderSelect({ selectItems, icons = true, shadow = false
                 }}
             >
                 {selectItems.map(item => (
-                    <MenuItem key={item.title} value={item.id}>
+                    <MenuItem key={item.title} value={item.id} className={classes.menuItemLi}>
                         <div className={classes.menuItem}>
                             {icons &&
                                 (field === item.id &&

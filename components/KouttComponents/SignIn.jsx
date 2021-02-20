@@ -31,7 +31,7 @@ function TabPanel(props) {
             aria-labelledby={`simple-tab-${index}`}
             {...other}
         >
-            {value === index && <Box p={3}>{children}</Box>}
+            <Box p={3}>{children}</Box>
         </Typography>
     );
 }
@@ -148,28 +148,13 @@ class SigninFirebase extends Component {
         return (
             <Container>
                 <Head>
-                    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+                    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossOrigin="anonymous" />
                 </Head>
                 <Box p={4} width={600} mx="auto">
                     <div className="session-wrapper session-wrapper-v2">
                         <Box className="session-box" mx="auto" display="flex" justifyContent="center" alignItems="center">
                             <Box width="100%">
-                                <Box textAlign="center" className="session-logo" >
-                                    {isDarkModeActive ?
-                                        <img className="img-fluid" alt="img" width="100" src="/img/koutt-dark.png" />
-                                        :
-                                        <img className="img-fluid" alt="img" width="100" src="/img/koutt-dark.png" />
-                                    }
-                                </Box>
-                                <div className="log-tab">
-                                    <AppBar position="static">
-                                        <Tabs value={this.state.value} onChange={this.handleChange} aria-label="simple tabs example">
-                                            <Tab label="Firebase" {...a11yProps(0)} />
-                                            <Tab label="JWT" {...a11yProps(1)} />
-                                        </Tabs>
-                                    </AppBar>
-                                </div>
-                                <TabPanel value={this.state.value} index={0} className="log-box">
+                                <TabPanel className="log-box">
                                     <CustomCard>
                                         <form className="login-form text-center">
                                             <Typography variant="subtitle2" >Log in to continue to :</Typography>
@@ -267,54 +252,6 @@ class SigninFirebase extends Component {
                                                 <Box fontSize="subtitle2.fontSize" pl={1}>
                                                     <Box style={{ cursor: 'pointer' }} color="primary.main" onClick={() => this.onUserSignUp()}>Sign up for an account</Box>
                                                 </Box>
-                                            </Box>
-                                        </form>
-                                    </CustomCard>
-                                </TabPanel>
-                                <TabPanel value={this.state.value} index={1} className="log-box">
-                                    <CustomCard>
-                                        <form className="login-form text-center">
-                                            <Typography variant="subtitle2" >Log in to continue to :</Typography>
-                                            <Typography variant="subtitle2" color="textPrimary" className="fw-500">Koutt</Typography>
-                                            <Box my={3}>
-                                                <TextField
-                                                    required
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    id="username"
-                                                    type="email"
-                                                    name="email"
-                                                    placeholder="Please enter your email address."
-                                                    className="outlined-input"
-                                                    value={email}
-                                                    onChange={(email) => this.onEmailChanged(email)}
-
-                                                />
-                                            </Box>
-                                            <Box mb={3}>
-                                                <TextField
-                                                    required
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    id="login-password"
-                                                    placeholder="Please enter your login password."
-                                                    className="outlined-input"
-                                                    type="password"
-                                                    value={password}
-                                                    onChange={this.onPasswordChanged.bind(this)}
-                                                />
-
-                                            </Box>
-                                            <Box mb={1}>
-                                                <Button
-                                                    color="primary"
-                                                    className="btn-block blockBtn w-100"
-                                                    variant="contained"
-                                                    size="large"
-                                                    onClick={() => this.onJwtLogin()}
-                                                >
-                                                    Sign In With JWT
-											</Button>
                                             </Box>
                                         </form>
                                     </CustomCard>

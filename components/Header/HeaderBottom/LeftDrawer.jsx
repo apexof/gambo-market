@@ -3,11 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import CartList from '../../Product/ProductLists/CartList';
-import Icon from '@material-ui/core/Icon';
 import { Box, Toolbar, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import Price from '../../Elements/Price';
 import OldPrice from '../../Elements/OldPrice';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 const useStyles = makeStyles(theme => ({
     list: {
@@ -87,7 +87,7 @@ export default function TemporaryDrawer() {
     return (
         <>
             <Button onClick={toggleDrawer} className={classes.btn}>
-                <Icon>shopping-cart</Icon>
+                <ShoppingCartOutlinedIcon />
                 <Box ml={1}>
                     Cart
                 </Box>

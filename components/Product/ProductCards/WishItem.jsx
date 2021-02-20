@@ -5,7 +5,7 @@ import Discount from './DiscountBlock';
 import Link from '../../Elements/Link';
 import Price from '../../Elements/Price';
 import OldPrice from '../../Elements/OldPrice';
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@material-ui/icons/DeleteOutlineOutlined';
 
 const useStyles = makeStyles(theme => ({
     item: {

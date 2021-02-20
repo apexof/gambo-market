@@ -69,11 +69,16 @@ const useStyles = makeStyles(theme => ({
         marginRight: "15px"
     },
     nightMode: {
-        borderBottom: `1px solid ${theme.palette.grey["50"]}`,
+        borderTop: `1px solid ${theme.palette.grey["50"]}`,
+        background: theme.palette.background.default
     },
+    logInLink: {
+        color: theme.palette.text.primary,
+        marginLeft: theme.spacing(1),
+    }
 }));
 
-export default function HeaderMenu() {
+export default function HeaderMenu({ loggedIn = false }) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => setAnchorEl(event.currentTarget)
@@ -90,7 +95,7 @@ export default function HeaderMenu() {
                 <img className={classes.img} src="/profile-logo.jpg" alt="" />
                 <Typography variant="body2" component="span">
                     John Doe
-                </Typography>
+            </Typography>
             </Button>
             <Menu
                 id="simple-menu"
@@ -99,6 +104,14 @@ export default function HeaderMenu() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
+                {menuItems.map(item => (
+                    <MenuItem key={item.id} onClick={handleClose} className={classes.item}>
+                        <Icon className={classes.menuIcon}>{item.icon}</Icon>
+                        <Typography variant="body2">
+                            {item.title}
+                        </Typography>
+                    </MenuItem>
+                ))}
                 <MenuItem key={101} className={cx(classes.nightMode, classes.item)}>
                     <Box display="flex" justifyContent="space-between" width="100%" alignItems="center">
                         <Box display="flex" alignItems="center">
@@ -112,14 +125,6 @@ export default function HeaderMenu() {
                         <ThemeSwitcher />
                     </Box>
                 </MenuItem>
-                {menuItems.map(item => (
-                    <MenuItem key={item.id} onClick={handleClose} className={classes.item}>
-                        <Icon className={classes.menuIcon}>{item.icon}</Icon>
-                        <Typography variant="body2">
-                            {item.title}
-                        </Typography>
-                    </MenuItem>
-                ))}
             </Menu>
         </>
     )

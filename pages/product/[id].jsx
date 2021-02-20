@@ -4,7 +4,7 @@ import BlockTitle from '../../components/Elements/BlockTitle'
 import CartList from '../../components/Product/ProductLists/CartList'
 import { TopFeaturedProducts, getItemById } from '../../components/Product/ProductLists/lists'
 import { useRouter } from 'next/router';
-import Texts from '../../components/PagesData/Product/Texts';
+import TextsOld from '../../components/PagesData/Product/TextsOld';
 import { Box, Container, Grid } from '@material-ui/core';
 import FullProduct from '../../components/PagesData/Product/FullProduct';
 
@@ -33,9 +33,9 @@ export default function Category(props) {
                             <BlockTitle>More Like This</BlockTitle>
                             <CartList />
                         </Grid>
-                        <Grid item xs={12} md={8} >
-                            <Texts />
-                        </Grid>
+                        {/* <Grid item xs={12} md={8} >
+                            <TextsOld />
+                        </Grid> */}
                     </Grid>
                 </Box>
             </Container>

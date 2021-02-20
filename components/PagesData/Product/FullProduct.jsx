@@ -5,6 +5,7 @@ import WeightList from '../../Product/ProductCards/WeightList';
 import Features from '../../PagesData/Product/Features';
 import PriceBlock from '../../PagesData/Product/PriceBlock';
 import Slider from '../../PagesData/Product/Slider';
+import Texts from './Texts';
 
 const useStyles = makeStyles(theme => ({
     product: {
@@ -66,16 +67,13 @@ export default function FullProduct({ img, title, id, available, weight, price, 
                         </Box>
                         <WeightList items={weight} />
                         <Box my={3}>
-                            <Typography variant="body2">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate, purus at tempor blandit, nulla felis dictum eros, sed volutpat odio sapien id lectus. Cras mollis massa ac congue posuere. Fusce viverra mauris vel magna pretium aliquet. Nunc tincidunt, velit id tempus tristique, velit dolor hendrerit nibh, at scelerisque neque mauris sed ex.
-                            </Typography>
+                            <Texts />
                         </Box>
                         <PriceBlock price={price} oldPrice={oldPrice} />
                         <Features />
                     </div>
                 </Grid>
             </Grid>
-
         </div>
     )
 }

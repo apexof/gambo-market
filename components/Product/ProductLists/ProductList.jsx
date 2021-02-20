@@ -49,9 +49,12 @@ export default function ProductListSlider({ items, title, }) {
     return (
         <Container>
             <Box mb={1}>
-                <Grid container justify="space-between" >
+                <Grid container justify="space-between">
+
                     <Grid item xs={12} sm={6}>
-                        <SectionTitle title={title} seeAllLink={false} />
+                        <Box mb={3.5}>
+                            <SectionTitle title={title} seeAllLink={false} />
+                        </Box>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <Box display="flex" flexDirection="row-reverse">

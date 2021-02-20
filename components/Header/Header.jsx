@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     countWishes: {
-        background: "#f55d2c",
+        background: "#c50000", // push
         fontSize: "11px",
         fontWeight: "600",
         position: "absolute",

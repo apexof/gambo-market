@@ -60,6 +60,7 @@ export default function ProductListSlider({ items, title, clarification, id }) {
                                     oldPrice={item.oldPrice}
                                     available={item.available}
                                     discount={item.discount}
+                                    shadow="shadow1"
                                 />
                             </Box>
                         </div>

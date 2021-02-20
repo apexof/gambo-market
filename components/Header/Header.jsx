@@ -60,11 +60,6 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "50%",
         right: "-4px",
     },
-    icon: {
-        "&:hover": {
-            color: theme.palette.secondary.main,
-        },
-    },
 }));
 
 const selectItems = [

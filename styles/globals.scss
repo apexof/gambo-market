@@ -86,4 +86,12 @@ h2.MuiTypography-h2{
 .google-color {
     background: #db4437 !important;
 }
+.outlined-input {
+    & .MuiOutlinedInput-root.Mui-focused {
+        .MuiOutlinedInput-notchedOutline {
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.23);
+        }
+    }
+}
 // Koutt styles

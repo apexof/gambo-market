@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
         flexShrink: 0,
         textTransform: 'none',
         whiteSpace: "nowrap",
-        marginRight: theme.spacing(2),
     },
     padding: {
         padding: 0,

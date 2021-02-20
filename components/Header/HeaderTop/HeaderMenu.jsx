@@ -72,9 +72,13 @@ const useStyles = makeStyles(theme => ({
         borderTop: `1px solid ${theme.palette.grey["50"]}`,
         background: theme.palette.background.default
     },
+    logInLink: {
+        color: theme.palette.text.primary,
+        marginLeft: theme.spacing(1),
+    }
 }));
 
-export default function HeaderMenu() {
+export default function HeaderMenu({ loggedIn = false }) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => setAnchorEl(event.currentTarget)
@@ -91,7 +95,7 @@ export default function HeaderMenu() {
                 <img className={classes.img} src="/profile-logo.jpg" alt="" />
                 <Typography variant="body2" component="span">
                     John Doe
-                </Typography>
+            </Typography>
             </Button>
             <Menu
                 id="simple-menu"

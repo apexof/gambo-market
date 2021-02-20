@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
 import PlusCartButton from './PlusCartButton'
 import { makeStyles } from '@material-ui/core/styles';
-import { Input } from '@material-ui/core';
+import { Box, Input } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     cartControls: {
         display: "flex",
         alignItems: "center",
         width: 95,
+        height: 30,
     },
     input: {
+        height: 30,
         textAlign: "center",
         "& .MuiInputBase-input": {
             textAlign: "center",
-        }
+        },
+        borderTop: `1px solid ${theme.palette.grey["50"]}`,
+        borderBottom: `1px solid ${theme.palette.grey["50"]}`,
     },
 }))
 

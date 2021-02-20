@@ -27,10 +27,8 @@ export default function PlusCartBtc({ type, onClick }) {
     const classes = useStyles();
     const typeClass = type === "left" ? "leftBtn" : "rightBtn";
     return (
-        <div className={classes.der}>
-            <Button className={`${classes.btn} ${classes[typeClass]}`} onClick={onClick}>
-                {type === "left" ? "-" : "+"}
-            </Button>
-        </div>
+        <Button className={`${classes.btn} ${classes[typeClass]}`} onClick={onClick}>
+            {type === "left" ? "-" : "+"}
+        </Button>
     )
 }

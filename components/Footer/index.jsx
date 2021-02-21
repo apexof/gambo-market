@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
     footer: {
-        margin: `${theme.spacing(4)} 0`,
+        margin: `${theme.spacing(4)} 0 0`,
         overflow: "hidden",
     },
 }))

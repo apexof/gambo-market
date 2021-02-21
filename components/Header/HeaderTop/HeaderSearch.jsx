@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     form: {
-        margin: "0 auto 0 35px",
+        margin: "0 auto 0 15px",
         width: "100%",
         display: "none",
         [theme.breakpoints.up('sm')]: {

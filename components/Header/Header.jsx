@@ -65,35 +65,55 @@ const useStyles = makeStyles(theme => ({
 const selectItems = [
     {
         id: 0,
-        title: "Gurugram"
+        title: "Alessandria"
     },
     {
         id: 1,
-        title: "New Delhi"
+        title: "Milano"
     },
     {
         id: 2,
-        title: "Bangaluru"
+        title: "Monza"
     },
     {
         id: 3,
-        title: "Mumbai"
+        title: "Novara"
     },
     {
         id: 4,
-        title: "Hyderabad"
+        title: "Torino"
     },
     {
         id: 5,
-        title: "Kolkata"
+        title: "Cremona"
     },
     {
         id: 6,
-        title: "Ludhiana"
+        title: "Brescia"
     },
     {
         id: 7,
-        title: "Chandigrah"
+        title: "Parma"
+    },
+    {
+        id: 8,
+        title: "Bregamo"
+    },
+    {
+        id: 9,
+        title: "Venezia"
+    },
+    {
+        id: 10,
+        title: "Genova"
+    },
+    {
+        id: 11,
+        title: "Reggio Emiglia"
+    },
+    {
+        id: 10,
+        title: "Modena"
     },
 ]
 

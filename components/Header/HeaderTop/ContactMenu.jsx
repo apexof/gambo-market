@@ -30,7 +30,26 @@ const useStyles = makeStyles(theme => ({
     footer: {
         padding: theme.spacing(2),
         background: theme.palette.background.default,
-
+    },
+    wishLink: {
+        position: "relative",
+        margin: "0 10px",
+        [theme.breakpoints.down('sm')]: {
+            marginLeft: "auto",
+        },
+    },
+    countWishes: {
+        background: "#f55d2c",
+        fontSize: "11px",
+        fontWeight: "600",
+        position: "absolute",
+        top: "-4px",
+        color: "#fff",
+        width: "16px",
+        height: "16px",
+        textAlign: "center",
+        borderRadius: "50%",
+        right: "-25px",
     },
 }));
 

@@ -39,27 +39,6 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "space-between",
         padding: 0,
     },
-    wishLink: {
-        position: "relative",
-        margin: "0 10px",
-        [theme.breakpoints.down('sm')]: {
-            marginLeft: "auto",
-        },
-    },
-    countWishes: {
-        background: "#f55d2c",
-        fontSize: "11px",
-        fontWeight: "600",
-        position: "absolute",
-        top: "-4px",
-        right: "8px",
-        color: "#fff",
-        width: "16px",
-        height: "16px",
-        textAlign: "center",
-        borderRadius: "50%",
-        right: "-4px",
-    },
 }));
 
 const selectItems = [

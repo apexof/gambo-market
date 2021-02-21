@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Toolbar } from '@material-ui/core';
+import { AppBar, Box, Toolbar } from '@material-ui/core';
 import React from 'react'
 import Link from '../Elements/Link'
 import HeaderSelect from '../Elements/Select1'
@@ -6,15 +6,13 @@ import { useThemeContext } from '../ThemeSwitcher/MyThemeProvider'
 import HeaderSearch from './HeaderTop/HeaderSearch'
 import ProfileMenu from './HeaderTop/ProfileMenu'
 import ContactMenu from './HeaderTop/ContactMenu'
-import HeaderBtn from '../Elements/HeaderBtn'
 import CartDrawer from './HeaderBottom/CartDrawer'
 import HeaderNavMenu from './HeaderBottom/HeaderNavMenu'
 import SelectCategoryModal from './HeaderBottom/SelectCategoryModal'
 import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
-import LibraryAddOutlinedIcon from '@material-ui/icons/LibraryAddOutlined';
+
 const useStyles = makeStyles(theme => ({
     header: {
         boxShadow: "none",
@@ -96,7 +94,7 @@ const selectItems = [
     },
 ]
 
-export default function HeaderTop({ loggedIn = false }) {
+export default function HeaderTop() {
     const { nightMode } = useThemeContext()
     const classes = useStyles();
     const theme = useTheme();
@@ -117,21 +115,10 @@ export default function HeaderTop({ loggedIn = false }) {
                     <HeaderSelect selectItems={selectItems} />
                 </Box>
                 <HeaderSearch />
-                {loggedIn ?
-                    <>
-                        <Box mx={2}>
-                            <ContactMenu />
-                        </Box>
-                        <ProfileMenu />
-                    </>
-                    :
-                    <>
-                        <Box mx={2}>
-                            <HeaderBtn icon={<LibraryAddOutlinedIcon />} href="/add-store" text="Add Store" />
-                        </Box>
-                        <HeaderBtn icon={<AccountBoxOutlinedIcon />} href="/logIn" text="Log In" />
-                    </>
-                }
+                <Box mx={2}>
+                    <ContactMenu />
+                </Box>
+                <ProfileMenu />
             </Toolbar>
             <Toolbar className={classes.toolbar2}>
                 <SelectCategoryModal />

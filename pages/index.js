@@ -18,9 +18,9 @@ export default function Home() {
     return (
         <MainLayout>
             <TopSlider />
-            <Box mt={4}>
+            {/* <Box mt={4}>
                 <Chips />
-            </Box>
+            </Box> */}
             <CategorySlider />
             <Box mt={5}>
                 <ProductListSlider

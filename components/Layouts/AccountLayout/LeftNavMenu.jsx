@@ -90,18 +90,6 @@ export default function LeftNavMenu({ rootPath }) {
             href: "/my-address",
             icon: <LocationOnIcon className={classes.icon} />,
         },
-        {
-            id: 8,
-            title: "Invoice",
-            href: "/invoice",
-            icon: <ListAltIcon className={classes.icon} />,
-        },
-        {
-            id: 9,
-            title: "Logout",
-            href: "/logIn",
-            icon: <StarBorderIcon className={classes.icon} />,
-        },
     ]
     return (
         <List disablePadding className={cx(classes.menu, "shadow1")}>

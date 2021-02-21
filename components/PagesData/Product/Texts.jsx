@@ -93,7 +93,7 @@ export default function SimpleTabs() {
                 </Tabs>
             </AppBar>
             {texts.map(item => (
-                <TabPanel value={value} index={item.id}>
+                <TabPanel key={item.id} value={value} index={item.id}>
                     <Typography variant="body2">{item.text}</Typography>
                 </TabPanel>
             ))}

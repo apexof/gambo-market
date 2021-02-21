@@ -67,7 +67,9 @@ export default function FullProduct({ img, title, id, available, weight, price, 
                         </Box>
                         <WeightList items={weight} />
                         <Box my={3}>
-                            <Texts />
+                            <Typography variant="body2">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate, purus at tempor blandit, nulla felis dictum eros, sed volutpat odio sapien id lectus. Cras mollis massa ac congue posuere. Fusce viverra mauris vel magna pretium aliquet. Nunc tincidunt, velit id tempus tristique, velit dolor hendrerit nibh, at scelerisque neque mauris sed ex.
+                            </Typography>
                         </Box>
                         <PriceBlock price={price} oldPrice={oldPrice} />
                         <Features />

@@ -77,11 +77,6 @@ const menuItems = [
                 href: "/account",
             },
             {
-                id: 2,
-                title: "Store",
-                href: "/store",
-            },
-            {
                 id: 3,
                 title: "Example Category Page",
                 href: "/category/added-new-products",

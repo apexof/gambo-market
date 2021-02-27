@@ -44,7 +44,6 @@ const useStyles = makeStyles(theme => ({
         transition: "all 0.3s ease",
         "&:hover": {
             color: theme.palette.secondary.main,
-            marginTop: "-5px",
             textDecoration: "none"
         }
     },

@@ -1,5 +1,5 @@
 import AccountLayout from '../../components/Layouts/AccountLayout/AccountLayout'
-import WishList from '../../components/PagesData/Account/WishList/WishList'
+import WishList from '../../components/PagesData/Account/WishList'
 import { productItems } from '../../components/Product/ProductLists/lists'
 
 
@@ -8,7 +8,7 @@ export default function ShoppingWishlist() {
 
     return (
         <AccountLayout title="Shopping Wishlist">
-            <WishList items={productArray} />
+            <WishList />
         </AccountLayout>
     )
 }

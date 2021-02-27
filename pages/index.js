@@ -2,25 +2,14 @@ import MainLayout from '../components/Layouts/MainLayout'
 import CategorySlider from '../components/CategoryList/CategorySlider'
 import BannerSection from '../components/BannerSection';
 import TopSlider from '../components/TopSlider';
-import Chips from '../components/PagesData/Home/Chips';
-import { makeStyles } from '@material-ui/core/styles';
 import ProductListSlider from '../components/Product/ProductLists/ProductListSlider';
 import { AddedNewProducts, FreshAndFruits, TopFeaturedProducts } from '../components/Product/ProductLists/lists';
 import { Box } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
-
-}))
-
 export default function Home() {
-    useStyles();
-
     return (
         <MainLayout>
             <TopSlider />
-            {/* <Box mt={4}>
-                <Chips />
-            </Box> */}
             <CategorySlider />
             <Box mt={5}>
                 <ProductListSlider

@@ -63,7 +63,7 @@ const banners = [
 export default function BannerSection() {
     const classes = useStyles();
     return (
-        <section className={classes.section}>
+        <section className={`${classes.section} market-section`} id="best-values">
             <Container>
                 <Box mb={3.5}>
                     <SectionTitle title="Best Values" clarification="Offers" />

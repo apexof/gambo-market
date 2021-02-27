@@ -1,8 +1,7 @@
 import React from 'react'
 import Footer from '../../Footer'
 import CommonHead from '../CommonHead'
-import Header from '../../Header/Header'
-import BreadCrumbs from '../../Elements/BreadCrumbs'
+import Header from '../../Header'
 import LeftNavMenu from './LeftNavMenu'
 import ProfileHeader from './ProfileHeader'
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,7 +46,6 @@ export default function AccountLayout({ children, title, rootPath = "/account" }
         <div className={classes.page}>
             <CommonHead />
             <Header />
-            <BreadCrumbs />
             <ProfileHeader />
             <Container className={classes.containerMui}>
                 <div className={classes.container}>

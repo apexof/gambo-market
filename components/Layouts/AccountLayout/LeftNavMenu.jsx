@@ -1,17 +1,11 @@
 import React from 'react'
+import { menuItems } from '../../../menus/profileMenu'
 import { makeStyles } from '@material-ui/core/styles';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
-import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
-import ViewListIcon from '@material-ui/icons/ViewList';
 import Link from '../../Elements/Link';
 import cx from 'clsx';
 import { useRouter } from 'next/router';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import ListAltIcon from '@material-ui/icons/ListAlt';
+
 
 const useStyles = makeStyles(theme => ({
     menu: {
@@ -49,56 +43,17 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function LeftNavMenu({ rootPath }) {
+export default function LeftNavMenu() {
     const classes = useStyles();
     const router = useRouter();
-    const menu = [
-        {
-            id: 2,
-            title: "Overview",
-            href: "",
-            icon: <ViewListIcon className={classes.icon} />,
-        },
-        {
-            id: 1,
-            title: "My Orders",
-            href: "/my-orders",
-            icon: <DashboardIcon className={classes.icon} />,
-        },
-        {
-            id: 4,
-            title: "My Rewards",
-            href: "/my-rewards",
-            icon: <CardGiftcardIcon className={classes.icon} />,
 
-        },
-        {
-            id: 5,
-            title: "My Wallet",
-            href: "/my-wallet",
-            icon: <AccountBalanceWalletIcon className={classes.icon} />,
-        },
-        {
-            id: 6,
-            title: "Shopping Wishlist",
-            href: "/shopping-wishlist",
-            icon: <FavoriteBorderIcon className={classes.icon} />,
-        },
-        {
-            id: 7,
-            title: "My Address",
-            href: "/my-address",
-            icon: <LocationOnIcon className={classes.icon} />,
-        },
-    ]
     return (
         <List disablePadding className={cx(classes.menu, "shadow1")}>
-            {menu.map(item => {
-                const active = `${rootPath}${item.href}` === router.pathname;
-                const href = item.href === "/logIn" ? item.href : `${rootPath}${item.href}`;
+            {menuItems.map(item => {
+                const active = item.href === router.pathname;
                 return (
                     <ListItem key={item.id} className={classes.item}>
-                        <Link href={href} className={cx(classes.link, active && classes.linkActive)}>
+                        <Link href={item.href} className={cx(classes.link, active && classes.linkActive)}>
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <ListItemText>
                                 {item.title}

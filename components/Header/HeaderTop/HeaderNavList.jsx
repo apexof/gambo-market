@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, List, ListItem, Typography } from '@material-ui/core';
+import Link from '../../Elements/Link'
+import { List, ListItem, Typography } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from '@material-ui/core/Icon';
 
@@ -35,19 +36,20 @@ const menuItems = [
         id: 1,
         title: "1800-000-000",
         icon: "phone",
-        href: "#"
+        href: "tel:1800-000-000",
+        nativeLink: true,
     },
     {
         id: 2,
         title: "Offers",
         icon: "redeem",
-        href: "#"
+        href: "/"
     },
     {
         id: 3,
         title: "Help",
         icon: "help",
-        href: "#"
+        href: "/"
     },
 ]
 
@@ -60,14 +62,24 @@ export default function HeaderNavList() {
         >
             {menuItems.map(item => (
                 <ListItem key={item.id}>
-                    <Link href={item.href} className={classes.link}>
-                        <Icon className={classes.icon}>{item.icon}</Icon>
-                        <Typography variant="body2">
-                            {item.title}
-                        </Typography>
-                    </Link>
+                    {item.nativeLink ?
+                        < a href={item.href} className={classes.link}>
+                            <Icon className={classes.icon}>{item.icon}</Icon>
+                            <Typography variant="body2">
+                                {item.title}
+                            </Typography>
+                        </a>
+                        :
+                        <Link href={item.href} className={classes.link}>
+                            <Icon className={classes.icon}>{item.icon}</Icon>
+                            <Typography variant="body2">
+                                {item.title}
+                            </Typography>
+                        </Link>
+                    }
                 </ListItem>
-            ))}
+            ))
+            }
         </List >
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
+import Link from '../Elements/Link'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, List, ListItemIcon, ListItem, Link, Typography, Box } from '@material-ui/core';
+import { Container, ListItemIcon, ListItem, List, Typography, Box } from '@material-ui/core';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -51,7 +52,6 @@ const useStyles = makeStyles(theme => ({
         transition: "all 0.3s ease",
         "&:hover": {
             color: theme.palette.secondary.main,
-            marginTop: "-15px"
         }
     }
 }))
@@ -81,13 +81,13 @@ export default function TopFooter() {
             <Container>
                 <div className={classes.list}>
                     <Box display="flex">
-                        <Link className={classes.contactsMenuItem} href="#">
+                        <a href="tel:1800-000-000" className={classes.contactsMenuItem}>
                             <DialpadIcon />
                             <Typography className={classes.contactsMenuText}>
                                 1800-000-000
-                        </Typography>
-                        </Link>
-                        <Link className={classes.contactsMenuItem} href="#">
+                            </Typography>
+                        </a>
+                        <Link className={classes.contactsMenuItem} href="/ ">
                             <MailOutlineIcon />
                             <Typography className={classes.contactsMenuText}>
                                 [email protected]

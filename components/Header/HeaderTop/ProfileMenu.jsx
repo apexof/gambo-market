@@ -1,49 +1,13 @@
 import { Box, Button, Menu, MenuItem, Typography } from '@material-ui/core'
 import React from 'react'
+import { menuItems } from '../../../menus/profileMenu'
 import cx from 'clsx'
+import Link from '../../Elements/Link'
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from "@material-ui/core/styles";
 import ThemeSwitcher from '../../ThemeSwitcher/ThemeSwitcher';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 
-const menuItems = [
-    {
-        id: 0,
-        icon: "headset",
-        href: "#",
-        title: "Dashboard",
-    },
-    {
-        id: 1,
-        icon: "micOff",
-        href: "#",
-        title: "My orders",
-    },
-    {
-        id: 2,
-        icon: "dialpad",
-        href: "#",
-        title: "My wishlist",
-    },
-    {
-        id: 3,
-        icon: "call",
-        href: "#",
-        title: "My wallet",
-    },
-    {
-        id: 4,
-        icon: "contacts",
-        href: "#",
-        title: "Others",
-    },
-    {
-        id: 5,
-        icon: "dialpad",
-        href: "#",
-        title: "faq",
-    },
-]
 
 const useStyles = makeStyles(theme => ({
     btn: {
@@ -54,6 +18,7 @@ const useStyles = makeStyles(theme => ({
         flexShrink: 0,
         textTransform: 'none',
         whiteSpace: "nowrap",
+        marginLeft: theme.spacing(2),
     },
     img: {
         height: "30px",
@@ -63,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     item: {
         padding: `${theme.spacing(1)} ${theme.spacing(2.5)}`,
         width: 275,
-
+        color: theme.palette.text.primary,
     },
     menuIcon: {
         marginRight: "15px"
@@ -75,11 +40,12 @@ const useStyles = makeStyles(theme => ({
     logInLink: {
         color: theme.palette.text.primary,
         marginLeft: theme.spacing(1),
-    }
+    },
 }));
 
 export default function HeaderMenu({ loggedIn = false }) {
     const classes = useStyles();
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => setAnchorEl(event.currentTarget)
     const handleClose = () => setAnchorEl(null)
@@ -118,12 +84,14 @@ export default function HeaderMenu({ loggedIn = false }) {
                     </Box>
                 </MenuItem>
                 {menuItems.map(item => (
-                    <MenuItem key={item.id} onClick={handleClose} className={classes.item}>
-                        <Icon className={classes.menuIcon}>{item.icon}</Icon>
-                        <Typography variant="body2">
-                            {item.title}
-                        </Typography>
-                    </MenuItem>
+                    <Link key={item.id} href={item.href} onClick={handleClose}>
+                        <MenuItem className={classes.item}>
+                            <Icon className={classes.menuIcon}>{item.icon}</Icon>
+                            <Typography variant="body2">
+                                {item.title}
+                            </Typography>
+                        </MenuItem>
+                    </Link>
                 ))}
             </Menu>
         </>

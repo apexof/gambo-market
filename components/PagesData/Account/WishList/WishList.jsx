@@ -14,20 +14,16 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function WishList({ items }) {
+export default function WishList({ wishList }) {
     const classes = useStyles();
 
     return (
         <div className={classes.list}>
-            {items.map(item => (
+            {wishList.map(item => (
                 <div key={item.id} className={classes.item}>
                     <WishItem
                         id={item.id}
-                        title={item.title}
-                        img={item.img}
-                        price={item.price}
-                        oldPrice={item.oldPrice}
-                        discount={item.discount}
+                        product={item}
                     />
                 </div>
             ))}

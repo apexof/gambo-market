@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function FullProduct({ img, title, id, available, weight, price, oldPrice }) {
+export default function FullProduct({ product, img, title, id, available, weight, price, oldPrice }) {
     const classes = useStyles();
     const sliderItems = [
         {
@@ -71,7 +71,7 @@ export default function FullProduct({ img, title, id, available, weight, price, 
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate, purus at tempor blandit, nulla felis dictum eros, sed volutpat odio sapien id lectus. Cras mollis massa ac congue posuere. Fusce viverra mauris vel magna pretium aliquet. Nunc tincidunt, velit id tempus tristique, velit dolor hendrerit nibh, at scelerisque neque mauris sed ex.
                             </Typography>
                         </Box>
-                        <PriceBlock price={price} oldPrice={oldPrice} />
+                        <PriceBlock product={product} price={price} oldPrice={oldPrice} />
                         <Features />
                     </div>
                 </Grid>

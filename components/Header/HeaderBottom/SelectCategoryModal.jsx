@@ -189,6 +189,7 @@ export default function SimpleModal() {
                                         key={item.id}
                                         title={item.title}
                                         img={item.img}
+                                        closeModal={handleClose}
                                     />
                                 </Grid>
                             ))}

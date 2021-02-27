@@ -45,7 +45,7 @@ const responsive = [
 export default function ProductListSlider({ items, title, clarification, id }) {
     const classes = useStyles();
     return (
-        <Container>
+        <Container className="market-section" id={id} >
             <Box mb={1.5}>
                 <SectionTitle title={title} clarification={clarification} seeAllLink={`/category/${id}`} />
             </Box>
@@ -56,13 +56,8 @@ export default function ProductListSlider({ items, title, clarification, id }) {
                             <Box mx={1.5}>
                                 <ProductCard
                                     id={item.id}
-                                    title={item.title}
-                                    img={item.img}
-                                    price={item.price}
-                                    oldPrice={item.oldPrice}
-                                    available={item.available}
-                                    discount={item.discount}
                                     shadow="shadow1"
+                                    product={item}
                                 />
                             </Box>
                         </div>

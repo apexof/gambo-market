@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../Footer'
 import CommonHead from './CommonHead'
-import Header from '../Header/Header'
+import Header from '../Header'
 import BreadCrumbs from '../Elements/BreadCrumbs'
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -16,7 +16,6 @@ export default function CategoryLayout({ children, }) {
         <div className={classes.page}>
             <CommonHead />
             <Header />
-            <BreadCrumbs />
             {children}
             <Footer />
         </div>

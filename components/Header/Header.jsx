@@ -1,21 +1,24 @@
 import { AppBar, Box, Toolbar } from '@material-ui/core';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import BreadCrumbs from '../Elements/BreadCrumbs'
+import { useRouter } from 'next/router'
 import Link from '../Elements/Link'
 import HeaderSelect from '../Elements/Select1'
 import { useThemeContext } from '../ThemeSwitcher/MyThemeProvider'
 import HeaderSearch from './HeaderTop/HeaderSearch'
 import ProfileMenu from './HeaderTop/ProfileMenu'
-import ContactMenu from './HeaderTop/ContactMenu'
 import CartDrawer from './HeaderBottom/CartDrawer'
 import HeaderNavMenu from './HeaderBottom/HeaderNavMenu'
 import SelectCategoryModal from './HeaderBottom/SelectCategoryModal'
 import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import HeaderNavList from './HeaderTop/HeaderNavList';
+import WishLink from './HeaderTop/WishLink';
 
 const useStyles = makeStyles(theme => ({
     header: {
-        boxShadow: "none",
+        boxShadow: prop => prop.scrolled ? "0px 1px 12px -3px rgba(0, 0, 0, 0.3)" : "none",
     },
     logo: {
         display: "flex",
@@ -94,13 +97,14 @@ const selectItems = [
     },
 ]
 
-export default function HeaderTop() {
+function Header({ scrolled }) {
     const { nightMode } = useThemeContext()
-    const classes = useStyles();
-    const theme = useTheme();
-
-    const matches = useMediaQuery(theme.breakpoints.down('md'));
+    const classes = useStyles({ scrolled })
+    const theme = useTheme()
+    const router = useRouter()
+    const matches = useMediaQuery(theme.breakpoints.down('md'))
     const logo = matches ? "/min-logo.svg" : nightMode ? "/dark-logo.svg" : "/main-logo.svg"
+
     return (
         <AppBar position="sticky" className={classes.header}>
             <Toolbar className={classes.toolbar}>
@@ -111,21 +115,29 @@ export default function HeaderTop() {
                         alt=""
                     />
                 </Link>
-                <Box display={{ xs: "none", md: "block" }}>
+                <Box display={{ xs: "none", lg: "block" }}>
                     <HeaderSelect selectItems={selectItems} />
                 </Box>
                 <HeaderSearch />
-                <Box mx={2}>
-                    <ContactMenu />
-                </Box>
+                <HeaderNavList />
+                <WishLink />
                 <ProfileMenu />
             </Toolbar>
             <Toolbar className={classes.toolbar2}>
                 <SelectCategoryModal />
-                <HeaderNavMenu />
+                {router.pathname === "/" ?
+                    <HeaderNavMenu />
+                    :
+                    <Box mr="auto" ml={2}>
+                        <BreadCrumbs />
+                    </Box>
+                }
                 <CartDrawer />
             </Toolbar>
         </AppBar >
     )
 }
+
+export default Header
+
 

@@ -6,16 +6,20 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { WhiteTheme, DarkTheme } from '../theme';
 import { MyThemeProvider, useThemeContext } from '../components/ThemeSwitcher/MyThemeProvider'
 import { makeStyles } from '@material-ui/core/styles';
+import { Provider } from "react-redux";
+import store from "../store/store";
 
 const useStyles = makeStyles(globalCss);
 
 const Content = (props) => {
     const { nightMode } = useThemeContext()
     return (
-        <ThemeProvider theme={nightMode ? DarkTheme : WhiteTheme}>
-            <CssBaseline />
-            <EachComponent {...props} />
-        </ThemeProvider>
+        <Provider store={store}>
+            <ThemeProvider theme={nightMode ? DarkTheme : WhiteTheme}>
+                <CssBaseline />
+                <EachComponent {...props} />
+            </ThemeProvider>
+        </Provider>
     )
 }
 

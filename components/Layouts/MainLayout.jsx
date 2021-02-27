@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../Footer'
 import CommonHead from './CommonHead'
-import Header from '../Header/Header'
+import Header from '../Header'
 
 export default function MainLayout({ children }) {
     return (

@@ -192,7 +192,9 @@ export default function MiddleFooter() {
                     </Box>
                     <Box className={classes.footerPart}>
                         <div className={classes.appBlock}>
-                            <Typography gutterBottom variant="h4">Download App</Typography>
+                            <Box mb={1}>
+                                <Typography variant="h4">Download App</Typography>
+                            </Box>
                             <Image
                                 src="/img/footer/googlePlay.svg"
                                 alt="Picture of the author"
@@ -207,7 +209,9 @@ export default function MiddleFooter() {
                             />
                         </div>
                         <div className={classes.payBlock}>
-                            <Typography gutterBottom variant="h4">Payment Method</Typography>
+                            <Box mb={1}>
+                                <Typography variant="h4">Payment Method</Typography>
+                            </Box>
                             <img className={classes.payIcon} src="/img/footer/pyicon-1.svg" alt="" />
                             <img className={classes.payIcon} src="/img/footer/pyicon-2.svg" alt="" />
                             <img className={classes.payIcon} src="/img/footer/pyicon-3.svg" alt="" />
@@ -215,7 +219,9 @@ export default function MiddleFooter() {
                             <img className={classes.payIcon} src="/img/footer/pyicon-6.svg" alt="" />
                         </div>
                         <div className={classes.newsBlock}>
-                            <Typography gutterBottom variant="h4">Newsletter</Typography>
+                            <Box mb={1}>
+                                <Typography variant="h4">Newsletter</Typography>
+                            </Box>
                             <Grid container spacing={1} alignItems="flex-end" className={classes.inputWrap}>
                                 <Grid item>
                                     <Input

@@ -1,19 +1,22 @@
 import React, { FC, } from "react"
-import { makeStyles, } from "@material-ui/core/styles"
+import { withTheme, } from "@material-ui/core/styles"
 
-const useStyles = makeStyles(theme => ({}))
+const Text = withTheme(styled(Typography)`
+    background: ${(p) => p.theme.palette.background.paper};
+    border-bottom: ${(p) => (p.border ? `1px solid ${p.theme.palette.grey["50"]}` : 0)};
+`)
 
 type Props = {
 
 }
 
 const Component: FC<Props> = ({ }) => {
-    const classes = useStyles()
+    console.log("object")
 
     return (
-        <div className={classes.root}>
-            qw
-        </div>
+        <Text>
+            text
+        </Text>
     )
 }
 

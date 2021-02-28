@@ -47,7 +47,7 @@ module.exports = {
             }
         ],
         "no-use-before-define": 0,
-        "arrow-parens": [2, "as-needed"],
+        "arrow-parens": [2, "always"],
         "object-curly-newline": [
             "error",
             {

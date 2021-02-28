@@ -1,16 +1,16 @@
-import CategoryLayout from '../../components/Layouts/CategoryLayout'
-import ProductList from '../../components/Product/ProductLists/ProductListSlider'
-import BlockTitle from '../../components/Elements/BlockTitle'
-import MoreList from '../../components/Product/ProductLists/MoreList'
-import { TopFeaturedProducts, getItemById } from '../../components/Product/ProductLists/lists'
-import { useRouter } from 'next/router';
-import TextsOld from '../../components/PagesData/Product/TextsOld';
-import { Box, Container, Grid } from '@material-ui/core';
-import FullProduct from '../../components/PagesData/Product/FullProduct';
-import { makeStyles } from '@material-ui/core/styles';
-import cx from 'clsx';
+import { useRouter, } from "next/router"
+import { Box, Container, Grid, } from "@material-ui/core"
+import { makeStyles, } from "@material-ui/core/styles"
+import cx from "clsx"
+import CategoryLayout from "../../components/Layouts/CategoryLayout"
+import ProductList from "../../components/Product/ProductLists/ProductListSlider"
+import BlockTitle from "../../components/Elements/BlockTitle"
+import MoreList from "../../components/Product/ProductLists/MoreList"
+import { TopFeaturedProducts, getItemById, } from "../../components/Product/ProductLists/lists"
+import Texts from "../../components/PagesData/Product/Texts"
+import FullProduct from "../../components/PagesData/Product/FullProduct"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     cartList: {
         overflowY: "auto",
         maxHeight: 362,
@@ -18,10 +18,10 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Category() {
-    const classes = useStyles();
-    const router = useRouter();
-    if (!router.query.id) return null;
-    const item = getItemById(+router.query.id);
+    const classes = useStyles()
+    const router = useRouter()
+    if (!router.query.id) return null
+    const item = getItemById(+router.query.id)
 
     return (
         <CategoryLayout>
@@ -46,8 +46,8 @@ export default function Category() {
                                 <MoreList />
                             </div>
                         </Grid>
-                        <Grid item xs={12} md={8} >
-                            <TextsOld />
+                        <Grid item xs={12} md={8}>
+                            <Texts />
                         </Grid>
                     </Grid>
                 </Box>
@@ -61,6 +61,6 @@ export default function Category() {
                     clarification="For You"
                 />
             </Box>
-        </CategoryLayout >
+        </CategoryLayout>
     )
 }

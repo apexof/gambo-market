@@ -1,50 +1,16 @@
-import React from 'react';
-import cx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box pt={3} >
-                    <Typography>{children}</Typography>
-                </Box>
-            )}
-        </div>
-    );
-}
-
-function a11yProps(index) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
+import React from "react"
+import cx from "clsx"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Box, Typography, } from "@material-ui/core"
+import BlockTitle from "../../Elements/BlockTitle"
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
+    list: {
+        background: theme.palette.background.paper,
+        maxHeight: 362,
+        overflowY: "scroll",
     },
-    appBar: {
-        boxShadow: "none",
-        border: `1px solid ${theme.palette.grey["50"]}`,
-    }
-}));
-
+}))
 const texts = [
     {
         id: 0,
@@ -63,40 +29,36 @@ const texts = [
     {
         id: 2,
         title: "How to Use",
-        text: `The peeled, orange segments can be added to the daily fruit bowl, and its juice is a refreshing drink.`,
+        text: "The peeled, orange segments can be added to the daily fruit bowl, and its juice is a refreshing drink.",
     },
     {
         id: 3,
         title: "Seller",
-        text: `Koutt Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001`,
+        text: "Koutt Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001",
     },
     {
         id: 4,
         title: "Disclaimer",
-        text: `Phasellus efficitur eu ligula consequat ornare. Nam et nisl eget magna aliquam consectetur. Aliquam quis tristique lacus. Donec eget nibh et quam maximus rutrum eget ut ipsum. Nam fringilla metus id dui sollicitudin, sit amet maximus sapien malesuada.`,
-    },
+        text: "Phasellus efficitur eu ligula consequat ornare. Nam et nisl eget magna aliquam consectetur. Aliquam quis tristique lacus. Donec eget nibh et quam maximus rutrum eget ut ipsum. Nam fringilla metus id dui sollicitudin, sit amet maximus sapien malesuada.",
+    }
 ]
 
-export default function SimpleTabs() {
-    const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => setValue(newValue)
+export default function Texts() {
+    const classes = useStyles()
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static" className={cx(classes.appBar, "shadow1")}>
-                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                    {texts.map(item => (
-                        <Tab key={item.id} label={item.title} {...a11yProps(item.id)} />
-                    ))}
-                </Tabs>
-            </AppBar>
-            {texts.map(item => (
-                <TabPanel key={item.id} value={value} index={item.id}>
-                    <Typography variant="body2">{item.text}</Typography>
-                </TabPanel>
-            ))}
+        <div className={classes.der}>
+            <BlockTitle>Product Details</BlockTitle>
+            <Box px={2.5} pb={2.5} className={cx(classes.list, "scrollstyle_4")}>
+                {texts.map((item) => (
+                    <Box key={item.id} pt={2.5}>
+                        <Box mb={1}>
+                            <Typography variant="h4">{item.title}</Typography>
+                        </Box>
+                        <Typography variant="body2">{item.text}</Typography>
+                    </Box>
+                ))}
+            </Box>
         </div>
-    );
+    )
 }

@@ -1,9 +1,9 @@
 import React from "react"
 import cx from "clsx"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
-import { makeStyles } from "@material-ui/core/styles"
-import { Button } from "@material-ui/core"
-import { haveItemInWishList } from "../../../helpers"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Button, } from "@material-ui/core"
+import { haveItemInWishList, } from "../../../helpers"
 
 const useStyles = makeStyles(theme => ({
     iconBox: {

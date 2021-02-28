@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, } from "react"
 
-const shadowOnScroll = ({ Component, offset }) => props => {
-    const [scrolled, setScrolled] = useState(false);
+const shadowOnScroll = ({ Component, offset, }) => props => {
+    const [scrolled, setScrolled] = useState(false)
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 

@@ -1,10 +1,9 @@
-import { connect } from "react-redux"
+import { connect, } from "react-redux"
+import { State, } from "../../../types"
 import Component from "./WishIcon"
-import { addToWishList, removeFromWishList } from "../../../store/AC"
+import { addToWishList, removeFromWishList, } from "../../../store/AC"
 
-function mapStateToProps(state) {
-    return { wishList: state.wishList, }
-}
+const mapStateToProps = (state: State) => ({ wishList: state.wishList, })
 
 const mapDispatchToProps = {
     addToWishList,

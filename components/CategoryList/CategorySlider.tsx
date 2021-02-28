@@ -1,6 +1,6 @@
-import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import { Box, Container } from "@material-ui/core"
+import React, { FC, } from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Box, Container, } from "@material-ui/core"
 import CategoryCard from "./CategoryCard"
 import SectionTitle from "../Elements/SectionTitle"
 import Slider from "../SliderSimpleArrows"
@@ -71,40 +71,28 @@ const categories = [
 const responsive = [
     {
         breakpoint: 1280,
-        settings: {
-            slidesToShow: 5,
-        },
+        settings: { slidesToShow: 5, },
     },
     {
         breakpoint: 959,
-        settings: {
-            slidesToShow: 4,
-        },
+        settings: { slidesToShow: 4, },
     },
     {
         breakpoint: 730,
-        settings: {
-            slidesToShow: 3,
-        },
+        settings: { slidesToShow: 3, },
     },
     {
         breakpoint: 520,
-        settings: {
-            slidesToShow: 2,
-        },
+        settings: { slidesToShow: 2, },
     },
     {
         breakpoint: 350,
-        settings: {
-            slidesToShow: 1,
-        },
+        settings: { slidesToShow: 1, },
     }
 ]
 
-const useStyles = makeStyles((theme) => ({
-    categorySlider: {
-        margin: `${theme.spacing(6)} 0 0`,
-    },
+const useStyles = makeStyles(theme => ({
+    categorySlider: { margin: `${theme.spacing(6)} 0 0`, },
     itemWrap: {
         background: theme.palette.primary.main,
         boxShadow: "1px 1px 2px 1px rgb(0 0 0 / 3%)",
@@ -114,29 +102,21 @@ const useStyles = makeStyles((theme) => ({
     list: {
         margin: `-${theme.spacing(1)} -${theme.spacing(1.5)}`,
         width: `calc(100% + ${theme.spacing(3)})`,
-        "& .slick-track": {
-            padding: `${theme.spacing(1)} 0`,
-        },
-        "& button:last-child": {
-            // right: "3px",
-        },
-        "& button:first-child": {
-            // left: "2px",
-        },
+        "& .slick-track": { padding: `${theme.spacing(1)} 0`, },
     },
 }))
-export default function CategorySlider() {
+const CategorySlider: FC = () => {
     const classes = useStyles()
 
     return (
         <section className={`${classes.categorySlider} market-section`} id="categories">
             <Container>
                 <Box mb={3.5}>
-                    <SectionTitle title="Categories" clarification="Shop By" seeAllLink={false} />
+                    <SectionTitle title="Categories" clarification="Shop By" />
                 </Box>
                 <div className={classes.list}>
                     <Slider slidesToShow={6} responsive={responsive}>
-                        {categories.map((item) => (
+                        {categories.map(item => (
                             <div key={item.id}>
                                 <div className={classes.itemWrap}>
                                     <CategoryCard
@@ -153,3 +133,5 @@ export default function CategorySlider() {
         </section>
     )
 }
+
+export default CategorySlider

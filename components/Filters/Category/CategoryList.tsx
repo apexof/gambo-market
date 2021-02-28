@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import cx from 'clsx'
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, Typography } from '@material-ui/core';
+import React, { useState, FC, } from "react"
+import cx from "clsx"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Box, Typography, } from "@material-ui/core"
+import { Category, } from "../../../types"
 
 const useStyles = makeStyles(theme => ({
     item: {
@@ -13,15 +14,16 @@ const useStyles = makeStyles(theme => ({
         background: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,
     },
-    list: {
-        // margin: `-${theme.spacing(1)} -${theme.spacing(2)}`,
-    },
 }))
 
-export default function CategoryList({ list }) {
-    const classes = useStyles();
-    const [active, setActive] = useState(null);
-    const toggleActive = (id) => () => {
+type Props = {
+    list: Category[]
+}
+
+const CategoryList: FC<Props> = ({ list, }) => {
+    const classes = useStyles()
+    const [active, setActive] = useState(null)
+    const toggleActive = id => () => {
         active === id ? setActive(null) : setActive(id)
     }
     return (
@@ -44,3 +46,5 @@ export default function CategoryList({ list }) {
 
     )
 }
+
+export default CategoryList

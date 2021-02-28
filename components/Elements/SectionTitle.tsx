@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 type Props = {
     title: string,
     clarification: string,
-    seeAllLink: string,
+    seeAllLink?: string,
 }
 
 const SectionTitle: FC<Props> = ({ title, clarification, seeAllLink, }) => {

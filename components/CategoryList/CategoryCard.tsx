@@ -1,10 +1,10 @@
-import React, { FC } from "react"
-import { useRouter } from "next/router"
-import { makeStyles } from "@material-ui/core/styles"
+import React, { FC, } from "react"
+import { useRouter, } from "next/router"
+import { makeStyles, } from "@material-ui/core/styles"
 import CardMedia from "@material-ui/core/CardMedia"
-import { Card, CardContent, Typography } from "@material-ui/core"
+import { Card, CardContent, Typography, } from "@material-ui/core"
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     root: {
         padding: 20,
         borderRadius: 0,
@@ -28,9 +28,7 @@ const useStyles = makeStyles((theme) => ({
     cardContent: {
         padding: "0",
         marginTop: "15px",
-        "&:last-child": {
-            padding: "0",
-        },
+        "&:last-child": { padding: "0", },
     },
 }))
 

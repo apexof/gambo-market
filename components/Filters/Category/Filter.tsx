@@ -1,17 +1,15 @@
-import React from 'react';
-import FilterList from './FilterList';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import { Box, Toolbar, Typography } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-import CategoryList from './CategoryList';
-import { categories } from '../../Product/ProductLists/lists';
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import Drawer from "@material-ui/core/Drawer"
+import Button from "@material-ui/core/Button"
+import { Box, Toolbar, Typography, } from "@material-ui/core"
+import CloseIcon from "@material-ui/icons/Close"
+import FilterList from "./FilterList"
+import CategoryList from "./CategoryList"
+import { categories, } from "../../Product/ProductLists/lists"
 
 const useStyles = makeStyles(theme => ({
-    root: {
-        overflowY: "hidden",
-    },
+    root: { overflowY: "hidden", },
     header: {
         background: theme.palette.type === "dark" ? "#000" : "#2b2f4c",
         padding: "15px 20px",
@@ -26,15 +24,24 @@ const useStyles = makeStyles(theme => ({
     },
     closeIcon: {
         cursor: "pointer",
-        color: "#fff"
+        color: "#fff",
     },
     content: {
         maxHeight: "calc(100% - 65px)",
         overflowY: "auto",
-    }
+    },
 }))
+type Tfilter = {
+    id: number,
+    filter: string
+}
 
-const filterList = [
+export type TfilterList = {
+    id: number,
+    title: string
+    filters: Tfilter[]
+}
+const filterList: TfilterList[] = [
     {
         id: 1,
         title: "Brand",
@@ -74,8 +81,8 @@ const filterList = [
             {
                 id: 9,
                 filter: "Xiaomi",
-            },
-        ]
+            }
+        ],
     },
     {
         id: 2,
@@ -108,8 +115,8 @@ const filterList = [
             {
                 id: 7,
                 filter: "More than $25",
-            },
-        ]
+            }
+        ],
     },
     {
         id: 3,
@@ -130,8 +137,8 @@ const filterList = [
             {
                 id: 4,
                 filter: "16% - 25%",
-            },
-        ]
+            }
+        ],
     },
     {
         id: 4,
@@ -168,14 +175,14 @@ const filterList = [
             {
                 id: 8,
                 filter: "5 kg",
-            },
-        ]
-    },
+            }
+        ],
+    }
 ]
 
-export default function TemporaryDrawer() {
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+const Filter = () => {
+    const classes = useStyles()
+    const [open, setOpen] = React.useState(false)
 
     const toggleDrawer = () => setOpen(!open)
     const handleClose = () => setOpen(false)
@@ -189,9 +196,7 @@ export default function TemporaryDrawer() {
                 anchor="right"
                 open={open}
                 onClose={toggleDrawer}
-                classes={{
-                    root: classes.root,
-                }}
+                classes={{ root: classes.root, }}
             >
                 <div
                     className={`${classes.drawer}`}
@@ -214,5 +219,7 @@ export default function TemporaryDrawer() {
                 </div>
             </Drawer>
         </>
-    );
+    )
 }
+
+export default Filter

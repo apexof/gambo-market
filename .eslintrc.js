@@ -65,5 +65,23 @@ module.exports = {
         ],
         "max-len": ["error", { code: 150, }],
         "react/jsx-props-no-spreading": 0,
+        "arrow-body-style": 0,
+        "spaced-comment": 0,
+        "no-warning-comments": 0,
+        "padding-line-between-statements": [
+            "error",
+            {
+                blankLine: "always", prev: "*", next: ["function", "class", "return"],
+            },
+            {
+                blankLine: "always", prev: ["import"], next: "*",
+            },
+            {
+                blankLine: "never", prev: "import", next: "import",
+            },
+            {
+                blankLine: "always", prev: "function", next: "*",
+            }
+        ],
     },
 }

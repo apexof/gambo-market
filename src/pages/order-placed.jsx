@@ -1,14 +1,7 @@
-import CategoryLayout from '../components/Layouts/CategoryLayout'
-import { makeStyles } from '@material-ui/core/styles';
-import OrderPlaced from '../components/PagesData/OrderPlaced';
-
-const useStyles = makeStyles(theme => ({
-
-}))
+import CategoryLayout from "../components/Layouts/CategoryLayout"
+import OrderPlaced from "../components/PagesData/OrderPlaced"
 
 export default function OrderPlacedPage() {
-    const classes = useStyles();
-
     return (
         <CategoryLayout>
             <OrderPlaced />

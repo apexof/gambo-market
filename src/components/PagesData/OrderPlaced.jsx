@@ -1,22 +1,20 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined';
-import { Box, Button, Typography } from '@material-ui/core';
-import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
-import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
-import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
-import PaymentOutlinedIcon from '@material-ui/icons/PaymentOutlined';
-import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
-import TelegramIcon from '@material-ui/icons/Telegram';
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import CheckCircleOutlineOutlinedIcon from "@material-ui/icons/CheckCircleOutlineOutlined"
+import { Box, Button, Typography, } from "@material-ui/core"
+import SentimentSatisfiedOutlinedIcon from "@material-ui/icons/SentimentSatisfiedOutlined"
+import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined"
+import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined"
+import PaymentOutlinedIcon from "@material-ui/icons/PaymentOutlined"
+import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined"
+import TelegramIcon from "@material-ui/icons/Telegram"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     container: {
         background: theme.palette.background.paper,
         maxWidth: 570,
     },
-    border: {
-        borderBottom: `1px solid ${theme.palette.grey["50"]}`,
-    },
+    border: { borderBottom: `1px solid ${theme.palette.grey["50"]}`, },
     largeIcon: {
         width: 56,
         height: 56,
@@ -48,11 +46,11 @@ const list = [
         title: "Payment Method",
         text: "Cash on Delivery",
         icon: <PaymentOutlinedIcon fontSise="small" />,
-    },
+    }
 ]
 
 export default function OrderPlaced() {
-    const classes = useStyles();
+    const classes = useStyles()
 
     return (
         <Box py={8}>
@@ -68,18 +66,21 @@ export default function OrderPlaced() {
                     <Box display="flex" mr={2}>
                         <TelegramIcon color="secondary" />
                     </Box>
-                    <Typography variant="h4" style={{ fontWeight: "400" }}>
+                    <Typography variant="h4" style={{ fontWeight: "400", }}>
                         Your order will be sent to this address
                     </Typography>
                 </Box>
                 <Box p={2} className={classes.border}>
-                    {list.map(item => (
+                    {list.map((item) => (
                         <Box display="flex" alignItems="center" my={1} key={item.id}>
                             {item.icon}
                             <Box mx={1}>
-                                <Typography style={{ fontWeight: "700" }} variant="body2">{item.title}:</Typography>
+                                <Typography style={{ fontWeight: "700", }} variant="body2">
+                                    {item.title}
+:
+                                </Typography>
                             </Box>
-                            <Typography style={{ color: item.color && item.color }} variant="body2">{item.text}</Typography>
+                            <Typography style={{ color: item.color && item.color, }} variant="body2">{item.text}</Typography>
                         </Box>
                     ))}
                 </Box>
@@ -100,7 +101,7 @@ export default function OrderPlaced() {
                     <Typography variant="body2" component="span">
                         The payment of
                         <Typography variant="body2" color="secondary" component="span">
-                            {` $16 `}
+                            {" $16 "}
                         </Typography>
                          you'll make when the deliver arrives with your order.
                     </Typography>

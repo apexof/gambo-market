@@ -70,6 +70,7 @@ module.exports = {
         "no-warning-comments": 0,
         "import/extensions": 0,
         "import/no-unresolved": 0,
+        "react/react-in-jsx-scope": 0,
         "padding-line-between-statements": [
             "error",
             {

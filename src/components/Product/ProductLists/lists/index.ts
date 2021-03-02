@@ -12,15 +12,25 @@ export const getItemById = (itemID: number): Product => {
 
     return item
 }
+
 export const getItemsFromCategory = (category: string): Product[] => {
     const items = productItems.filter((item) => item.category === category)
 
     return items
 }
+
 export const getTitleOfCategory = (categoryId: string): string => {
     const needCategory = categories.find((item) => item.id === categoryId)
 
     return needCategory.title
+}
+
+type AllProductIds = {
+    params: { id: string, }
+}
+
+export function getAllProductIds(): AllProductIds[] {
+    return productItems.map((item) => ({ params: { id: item.id.toString(), }, }))
 }
 
 export const categories: Category[] = [
@@ -318,5 +328,7 @@ export const productItems: Product[] = [
 ]
 
 export const TopFeaturedProducts = getItemsFromCategory("top-featured-products")
+
 export const FreshAndFruits = getItemsFromCategory("fresh-and-fruits")
+
 export const AddedNewProducts = getItemsFromCategory("added-new-products")

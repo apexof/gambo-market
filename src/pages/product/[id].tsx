@@ -1,13 +1,14 @@
-import { useRouter, } from "next/router"
 import { Box, Container, Grid, } from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles"
 import cx from "clsx"
-import React from "react"
+import React, { FC, } from "react"
+import { GetStaticProps, GetStaticPaths, } from "next"
+import { Product, } from "../../types"
+import { getAllProductIds, TopFeaturedProducts, getItemById, } from "../../components/Product/ProductLists/lists"
 import CategoryLayout from "../../components/Layouts/CategoryLayout"
 import ProductList from "../../components/Product/ProductLists/ProductListSlider"
 import BlockTitle from "../../components/Elements/BlockTitle"
 import MoreList from "../../components/Product/ProductLists/MoreList"
-import { TopFeaturedProducts, getItemById, } from "../../components/Product/ProductLists/lists"
 import Texts from "../../components/PagesData/Product/Texts"
 import FullProduct from "../../components/PagesData/Product/FullProduct"
 
@@ -18,11 +19,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function Category() {
+type Props = {
+    item: Product
+}
+
+const ProductPage: FC<Props> = ({ item, }) => {
     const classes = useStyles()
-    const router = useRouter()
-    if (!router.query.id) return null
-    const item = getItemById(+router.query.id)
 
     return (
         <CategoryLayout>
@@ -57,4 +59,22 @@ export default function Category() {
             </Box>
         </CategoryLayout>
     )
+}
+
+export default ProductPage
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const paths = getAllProductIds()
+    // const paths = [{ params: { id: "104", }, }]
+
+    return {
+        paths,
+        fallback: false,
+    }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params, }) => {
+    const item = getItemById(+params.id)
+
+    return { props: { item, }, }
 }

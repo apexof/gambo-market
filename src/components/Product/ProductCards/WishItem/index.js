@@ -1,10 +1,8 @@
-import { connect } from "react-redux"
+import { connect, } from "react-redux"
 import Component from "./WishItem"
-import { removeFromWishList } from "../../../../store/AC"
+import { removeFromWishList, } from "../../../../store/AC"
 
-const mapDispatchToProps = {
-    removeFromWishList
-}
+const mapDispatchToProps = { removeFromWishList, }
 
 const ConnectedComponent = connect(
     null, mapDispatchToProps

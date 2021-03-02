@@ -2,46 +2,49 @@ import React from "react"
 import Slider from "react-slick"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Button, Typography, } from "@material-ui/core"
+import slideImg1 from "./slide-1.jpg"
+import slideImg2 from "./slide-2.jpg"
+import Img from "../Elements/LazyImg/Img"
 
 const slides = [
     {
         id: 0,
-        img: "/img/topSlider/slide-1.jpg",
+        img: slideImg1,
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 1,
-        img: "/img/topSlider/slide-2.jpg",
+        img: slideImg2,
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 2,
-        img: "/img/topSlider/slide-1.jpg",
+        img: slideImg1,
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 3,
-        img: "/img/topSlider/slide-2.jpg",
+        img: slideImg2,
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 4,
-        img: "/img/topSlider/slide-1.jpg",
+        img: slideImg1,
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 5,
-        img: "/img/topSlider/slide-2.jpg",
+        img: slideImg2,
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
@@ -120,7 +123,7 @@ export default function CategorySlider() {
         speed: 300,
         slidesToShow: 5,
         slidesToScroll: 1,
-        lazyLoad: "ondemand",
+        // lazyLoad: "ondemand",
         autoplay: true,
         autoplaySpeed: 1500,
         draggable: false,
@@ -153,7 +156,7 @@ export default function CategorySlider() {
                         <div key={item.id}>
                             <div className={classes.imgWrap}>
                                 <div className={classes.imgBorder}>
-                                    <img src={item.img} alt="" />
+                                    <Img img={item.img} aspectRatio={500 / 320} />
                                 </div>
                                 <div className={classes.slideContent}>
                                     <Typography className={classes.discount}>

@@ -15,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
     title: { marginBottom: theme.spacing(2), },
 }))
 
-export default function FullProduct({ product, img, title, id, available, weight, price, oldPrice, }) {
+export default function FullProduct({ product, }) {
     const classes = useStyles()
+    const { img, title, id, available, weight, price, oldPrice, } = product
     const sliderItems = [
         {
             id: 1,

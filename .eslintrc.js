@@ -68,6 +68,8 @@ module.exports = {
         "arrow-body-style": 0,
         "spaced-comment": 0,
         "no-warning-comments": 0,
+        "import/extensions": 0,
+        "import/no-unresolved": 0,
         "padding-line-between-statements": [
             "error",
             {

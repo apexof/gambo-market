@@ -4,6 +4,8 @@ import styled from "styled-components"
 const Wrapper = styled.div`
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
 `
 const Img = styled.img`
     position: absolute;
@@ -15,11 +17,11 @@ const Img = styled.img`
     right: 0;
     object-fit: cover;
     object-position: center;
-    filter: blur(3px);
+    filter: blur(5px);
 `
 const Source = styled(Img)`
   opacity: ${(p) => (p.loaded ? 1 : 0)};
-  transition: opacity 1s;
+  transition: all 1s ease;
   filter: unset;
 `
 
@@ -30,17 +32,18 @@ type Props = {
         preSrc: string,
     },
     alt?: string,
-    aspectRatio: number,
+    aspectRatio?: number,
 }
 
 const ImgWithPreview: FC<Props> = ({ img, alt = "", aspectRatio = (16 / 9), }) => {
-    const imgRef = useRef()
     const [loaded, setLoaded] = useState(false)
+    const imgRef = useRef()
     useEffect(() => {
         if (imgRef.current && imgRef.current.complete) {
             setLoaded(true)
         }
     }, [])
+    // console.log(img)
 
     return (
         <Wrapper>
@@ -50,8 +53,8 @@ const ImgWithPreview: FC<Props> = ({ img, alt = "", aspectRatio = (16 / 9), }) =
                 loading="lazy"
                 src={img.src}
                 alt={alt}
-                loaded={loaded ? 1 : 0}
                 ref={imgRef}
+                loaded={loaded}
                 onLoad={() => setLoaded(true)}
             />
         </Wrapper>

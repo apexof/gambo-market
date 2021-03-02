@@ -2,6 +2,7 @@ import { useRouter, } from "next/router"
 import { Box, Container, Grid, } from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles"
 import cx from "clsx"
+import React from "react"
 import CategoryLayout from "../../components/Layouts/CategoryLayout"
 import ProductList from "../../components/Product/ProductLists/ProductListSlider"
 import BlockTitle from "../../components/Elements/BlockTitle"
@@ -28,13 +29,6 @@ export default function Category() {
             <Container>
                 <Box mt={6}>
                     <FullProduct
-                        id={item.id}
-                        img={item.img}
-                        title={item.title}
-                        available={item.available}
-                        price={item.price}
-                        oldPrice={item.oldPrice}
-                        weight={item.weight}
                         product={item}
                     />
                 </Box>

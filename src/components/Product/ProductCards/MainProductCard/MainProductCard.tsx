@@ -1,25 +1,23 @@
-import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core'
-import React, { FC } from 'react'
-import Link from '../../../Elements/Link'
-import cx from 'clsx'
-import { makeStyles } from '@material-ui/core/styles';
-import WishIcon from '../../../Elements/WishIcon';
-import Price from '../../../Elements/Price';
-import Img from '../../../Elements/LazyImg/Img';
-import OldPrice from '../../../Elements/OldPrice';
-import Discount from '../DiscountBlock';
-import { Product, AddToCart } from '../../../../types';
-import CartControls from '../CartControls';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCartOutlined';
+import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, Typography, } from "@material-ui/core"
+import React, { FC, } from "react"
+import cx from "clsx"
+import { makeStyles, } from "@material-ui/core/styles"
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCartOutlined"
+import Link from "../../../Elements/Link"
+import WishIcon from "../../../Elements/WishIcon"
+import Price from "../../../Elements/Price"
+import Img from "../../../Elements/LazyImg/Img"
+import OldPrice from "../../../Elements/OldPrice"
+import Discount from "../DiscountBlock"
+import { Product, AddToCart, } from "../../../../types"
+import CartControls from "../CartControls"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     card: {
         padding: 15,
         position: "relative",
         transition: "all .25s ease !important",
-        "&:hover": {
-            transform: "scale(1.05)",
-        },
+        "&:hover": { transform: "scale(1.05)", },
     },
     wishIcon: {
         position: "absolute",
@@ -37,16 +35,14 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(1),
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     cardActions: {
         padding: 0,
         display: "flex",
         justifyContent: "space-between",
     },
-    cartIcon: {
-        cursor: "pointer",
-    },
+    cartIcon: { cursor: "pointer", },
     discountWrapp: {
         position: "absolute",
         top: 15,
@@ -61,9 +57,9 @@ type Props = {
     addToCart: AddToCart
 }
 
-const ProductCard: FC<Props> = ({ product, shadow, addToCart }) => {
-    const { title, img, price, oldPrice, available, discount, id } = product
-    const classes = useStyles();
+const ProductCard: FC<Props> = ({ product, shadow, addToCart, }) => {
+    const { title, img, price, oldPrice, available, discount, id, } = product
+    const classes = useStyles()
     if (typeof img !== "object") {
         return null
     }
@@ -78,7 +74,7 @@ const ProductCard: FC<Props> = ({ product, shadow, addToCart }) => {
             </div>
             <CardMedia>
                 <Link href={`/product/${id}`} className={classes.imgWrapper}>
-                    <Img img={img} />
+                    <Img img={img} aspectRatio={1} />
                 </Link>
             </CardMedia>
             <CardContent>

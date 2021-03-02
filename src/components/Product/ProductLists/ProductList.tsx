@@ -1,17 +1,10 @@
-import { Box, Button, Container, Grid } from '@material-ui/core'
-import React, { FC } from 'react'
-import { Product } from '../../../types'
-import Filter from '../../Filters/Category/Filter'
-import ProductCard from '../ProductCards/MainProductCard'
-import SectionTitle from '../../Elements/SectionTitle'
-import Select1 from '../../Elements/Select1'
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(theme => ({
-    list: {
-
-    },
-}))
+import { Box, Button, Container, Grid, } from "@material-ui/core"
+import React, { FC, } from "react"
+import { Product, } from "../../../types"
+import Filter from "../../Filters/Category/Filter"
+import ProductCard from "../ProductCards/MainProductCard"
+import SectionTitle from "../../Elements/SectionTitle"
+import Select1 from "../../Elements/Select1"
 
 const sort = [
     {
@@ -41,7 +34,7 @@ const sort = [
     {
         id: 7,
         title: "Popularity",
-    },
+    }
 ]
 
 type Props = {
@@ -50,8 +43,6 @@ type Props = {
 }
 
 const ProductListSlider: FC<Props> = ({ items, title, }) => {
-    const classes = useStyles();
-
     return (
         <Container>
             <Box mb={1}>
@@ -66,18 +57,23 @@ const ProductListSlider: FC<Props> = ({ items, title, }) => {
                             <Box ml={2}>
                                 <Filter />
                             </Box>
-                            <Select1 selectItems={sort} icons={false} shadow={true} bgc="paper" />
+                            <Select1 selectItems={sort} icons={false} shadow bgc="paper" />
 
                         </Box>
                     </Grid>
                 </Grid>
             </Box>
             <Box m={-1.5} display="flex" flexWrap="wrap">
-                {items.map(item => (
-                    <Box p={1.5} width={{ xs: "100%", sm: "50%", md: "33.333%", lg: "25%" }} key={item.id} >
+                {items.map((item) => (
+                    <Box
+                        p={1.5}
+                        width={{
+                            xs: "100%", sm: "50%", md: "33.333%", lg: "25%",
+                        }}
+                        key={item.id}
+                    >
                         <ProductCard
                             product={item}
-                            id={item.id}
                             shadow="shadow2"
                         />
                     </Box>

@@ -3,27 +3,27 @@ import React from "react"
 import MainLayout from "../components/Layouts/MainLayout"
 import CategorySlider from "../components/CategoryList/CategorySlider"
 import BannerSection from "../components/BannerSection/BannerSection"
-import TopSlider from "../components/TopSlider"
+import TopSlider from "../components/TopSlider/TopSlider"
 import ProductListSlider from "../components/Product/ProductLists/ProductListSlider"
 import { AddedNewProducts, FreshAndFruits, TopFeaturedProducts, } from "../components/Product/ProductLists/lists"
 
 export default function Home() {
     return (
         <MainLayout>
-            {/* <TopSlider /> */}
-            {/* <CategorySlider /> */}
-            {/* <Box mt={5}>
+            <TopSlider />
+            <CategorySlider />
+            <Box mt={5}>
                 <ProductListSlider
                     id="top-featured-products"
                     title="Top Featured Products"
                     clarification="For You"
                     items={TopFeaturedProducts}
                 />
-            </Box> */}
+            </Box>
             <Box mt={4}>
                 <BannerSection />
             </Box>
-            {/* <Box mt={6}>
+            <Box mt={6}>
                 <ProductListSlider
                     id="fresh-and-fruits"
                     title="Fresh Vegetables & Fruits"
@@ -38,7 +38,7 @@ export default function Home() {
                     clarification="For You"
                     items={AddedNewProducts}
                 />
-            </Box> */}
+            </Box>
         </MainLayout>
     )
 }

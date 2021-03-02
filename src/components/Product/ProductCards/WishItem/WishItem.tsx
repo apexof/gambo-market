@@ -2,12 +2,12 @@ import React, { FC, } from "react"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Box, Typography, } from "@material-ui/core"
 import DeleteIcon from "@material-ui/icons/DeleteOutlineOutlined"
-import Image from "next/image"
 import { Product, RemoveFromCart, } from "../../../../types"
 import Discount from "../DiscountBlock"
 import Link from "../../../Elements/Link"
 import Price from "../../../Elements/Price"
 import OldPrice from "../../../Elements/OldPrice"
+import ImgWithPreview from "../../../Elements/LazyImg/Img"
 
 const useStyles = makeStyles((theme) => ({
     item: {
@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
         zIndex: 1,
     },
     delIcon: { cursor: "pointer", },
+    link: { width: "100px", },
 }))
 
 type Props = {
@@ -56,13 +57,8 @@ const WishItem: FC<Props> = ({ product, removeFromWishList, }) => {
             <div className={classes.discountWrapp}>
                 <Discount>{discount}</Discount>
             </div>
-            <Link href={`/product/${id}`}>
-                <Image
-                    src={img}
-                    width={110}
-                    height={110}
-                    alt=""
-                />
+            <Link href={`/product/${id}`} className={classes.link}>
+                <ImgWithPreview img={img} aspectRatio={1} />
             </Link>
             <Box ml={2}>
                 <Typography variant="h4">{title}</Typography>

@@ -1,24 +1,23 @@
-import { Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core'
-import React from 'react'
-import Link from '../../../Elements/Link'
-import Discount from '../DiscountBlock'
-import { makeStyles } from '@material-ui/core/styles';
-import Price from '../../../Elements/Price';
-import Weight from '../Weight';
-import OldPrice from '../../../Elements/OldPrice';
-import CartControls from '../CartControls';
-import CloseIcon from '@material-ui/icons/Close';
+import { Card, CardActions, CardContent, CardMedia, Typography, } from "@material-ui/core"
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import CloseIcon from "@material-ui/icons/Close"
+import Link from "../../../Elements/Link"
+import Discount from "../DiscountBlock"
+import Price from "../../../Elements/Price"
+import Weight from "../Weight"
+import OldPrice from "../../../Elements/OldPrice"
+import CartControls from "../CartControls"
+import ImgWithPreview from "../../../Elements/LazyImg/Img"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     card: {
         margin: 0,
         padding: 15,
         position: "relative",
         boxShadow: "none",
         borderBottom: `1px solid ${theme.palette.grey["50"]}`,
-        "&:hover $imgWrapper": {
-            transform: "scale(1.1)",
-        }
+        "&:hover $imgWrapper": { transform: "scale(1.1)", },
     },
     cardFlex: {
         height: 150,
@@ -33,20 +32,14 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        "&:last-child": {
-            paddingBottom: 0,
-        }
+        "&:last-child": { paddingBottom: 0, },
     },
-    cardMedia: {
-        width: "30%",
-    },
+    cardMedia: { width: "30%", },
     weightBlock: {
         display: "flex",
         alignItems: "center",
         margin: "20px -5px auto",
-        "& div": {
-            margin: "0 5px",
-        }
+        "& div": { margin: "0 5px", },
     },
     imgWrapper: {
         width: "90%",
@@ -59,13 +52,13 @@ const useStyles = makeStyles(theme => ({
         marginTop: 10,
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     cardActions: {
         padding: 0,
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
     },
     discountWrapp: {
         position: "absolute",
@@ -80,15 +73,13 @@ const useStyles = makeStyles(theme => ({
         zIndex: 1,
         cursor: "pointer",
         color: theme.palette.primary.contrastText,
-        "&:hover": {
-            color: theme.palette.secondary.main,
-        }
+        "&:hover": { color: theme.palette.secondary.main, },
     },
 }))
 
-export default function ProductCard({ product, removeAllItemsFromCart }) {
-    const { title, img, price, oldPrice, discount, weight, id } = product
-    const classes = useStyles();
+export default function ProductCard({ product, removeAllItemsFromCart, }) {
+    const { title, img, price, oldPrice, discount, weight, id, } = product
+    const classes = useStyles()
 
     return (
         <Card className={classes.card}>
@@ -103,7 +94,7 @@ export default function ProductCard({ product, removeAllItemsFromCart }) {
             <div className={classes.cardFlex}>
                 <CardMedia className={classes.cardMedia}>
                     <Link href={`/product/${id}`} className={classes.imgWrapper}>
-                        <img src={img} alt="" />
+                        <ImgWithPreview img={img} aspectRatio={1} />
                     </Link>
                 </CardMedia>
                 <CardContent className={classes.cardContent}>
@@ -111,7 +102,7 @@ export default function ProductCard({ product, removeAllItemsFromCart }) {
                         {title}
                     </Typography>
                     <div className={classes.weightBlock}>
-                        {weight.map(item => (
+                        {weight.map((item) => (
                             <Weight key={item}>{item}</Weight>
                         ))}
                     </div>

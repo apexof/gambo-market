@@ -1,7 +1,8 @@
-import React, { useRef, useState, useEffect, } from "react"
+import React, { useState, useEffect, } from "react"
 import Slider from "react-slick"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Box, } from "@material-ui/core"
+import Img from "../../Elements/LazyImg/Img"
 import { SamplePrevArrow, SampleNextArrow, } from "../../SliderSimpleArrows"
 
 const useStyles = makeStyles((theme) => ({ imgWrapp: { cursor: "pointer", }, }))
@@ -15,7 +16,7 @@ export default function AsNavFor({ items, }) {
     const itemArray = items.map((item) => (
         <div key={item.id}>
             <Box display="flex" justifyContent="center" className={classes.imgWrapp}>
-                <img src={item.img} alt="" />
+                <Img img={item.img} aspectRatio={1} />
             </Box>
         </div>
     ))
@@ -27,7 +28,7 @@ export default function AsNavFor({ items, }) {
             <Slider
                 speed={300}
                 asNavFor={state.nav2}
-                lazyLoad="ondemand"
+                // lazyLoad="ondemand"
                 ref={(slider) => { slider1 = slider }}
                 nextArrow={<SampleNextArrow border={false} />}
                 prevArrow={<SamplePrevArrow border={false} />}
@@ -37,7 +38,7 @@ export default function AsNavFor({ items, }) {
             <Slider
                 speed={300}
                 asNavFor={state.nav1}
-                lazyLoad="ondemand"
+                // lazyLoad="ondemand"
                 ref={(slider) => { slider2 = slider }}
                 slidesToShow={4}
                 swipeToSlide

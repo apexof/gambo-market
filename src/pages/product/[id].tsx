@@ -1,8 +1,11 @@
 import { Box, Container, Grid, } from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles"
 import cx from "clsx"
+import URL from "url-join"
 import React, { FC, } from "react"
 import { GetStaticProps, GetStaticPaths, } from "next"
+import { API, } from "../../config/path"
+import getLqip from "../../helpers/getLqip"
 import { Product, } from "../../types"
 import { getAllProductIds, TopFeaturedProducts, getItemById, } from "../../components/Product/ProductLists/lists"
 import CategoryLayout from "../../components/Layouts/CategoryLayout"
@@ -64,8 +67,7 @@ const ProductPage: FC<Props> = ({ item, }) => {
 export default ProductPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = getAllProductIds()
-    // const paths = [{ params: { id: "104", }, }]
+    const paths = [{ params: { id: "1", }, }]
 
     return {
         paths,
@@ -74,7 +76,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, }) => {
-    const item = getItemById(+params.id)
+    const res = await fetch(URL(API, "products", params.id))
+    const product = await res.json()
+    const img = await getLqip(URL(API, product.img.url))
+    product.img = img
 
-    return { props: { item, }, }
+    return {
+        props: { item: product, },
+        // revalidate: 1,
+    }
 }

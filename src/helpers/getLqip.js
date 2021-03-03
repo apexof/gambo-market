@@ -16,7 +16,7 @@ async function getLqip(src) {
     return {
         src,
         aspectRatio: width / height,
-        lqip: `data:image/${format};base64,${lqipBuf.toString("base64")}`,
+        preSrc: `data:image/${format};base64,${lqipBuf.toString("base64")}`,
     }
 }
 

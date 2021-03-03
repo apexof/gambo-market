@@ -62,7 +62,7 @@ export default function FullProduct({ product, }) {
                             <Typography variant="h5">
                                 Available
                                 <Typography component="span" color="textSecondary">
-                                    {` ${available}`}
+                                    {` (${available ? "In" : "Out Of"} Stock)`}
                                 </Typography>
                             </Typography>
                         </Box>

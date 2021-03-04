@@ -68,12 +68,13 @@ const ProductPage: FC<Props> = ({ item, }) => {
 export default ProductPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await apolloClient.query({ query: GET_ALL_PRODUCT_IDS, })
-    const paths = res.data.products.map((item) => ({ params: { id: item.id, }, }))
+    // const res = await apolloClient.query({ query: GET_ALL_PRODUCT_IDS, })
+    // const paths = res.data.products.map((item) => ({ params: { id: item.id, }, }))
+    const paths = [{ params: { id: "ckluo967sfnye0a55y8a4c3tn", }, }]
 
     return {
         paths,
-        fallback: true,
+        fallback: false,
     }
 }
 

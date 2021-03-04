@@ -3,11 +3,12 @@ import { makeStyles, } from "@material-ui/core/styles"
 import cx from "clsx"
 import URL from "url-join"
 import React, { FC, } from "react"
-import { GetStaticProps, GetStaticPaths, } from "next"
+import { GetStaticProps, GetStaticPaths, GetServerSideProps, } from "next"
+import { GET_PRODUCT_BY_ID, GET_ALL_PRODUCT_IDS, apolloClient, } from "../../GraphQL"
 import { API, } from "../../config/path"
 import getLqip from "../../helpers/getLqip"
 import { Product, } from "../../types"
-import { getAllProductIds, TopFeaturedProducts, getItemById, } from "../../components/Product/ProductLists/lists"
+import { TopFeaturedProducts, } from "../../components/Product/ProductLists/lists"
 import CategoryLayout from "../../components/Layouts/CategoryLayout"
 import ProductList from "../../components/Product/ProductLists/ProductListSlider"
 import BlockTitle from "../../components/Elements/BlockTitle"
@@ -67,7 +68,8 @@ const ProductPage: FC<Props> = ({ item, }) => {
 export default ProductPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = [{ params: { id: "1", }, }]
+    const res = await apolloClient.query({ query: GET_ALL_PRODUCT_IDS, })
+    const paths = res.data.products.map((item) => ({ params: { id: item.id, }, }))
 
     return {
         paths,
@@ -76,13 +78,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, }) => {
-    const res = await fetch(URL(API, "products", params.id))
-    const product = await res.json()
-    const img = await getLqip(URL(API, product.img.url))
+    const res = await apolloClient.query({
+        query: GET_PRODUCT_BY_ID,
+        variables: { where: { id: params.id, }, },
+    })
+
+    const product = { ...res.data.product, }
+    const img = await getLqip(product.img.url)
     product.img = img
 
-    return {
-        props: { item: product, },
-        // revalidate: 1,
-    }
+    return { props: { item: product, }, }
 }

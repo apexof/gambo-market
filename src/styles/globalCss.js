@@ -1,4 +1,4 @@
-const globalCss = theme => ({
+const globalCss = (theme) => ({
     "@global": {
         ".scrollstyle_4": {
             "&::-webkit-scrollbar": {
@@ -19,4 +19,5 @@ const globalCss = theme => ({
         },
     },
 })
+
 export default globalCss

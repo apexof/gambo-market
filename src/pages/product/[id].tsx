@@ -73,7 +73,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false,
+        fallback: true,
     }
 }
 
@@ -87,5 +87,8 @@ export const getStaticProps: GetStaticProps = async ({ params, }) => {
     const img = await getLqip(product.img.url)
     product.img = img
 
-    return { props: { item: product, }, }
+    return {
+        props: { item: product, },
+        revalidate: 1,
+    }
 }

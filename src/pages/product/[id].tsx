@@ -68,13 +68,12 @@ const ProductPage: FC<Props> = ({ item, }) => {
 export default ProductPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    // const res = await apolloClient.query({ query: GET_ALL_PRODUCT_IDS, })
-    // const paths = res.data.products.map((item) => ({ params: { id: item.id, }, }))
-    const paths = [{ params: { id: "ckluo967sfnye0a55y8a4c3tn", }, }]
+    const res = await apolloClient.query({ query: GET_ALL_PRODUCT_IDS, })
+    const paths = res.data.products.map((item) => ({ params: { id: item.id, }, }))
 
     return {
         paths,
-        fallback: false,
+        fallback: "blocking",
     }
 }
 
@@ -83,7 +82,9 @@ export const getStaticProps: GetStaticProps = async ({ params, }) => {
         query: GET_PRODUCT_BY_ID,
         variables: { where: { id: params.id, }, },
     })
-
+    if (!res.data.product) {
+        return { notFound: true, }
+    }
     const product = { ...res.data.product, }
     const img = await getLqip(product.img.url)
     product.img = img

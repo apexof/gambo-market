@@ -4,6 +4,7 @@ import cx from "clsx"
 import URL from "url-join"
 import React, { FC, } from "react"
 import { GetStaticProps, GetStaticPaths, GetServerSideProps, } from "next"
+import { useRouter, } from "next/router"
 import { GET_PRODUCT_BY_ID, GET_ALL_PRODUCT_IDS, apolloClient, } from "../../GraphQL"
 import { API, } from "../../config/path"
 import getLqip from "../../helpers/getLqip"
@@ -29,6 +30,9 @@ type Props = {
 
 const ProductPage: FC<Props> = ({ item, }) => {
     const classes = useStyles()
+    const router = useRouter()
+
+    if (router.isFallback) return <div>Loading...</div>
 
     return (
         <CategoryLayout>
@@ -73,7 +77,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     return {
         paths,
-        fallback: "blocking",
+        fallback: true,
     }
 }
 

@@ -1,4 +1,4 @@
-import { Product, Category, } from "../../../../types"
+import { Product, Category23, } from "../../../../types"
 import product1 from "./product-1.jpg"
 import product2 from "./product-2.jpg"
 import product3 from "./product-3.jpg"

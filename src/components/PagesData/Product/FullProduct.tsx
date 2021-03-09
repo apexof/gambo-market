@@ -1,10 +1,11 @@
-import React from "react"
+import React, { FC, } from "react"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Box, Grid, Typography, } from "@material-ui/core"
 import WeightList from "../../Product/ProductCards/WeightList"
 import Features from "./Features"
 import PriceBlock from "./PriceBlock"
 import Slider from "./Slider"
+import { Product, } from "../../../types"
 
 const useStyles = makeStyles((theme) => ({
     product: {
@@ -15,34 +16,20 @@ const useStyles = makeStyles((theme) => ({
     title: { marginBottom: theme.spacing(2), },
 }))
 
-export default function FullProduct({ product, }) {
+interface IProps {
+    product: Product
+}
+
+const FullProduct: FC<IProps> = ({ product, }) => {
     const classes = useStyles()
-    const { img, title, id, available, weight, price, oldPrice, } = product
-    const sliderItems = [
-        {
-            id: 1,
-            img,
-        },
-        {
-            id: 2,
-            img,
-        },
-        {
-            id: 3,
-            img,
-        },
-        {
-            id: 4,
-            img,
-        }
-    ]
+    const { images, title, id, available, weight, price, oldPrice, } = product
 
     return (
         <div className={classes.product}>
             <Grid container>
                 <Grid item xs={12} md={4}>
                     <Box pr={3}>
-                        <Slider items={sliderItems} />
+                        <Slider items={images} />
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={8}>
@@ -80,3 +67,5 @@ export default function FullProduct({ product, }) {
         </div>
     )
 }
+
+export default FullProduct

@@ -2,7 +2,10 @@ import React, { useState, FC, } from "react"
 import cx from "clsx"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Box, Typography, } from "@material-ui/core"
+import Loader from "../../Elements/Loader"
 import { Category, } from "../../../types"
+import { useCategories, } from "../../../SWR/useCategories"
+import SwrError from "../../Elements/SwrError"
 
 const useStyles = makeStyles((theme) => ({
     item: {
@@ -16,33 +19,29 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-type Props = {
-    list: Category[]
-}
-
-const CategoryList: FC<Props> = ({ list, }) => {
+const CategoryList: FC = ({ toggleCategory, activeCategory, }) => {
     const classes = useStyles()
-    const [active, setActive] = useState("")
-    const toggleActive = (id: string) => () => {
-        if (active === id) setActive("")
-        else setActive(id)
-    }
+
+    const { data, error, } = useCategories()
+    if (error) return <SwrError error={error} />
+    if (!data?.categories) { return (<Loader w={190} h={64} s={20} />) }
+
     return (
         <Box>
             <Box mb={1}>
                 <Typography variant="h4">Categories</Typography>
             </Box>
             <div>
-                {list.map((item) => (
+                {data.categories.map((item: Category) => (
                     <div
                         key={item.id}
                         role="button"
                         tabIndex={0}
-                        onKeyPress={(e) => { if (e.key === "Enter") toggleActive(item.id)() }}
-                        onClick={toggleActive(item.id)}
-                        className={cx(classes.item, item.id === active && classes.itemActive)}
+                        onKeyPress={(e) => { if (e.key === "Enter") toggleActive(item.slug)() }}
+                        onClick={toggleCategory(item.slug)}
+                        className={cx(classes.item, item.slug === activeCategory && classes.itemActive)}
                     >
-                        {item.title}
+                        {item.name}
                     </div>
                 ))}
             </div>

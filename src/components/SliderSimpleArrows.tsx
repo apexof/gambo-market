@@ -1,15 +1,15 @@
-import React from "react"
+import React, { FC, ReactNode, } from "react"
 import Slider from "react-slick"
 import { makeStyles, } from "@material-ui/core/styles"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 import ChevronRightIcon from "@material-ui/icons/ChevronRight"
 import { IconButton, } from "@material-ui/core"
+import { IResponsive, } from "../types"
 
 const useStyles = makeStyles((theme) => ({
     nextBtn: (props) => ({
         margin: "0 -0.8rem",
         width: props.border ? 50 : 30,
-        height: props.border ? 50 : 30,
         height: props.border ? 50 : 30,
         boxShadow: props.border ? "none" : "0px 2px 2px 0px rgb(0 0 0 / 7%)",
         backgroundColor: theme.palette.primary.main,
@@ -29,7 +29,12 @@ const useStyles = makeStyles((theme) => ({
     prevBtn: { left: "0px", },
 }))
 
-export const SampleNextArrow = ({ onClick, border = true, }) => {
+interface IArrow {
+    border: boolean
+    onClick?: () => void
+}
+
+export const SampleNextArrow: FC<IArrow> = ({ onClick, border = true, }) => {
     const classes = useStyles({ border, })
 
     return (
@@ -39,7 +44,7 @@ export const SampleNextArrow = ({ onClick, border = true, }) => {
     )
 }
 
-export const SamplePrevArrow = ({ onClick, border = true, }) => {
+export const SamplePrevArrow: FC<IArrow> = ({ onClick, border = true, }) => {
     const classes = useStyles({ border, })
 
     return (
@@ -49,7 +54,13 @@ export const SamplePrevArrow = ({ onClick, border = true, }) => {
     )
 }
 
-export default function SliderSimpleArrows({ children, slidesToShow, responsive, }) {
+interface IProps {
+    slidesToShow: number
+    children: ReactNode
+    responsive: IResponsive[]
+}
+
+const SliderSimpleArrows: FC<IProps> = ({ children, slidesToShow, responsive, }) => {
     const settings = {
         dots: false,
         infinite: true,
@@ -69,3 +80,5 @@ export default function SliderSimpleArrows({ children, slidesToShow, responsive,
         </Slider>
     )
 }
+
+export default SliderSimpleArrows

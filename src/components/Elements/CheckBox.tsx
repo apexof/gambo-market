@@ -2,7 +2,7 @@ import React, { FC, ChangeEvent, } from "react"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Checkbox, FormControlLabel, } from "@material-ui/core"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     root: { padding: `3px ${theme.spacing(1)}`, },
     checked: {
         color: `${theme.palette.secondary.main} !important`,
@@ -21,6 +21,7 @@ const CheckBox: FC<Props> = ({ label, }) => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
         setCheck(event.target.checked)
     }
+
     return (
         <FormControlLabel
             control={(

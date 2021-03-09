@@ -1,17 +1,36 @@
+export type ProductImg = {
+    lqip: string
+    url: string
+    width: number
+    height: number
+}
+
 export type Product = {
     id: number
     title: string
-    img: string
+    images: ProductImg[]
     price: number
+    slug: number
     oldPrice: number
     available: string
     discount: number
     weight: number[]
-    category: string
     quantity?: number
+    category?: {
+        name: string
+    }
+}
+
+export type Category23 = {
+    id: string
+    title: string
 }
 
 export type Category = {
     id: string
-    title: string
+    name: string
+    slug: string
+    icon: {
+        url: string
+    }
 }

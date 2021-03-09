@@ -3,8 +3,10 @@ import { useRouter, } from "next/router"
 import { makeStyles, } from "@material-ui/core/styles"
 import CardMedia from "@material-ui/core/CardMedia"
 import { Card, CardContent, Typography, } from "@material-ui/core"
+import Link from "../Elements/Link"
+import { Category, } from "../../types"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         padding: 20,
         borderRadius: 0,
@@ -33,30 +35,33 @@ const useStyles = makeStyles(theme => ({
 }))
 
 type Props = {
-    title: string,
-    img: string,
+    category: Category
     closeModal?: () => void
 }
 
-const CategoryCard: FC<Props> = ({ title, img, closeModal, }) => {
+const CategoryCard: FC<Props> = ({ category, closeModal, }) => {
+    const { name, icon, slug, } = category
     const classes = useStyles()
     const router = useRouter()
     const handleClick = () => {
         if (closeModal) closeModal()
-        router.push("/category/top-featured-products")
+        router.push(`/category/${slug}`)
     }
+
     return (
-        <Card className={classes.root} onClick={handleClick}>
-            <CardMedia image={img} />
-            <div className={classes.imgWrap}>
-                <img src={img} alt="" />
-            </div>
-            <CardContent className={classes.cardContent}>
-                <Typography align="center" className={classes.title} color="textSecondary">
-                    {title}
-                </Typography>
-            </CardContent>
-        </Card>
+        <Link href={`/category/${slug}`}>
+            <Card className={classes.root}>
+                <CardMedia image={icon.url} />
+                <div className={classes.imgWrap}>
+                    <img src={icon.url} alt="" />
+                </div>
+                <CardContent className={classes.cardContent}>
+                    <Typography align="center" className={classes.title} color="textSecondary">
+                        {name}
+                    </Typography>
+                </CardContent>
+            </Card>
+        </Link>
     )
 }
 

@@ -1,5 +1,5 @@
 import { AppBar, Box, Toolbar, } from "@material-ui/core"
-import React from "react"
+import React, { FC } from "react"
 import { useRouter, } from "next/router"
 import { makeStyles, useTheme, } from "@material-ui/core/styles"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
@@ -92,7 +92,11 @@ const selectItems = [
     }
 ]
 
-function Header({ scrolled, }) {
+interface IProps {
+    scrolled: boolean
+}
+
+const Header: FC<IProps> = ({ scrolled, }) => {
     const { nightMode, } = useThemeContext()
     const classes = useStyles({ scrolled, })
     const theme = useTheme()
@@ -103,12 +107,8 @@ function Header({ scrolled, }) {
     return (
         <AppBar position="sticky" className={classes.header}>
             <Toolbar className={classes.toolbar}>
-                <Link href="/" onClick={(e) => e.preventDefault} className={classes.logo}>
-                    <img
-                        className={classes.img}
-                        src={logo}
-                        alt=""
-                    />
+                <Link href="/" className={classes.logo}>
+                    <img src={logo} alt="" />
                 </Link>
                 <Box display={{ xs: "none", lg: "block", }}>
                     <HeaderSelect selectItems={selectItems} />

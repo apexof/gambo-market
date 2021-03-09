@@ -1,11 +1,12 @@
 import { Card, CardActions, CardContent, CardMedia, Typography, } from "@material-ui/core"
-import React from "react"
+import React, { FC, } from "react"
 import { makeStyles, } from "@material-ui/core/styles"
 import CloseIcon from "@material-ui/icons/Close"
 import Link from "../../../Elements/Link"
 import Discount from "../DiscountBlock"
 import Price from "../../../Elements/Price"
 import Weight from "../Weight"
+import { Product, RemoveFromCart, } from "../../../../types"
 import OldPrice from "../../../Elements/OldPrice"
 import CartControls from "../CartControls"
 import ImgWithPreview from "../../../Elements/LazyImg/Img"
@@ -77,9 +78,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function ProductCard({ product, removeAllItemsFromCart, }) {
-    const { title, img, price, oldPrice, discount, weight, id, } = product
+interface IProps {
+    product: Product
+    removeAllItemsFromCart: RemoveFromCart
+}
+
+const ProductCard: FC<IProps> = ({ product, removeAllItemsFromCart, }) => {
+    const { title, images, price, oldPrice, discount, weight, id, slug, } = product
     const classes = useStyles()
+    const img = images[0]
 
     return (
         <Card className={classes.card}>
@@ -93,8 +100,9 @@ export default function ProductCard({ product, removeAllItemsFromCart, }) {
             </div>
             <div className={classes.cardFlex}>
                 <CardMedia className={classes.cardMedia}>
-                    <Link href={`/product/${id}`} className={classes.imgWrapper}>
-                        <ImgWithPreview img={img} aspectRatio={1} />
+                    <Link href={`/product/${slug}`} className={classes.imgWrapper}>
+                        <ImgWithPreview src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
+
                     </Link>
                 </CardMedia>
                 <CardContent className={classes.cardContent}>
@@ -118,3 +126,5 @@ export default function ProductCard({ product, removeAllItemsFromCart, }) {
         </Card>
     )
 }
+
+export default ProductCard

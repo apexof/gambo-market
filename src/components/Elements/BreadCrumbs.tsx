@@ -1,11 +1,11 @@
-import React, { FC } from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import { useRouter } from "next/router"
-import { Breadcrumbs, Typography } from "@material-ui/core"
+import React, { FC, } from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import { useRouter, } from "next/router"
+import { Breadcrumbs, Typography, } from "@material-ui/core"
 import Link from "./Link"
-import { capitalizeFirstLetter } from "../../helpers"
+import { capitalizeFirstLetter, } from "../../helpers"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     currentItem: {
         color: theme.palette.text.primary,
         marginRight: 10,
@@ -17,9 +17,9 @@ const BreadCrumbs: FC = () => {
     const classes = useStyles()
     const router = useRouter()
     let breadArray = router.asPath.split("/")
-    breadArray = breadArray.filter(item => item.length)
-    breadArray = breadArray.map(item => capitalizeFirstLetter(item))
-    breadArray = breadArray.map(item => item.replace(/-/g, " "))
+    breadArray = breadArray.filter((item) => item.length)
+    breadArray = breadArray.map((item) => capitalizeFirstLetter(item))
+    breadArray = breadArray.map((item) => item.replace(/-/g, " "))
 
     return (
         <Breadcrumbs aria-label="breadcrumb">
@@ -36,6 +36,7 @@ const BreadCrumbs: FC = () => {
                         </Typography>
                     )
                 }
+
                 return (
                     <Link key={item} href="/" className={classes.prevLinks}>
                         <Typography variant="body1">

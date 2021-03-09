@@ -6,9 +6,8 @@ import { Box, Toolbar, Typography, } from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
 import FilterList from "./FilterList"
 import CategoryList from "./CategoryList"
-import { categories, } from "../../Product/ProductLists/lists"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     root: { overflowY: "hidden", },
     header: {
         background: theme.palette.type === "dark" ? "#000" : "#2b2f4c",
@@ -180,7 +179,7 @@ const filterList: TfilterList[] = [
     }
 ]
 
-const Filter = () => {
+const Filter = ({ toggleCategory, activeCategory, }) => {
     const classes = useStyles()
     const [open, setOpen] = React.useState(false)
 
@@ -213,7 +212,10 @@ const Filter = () => {
                         />
                     </Toolbar>
                     <Box p={2} className={`${classes.content} scrollstyle_4`}>
-                        <CategoryList list={categories} />
+                        <CategoryList
+                            toggleCategory={toggleCategory}
+                            activeCategory={activeCategory}
+                        />
                         <FilterList filterList={filterList} />
                     </Box>
                 </div>

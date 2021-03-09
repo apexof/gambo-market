@@ -1,5 +1,5 @@
 import { Box, Container, } from "@material-ui/core"
-import React from "react"
+import React, { FC, } from "react"
 import cx from "clsx"
 import { makeStyles, } from "@material-ui/core/styles"
 import Img from "../Elements/LazyImg/Img"
@@ -62,7 +62,17 @@ const banners = [
     }
 ]
 
-export default function BannerSection() {
+interface IItem {
+    id: number
+    full?: boolean
+    aspectRatio: number
+    img: {
+        src: string
+        preSrc: string
+    }
+}
+
+const BannerSection: FC = () => {
     const classes = useStyles()
 
     return (
@@ -72,9 +82,9 @@ export default function BannerSection() {
                     <SectionTitle title="Best Values" clarification="Offers" />
                 </Box>
                 <div className={classes.list}>
-                    {banners.map((item) => (
+                    {banners.map((item: IItem) => (
                         <div key={item.id} className={cx(classes.imgWrap, item.full ? classes.imgWrapFull : classes.imgWrapPart)}>
-                            <Img img={item.img} aspectRatio={item.aspectRatio} />
+                            <Img src={item.img.src} lqip={item.img.preSrc} aspectRatio={item.aspectRatio} />
                         </div>
                     ))}
                 </div>
@@ -82,3 +92,5 @@ export default function BannerSection() {
         </section>
     )
 }
+
+export default BannerSection

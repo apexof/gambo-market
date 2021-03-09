@@ -1,4 +1,4 @@
-import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, Typography, } from "@material-ui/core"
+import { Box, Card, CardActions, CardContent, CardMedia, Typography, } from "@material-ui/core"
 import React, { FC, } from "react"
 import cx from "clsx"
 import { makeStyles, } from "@material-ui/core/styles"
@@ -58,11 +58,9 @@ type Props = {
 }
 
 const ProductCard: FC<Props> = ({ product, shadow, addToCart, }) => {
-    const { title, img, price, oldPrice, available, discount, id, } = product
+    const { title, images, price, oldPrice, available, discount, slug, } = product
     const classes = useStyles()
-    if (typeof img !== "object") {
-        return null
-    }
+    const img = images[0]
 
     return (
         <Card className={cx(classes.card, shadow)}>
@@ -73,13 +71,13 @@ const ProductCard: FC<Props> = ({ product, shadow, addToCart, }) => {
                 <WishIcon product={product} />
             </div>
             <CardMedia>
-                <Link href={`/product/${id}`} className={classes.imgWrapper}>
-                    <Img img={img} aspectRatio={1} />
+                <Link href={`/product/${slug}`} className={classes.imgWrapper}>
+                    <Img src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
                 </Link>
             </CardMedia>
             <CardContent>
                 <Typography variant="subtitle2">
-                    {`Available ${available}`}
+                    {`Available (${available ? "In" : "Out Of"} Stock)`}
                 </Typography>
                 <Box mb={1}>
                     <Typography variant="subtitle1">

@@ -1,48 +1,46 @@
 import { Box, Button, Container, Grid, } from "@material-ui/core"
 import React, { FC, } from "react"
-import { Product, } from "../../../types"
-import Filter from "../../Filters/Category/Filter"
-import ProductCard from "../ProductCards/MainProductCard"
-import SectionTitle from "../../Elements/SectionTitle"
-import Select1 from "../../Elements/Select1"
+import { Product, SetSort, SortType, SortSelectItem, } from "../../../../types"
+import Filter from "../../../Filters/Category/Filter"
+import ProductCard from "../../ProductCards/MainProductCard"
+import SectionTitle from "../../../Elements/SectionTitle"
+import Select1 from "../../../Elements/Select1"
 
-const sort = [
+const sort: SortSelectItem[] = [
     {
-        id: 1,
+        type: SortType.priceLowToHigh,
         title: "Price - Low to High",
     },
     {
-        id: 2,
+        type: SortType.priceHighToLow,
         title: "Price - High to Low",
     },
     {
-        id: 3,
+        type: SortType.alphabetical,
         title: "Alphabetical",
     },
     {
-        id: 4,
+        type: SortType.savingHighToLow,
         title: "Saving - High to Low",
     },
     {
-        id: 5,
+        type: SortType.savingLowToHigh,
         title: "Saving - Low to High",
     },
     {
-        id: 6,
+        type: SortType.discountHighToLow,
         title: "% Off - High to Low",
-    },
-    {
-        id: 7,
-        title: "Popularity",
     }
 ]
 
 type Props = {
-    items: Product[]
+    products: Product[]
     title: string
+    setSort: SetSort
+    sortType: SortType
 }
 
-const ProductListSlider: FC<Props> = ({ items, title, }) => {
+const CategoryPageList: FC<Props> = ({ sortType, setSort, products, title, toggleCategory, activeCategory, }) => {
     return (
         <Container>
             <Box mb={1}>
@@ -55,16 +53,25 @@ const ProductListSlider: FC<Props> = ({ items, title, }) => {
                     <Grid item xs={12} sm={6}>
                         <Box display="flex" flexDirection="row-reverse">
                             <Box ml={2}>
-                                <Filter />
+                                <Filter
+                                    toggleCategory={toggleCategory}
+                                    activeCategory={activeCategory}
+                                />
                             </Box>
-                            <Select1 selectItems={sort} icons={false} shadow bgc="paper" />
-
+                            <Select1
+                                selectItems={sort}
+                                sortType={sortType}
+                                icons={false}
+                                setSort={setSort}
+                                shadow
+                                bgc="paper"
+                            />
                         </Box>
                     </Grid>
                 </Grid>
             </Box>
             <Box m={-1.5} display="flex" flexWrap="wrap">
-                {items.map((item) => (
+                {products.map((item) => (
                     <Box
                         p={1.5}
                         width={{
@@ -88,4 +95,4 @@ const ProductListSlider: FC<Props> = ({ items, title, }) => {
     )
 }
 
-export default ProductListSlider
+export default CategoryPageList

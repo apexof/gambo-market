@@ -49,16 +49,18 @@ type Props = {
 }
 
 const WishItem: FC<Props> = ({ product, removeFromWishList, }) => {
-    const { title, img, price, oldPrice, discount, id, } = product
+    const { title, images, price, oldPrice, discount, id, slug, } = product
     const classes = useStyles()
+    const img = images[0]
 
     return (
         <div className={classes.item}>
             <div className={classes.discountWrapp}>
                 <Discount>{discount}</Discount>
             </div>
-            <Link href={`/product/${id}`} className={classes.link}>
-                <ImgWithPreview img={img} aspectRatio={1} />
+            <Link href={`/product/${slug}`} className={classes.link}>
+                <ImgWithPreview src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
+
             </Link>
             <Box ml={2}>
                 <Typography variant="h4">{title}</Typography>

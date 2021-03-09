@@ -1,11 +1,12 @@
-import React from "react"
+import React, { FC, } from "react"
 import cx from "clsx"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Button, } from "@material-ui/core"
+import { Product, AddToCart, RemoveFromCart, } from "../../../types"
 import { haveItemInWishList, } from "../../../helpers"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     iconBox: {
         borderRadius: "50%",
         cursor: "pointer",
@@ -33,7 +34,14 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function WishIcon({ addToWishList, product, wishList, removeFromWishList, }) {
+interface IProps {
+    product: Product,
+    wishList: Product[],
+    addToWishList: AddToCart
+    removeFromWishList: RemoveFromCart
+}
+
+const WishIcon: FC<IProps> = ({ addToWishList, product, wishList, removeFromWishList, }) => {
     let wished = false
     if (product) {
         wished = haveItemInWishList(wishList, product.id)
@@ -60,3 +68,5 @@ export default function WishIcon({ addToWishList, product, wishList, removeFromW
         </Button>
     )
 }
+
+export default WishIcon

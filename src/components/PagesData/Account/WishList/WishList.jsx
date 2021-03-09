@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function WishList({ wishList, }) {
     const classes = useStyles()
-    // console.log(wishList)
 
     return (
         <div>

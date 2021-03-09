@@ -2,7 +2,7 @@ import React, { FC, ReactNode, } from "react"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Typography, } from "@material-ui/core"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     oldPrice: {
         fontSize: 18,
         color: "#c7c7c7",
@@ -14,8 +14,8 @@ const useStyles = makeStyles(theme => ({
 
 type Props = {
     children: ReactNode,
-    line: boolean,
-    currency: string,
+    line?: boolean,
+    currency?: string,
 }
 
 const OldPrice: FC<Props> = ({ children, line = true, currency = "$", }) => {

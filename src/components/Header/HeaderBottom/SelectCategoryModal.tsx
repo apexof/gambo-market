@@ -1,74 +1,29 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import AppsIcon from '@material-ui/icons/Apps';
-import CategoryCard from '../../CategoryList/CategoryCard';
-import { Backdrop, Button, Grid, Link, Typography } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-import Slide from '@material-ui/core/Slide';
-
-const categories = [
-    {
-        id: 0,
-        title: " Electronics",
-        img: "/img/categoryIcons/icon-1.svg"
-    },
-    {
-        id: 1,
-        title: "Snacks",
-        img: "/img/categoryIcons/icon-2.svg"
-    },
-    {
-        id: 2,
-        title: "Meat & Seafood",
-        img: "/img/categoryIcons/icon-3.svg"
-    },
-    {
-        id: 3,
-        title: " Electronics",
-        img: "/img/categoryIcons/icon-1.svg"
-    },
-    {
-        id: 4,
-        title: "Snacks",
-        img: "/img/categoryIcons/icon-2.svg"
-    },
-    {
-        id: 5,
-        title: "Meat & Seafood",
-        img: "/img/categoryIcons/icon-3.svg"
-    },
-    {
-        id: 6,
-        title: " Electronics",
-        img: "/img/categoryIcons/icon-1.svg"
-    },
-    {
-        id: 7,
-        title: "Snacks",
-        img: "/img/categoryIcons/icon-2.svg"
-    },
-    {
-        id: 8,
-        title: "Meat & Seafood",
-        img: "/img/categoryIcons/icon-3.svg"
-    },
-]
+import React, { FC, } from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import Modal from "@material-ui/core/Modal"
+import AppsIcon from "@material-ui/icons/Apps"
+import { Backdrop, Box, Button, Grid, Typography, } from "@material-ui/core"
+import CloseIcon from "@material-ui/icons/Close"
+import Slide from "@material-ui/core/Slide"
+import Link from "../../Elements/Link"
+import Loader from "../../Elements/Loader"
+import { Category, } from "../../../types"
+import CategoryCard from "../../CategoryList/CategoryCard"
+import SwrError from "../../Elements/SwrError"
+import { useCategories, } from "../../../SWR/useCategories"
 
 const useStyles = makeStyles((theme) => ({
     modal: {
         backgroundImage: "linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9))",
-        "& > div": {
-            backgroundColor: "unset !important",
-        }
+        "& > div": { backgroundColor: "unset !important", },
     },
     paper: {
-        position: 'absolute',
+        position: "absolute",
         top: 0,
         bottom: 119,
         left: 0,
         width: "100%",
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up("sm")]: {
             height: 500,
             bottom: "unset",
             top: "10%",
@@ -78,12 +33,12 @@ const useStyles = makeStyles((theme) => ({
         "&:focus": {
             outline: "none",
             border: "none",
-        }
+        },
     },
     title: {
         background: theme.palette.type === "dark" ? "#000" : "#2b2f4c",
         padding: "15px 20px",
-        color: "#fff"
+        color: "#fff",
     },
     btn: {
         width: 190,
@@ -97,24 +52,18 @@ const useStyles = makeStyles((theme) => ({
             color: theme.palette.secondary.contrastText,
             backgroundImage: "linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9))",
         },
-        "& svg": {
-            marginRight: "5px",
-        },
+        "& svg": { marginRight: "5px", },
     },
     list: {
         width: "100%",
         background: theme.palette.primary.main,
         height: "100%",
-        [theme.breakpoints.up('sm')]: {
-            height: "auto",
-        },
+        [theme.breakpoints.up("sm")]: { height: "auto", },
     },
     itemWrap: {
         cursor: "pointer",
         background: theme.palette.primary.main,
-        "&:hover": {
-            background: theme.palette.primary.dark,
-        }
+        "&:hover": { background: theme.palette.primary.dark, },
     },
     moreCategory: {
         textAlign: "center",
@@ -124,13 +73,11 @@ const useStyles = makeStyles((theme) => ({
         background: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,
         justifyContent: "center",
-        "& svg": {
-            marginRight: "5px",
-        },
+        "& svg": { marginRight: "5px", },
         "&:hover": {
             textDecoration: "none",
             color: theme.palette.secondary.main,
-        }
+        },
     },
     closeIcon: {
         position: "absolute",
@@ -138,22 +85,23 @@ const useStyles = makeStyles((theme) => ({
         top: "10px",
         cursor: "pointer",
         color: "#fff",
-        [theme.breakpoints.up('md')]: {
-            top: "-40px",
-        },
-    }
-}));
+        [theme.breakpoints.up("md")]: { top: "-40px", },
+    },
+}))
 
-export default function SimpleModal() {
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+const SimpleModal: FC = () => {
+    const classes = useStyles()
+    const [open, setOpen] = React.useState(false)
+
+    const { data, error, } = useCategories()
+    if (error) return <SwrError error={error} />
+    if (!data?.categories) { return (<Loader w={190} h={64} s={20} />) }
 
     const handleOpen = () => setOpen(true)
-
     const handleClose = () => setOpen(false)
 
     return (
-        <div className={classes.btnWrapp}>
+        <div>
             <Button onClick={handleOpen} className={classes.btn}>
                 <AppsIcon />
                 <Typography component="span">
@@ -168,9 +116,7 @@ export default function SimpleModal() {
                 className={classes.modal}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 1000,
-                }}
+                BackdropProps={{ timeout: 1000, }}
             >
                 <Slide direction="down" in={open}>
                     <div className={classes.paper}>
@@ -183,12 +129,11 @@ export default function SimpleModal() {
                             Select Category
                         </Typography>
                         <Grid container className={classes.list}>
-                            {categories.map(item => (
+                            {data.categories.map((item: Category) => (
                                 <Grid item key={item.id} className={classes.itemWrap} xs={6} md={4}>
                                     <CategoryCard
                                         key={item.id}
-                                        title={item.title}
-                                        img={item.img}
+                                        category={item}
                                         closeModal={handleClose}
                                     />
                                 </Grid>
@@ -198,11 +143,13 @@ export default function SimpleModal() {
                             <AppsIcon />
                             <Typography>
                                 More Category
-                        </Typography>
+                            </Typography>
                         </Link>
                     </div>
                 </Slide>
             </Modal>
         </div>
-    );
+    )
 }
+
+export default SimpleModal

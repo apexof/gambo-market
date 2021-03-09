@@ -17,4 +17,5 @@ const Text = withTheme(styled(Typography)`
 const BlockTitle: FC<Props> = ({ children, border = true, }) => (
     <Text border={border ? 1 : 0} variant="h4">{children}</Text>
 )
+
 export default BlockTitle

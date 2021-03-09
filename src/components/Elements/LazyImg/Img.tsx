@@ -26,16 +26,13 @@ const Source = styled(Img)`
 `
 
 type Props = {
-    img: {
-        src: string,
-        palette?: string[],
-        preSrc: string,
-    },
+    lqip: string
+    src: string
+    aspectRatio: number
     alt?: string,
-    aspectRatio?: number,
 }
 
-const ImgWithPreview: FC<Props> = ({ img, alt = "", aspectRatio = (16 / 9), }) => {
+const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, }) => {
     const [loaded, setLoaded] = useState(false)
     const imgRef = useRef()
     useEffect(() => {
@@ -43,15 +40,14 @@ const ImgWithPreview: FC<Props> = ({ img, alt = "", aspectRatio = (16 / 9), }) =
             setLoaded(true)
         }
     }, [])
-    // console.log(img)
 
     return (
         <Wrapper>
             <div style={{ paddingBottom: `${100 / aspectRatio}%`, }} />
-            <Img src={img.preSrc} aria-hidden="true" alt="" />
+            <Img src={lqip} aria-hidden="true" alt="" />
             <Source
                 loading="lazy"
-                src={img.src}
+                src={src}
                 alt={alt}
                 ref={imgRef}
                 loaded={loaded}

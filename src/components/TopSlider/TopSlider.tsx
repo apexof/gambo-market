@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC, } from "react"
 import Slider from "react-slick"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Button, Typography, } from "@material-ui/core"
@@ -115,7 +115,18 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function CategorySlider() {
+interface ISlide {
+    id: number,
+    img: {
+        src: string
+        preSrc: string
+    },
+    discount: string,
+    title: string,
+    description: string,
+}
+
+const TopSlider: FC = () => {
     const classes = useStyles()
     const settings = {
         dots: false,
@@ -152,11 +163,11 @@ export default function CategorySlider() {
         <div className={classes.topSlider}>
             <div className={classes.list}>
                 <Slider {...settings}>
-                    {slides.map((item) => (
+                    {slides.map((item: ISlide) => (
                         <div key={item.id}>
                             <div className={classes.imgWrap}>
                                 <div className={classes.imgBorder}>
-                                    <Img img={item.img} aspectRatio={500 / 320} />
+                                    <Img src={item.img.src} lqip={item.img.preSrc} aspectRatio={500 / 320} />
                                 </div>
                                 <div className={classes.slideContent}>
                                     <Typography className={classes.discount}>
@@ -180,3 +191,5 @@ export default function CategorySlider() {
         </div>
     )
 }
+
+export default TopSlider

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC, } from "react"
 import { makeStyles, } from "@material-ui/core/styles"
 import Table from "@material-ui/core/Table"
 import TableBody from "@material-ui/core/TableBody"
@@ -23,7 +23,7 @@ const rows = [
     createData("Gingerbread", 356, 16.0, 49, 3.9)
 ]
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     table: { minWidth: 700, },
     cell: {
         "&.MuiTableCell-head": {
@@ -34,7 +34,11 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function CustomTable({ title, }) {
+interface IProps {
+    title: string
+}
+
+const CustomTable: FC<IProps> = ({ title, }) => {
     const classes = useStyles()
 
     return (
@@ -51,7 +55,7 @@ export default function CustomTable({ title, }) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map(row => (
+                    {rows.map((row) => (
                         <TableRow className={classes.row} key={row.name}>
                             <TableCell className={classes.cell} component="th" scope="row">
                                 {row.name}
@@ -67,3 +71,5 @@ export default function CustomTable({ title, }) {
         </TableContainer>
     )
 }
+
+export default CustomTable

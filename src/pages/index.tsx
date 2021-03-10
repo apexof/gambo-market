@@ -1,22 +1,21 @@
 import { Box, } from "@material-ui/core"
-import React, { FC } from "react"
-import { GET_ALL_CATEGORIES, apolloClient, GET_LAST_PRODUCTS } from "../GraphQL"
+import React, { FC, } from "react"
+import { GetStaticProps, } from "next"
+import { gql, } from "@apollo/client"
+import { GET_ALL_CATEGORIES, apolloClient, GET_LAST_PRODUCTS, } from "../GraphQL"
 import MainLayout from "../components/Layouts/MainLayout"
 import CategorySlider from "../components/CategoryList/CategorySlider"
 import BannerSection from "../components/BannerSection/BannerSection"
 import TopSlider from "../components/TopSlider/TopSlider"
 import ProductListSlider from "../components/Product/ProductLists/ProductListSlider"
-import { GetStaticProps } from "next"
-import { getLqipForArray } from "../helpers/getLqip"
-import { Category, Product } from "../types"
-import { gql } from '@apollo/client'
+import { Category, Product, } from "../types"
 
 interface IProps {
     categories: Category[]
-    last_products: Product[]
+    lastProducts: Product[]
 }
 
-const Home: FC<IProps> = ({ last_products, categories }) => {
+const Home: FC<IProps> = ({ lastProducts, categories, }) => {
     return (
         <MainLayout>
             <TopSlider />
@@ -45,7 +44,7 @@ const Home: FC<IProps> = ({ last_products, categories }) => {
                     id="added-new-products"
                     title="Added New Products"
                     clarification="For You"
-                    items={last_products}
+                    items={lastProducts}
                 />
             </Box>
         </MainLayout>
@@ -55,17 +54,13 @@ const Home: FC<IProps> = ({ last_products, categories }) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-    const res = await apolloClient.query({
-        query: gql(GET_ALL_CATEGORIES),
-    })
-    const res1 = await apolloClient.query({
-        query: gql(GET_LAST_PRODUCTS),
-    })
+    const res = await apolloClient.query({ query: gql(GET_ALL_CATEGORIES), })
+    const res1 = await apolloClient.query({ query: gql(GET_LAST_PRODUCTS), })
 
     return {
         props: {
             categories: res.data.categories,
-            last_products: res1.data.products
+            lastProducts: res1.data.products,
         },
         revalidate: 60,
     }

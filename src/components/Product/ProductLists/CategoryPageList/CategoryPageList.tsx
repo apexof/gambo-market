@@ -4,7 +4,7 @@ import { Product, SetSort, SortType, SortSelectItem, } from "../../../../types"
 import Filter from "../../../Filters/Category/Filter"
 import ProductCard from "../../ProductCards/MainProductCard"
 import SectionTitle from "../../../Elements/SectionTitle"
-import Select1 from "../../../Elements/Select1"
+import Select1 from "./SortSelect"
 
 const sort: SortSelectItem[] = [
     {
@@ -61,10 +61,7 @@ const CategoryPageList: FC<Props> = ({ sortType, setSort, products, title, toggl
                             <Select1
                                 selectItems={sort}
                                 sortType={sortType}
-                                icons={false}
                                 setSort={setSort}
-                                shadow
-                                bgc="paper"
                             />
                         </Box>
                     </Grid>

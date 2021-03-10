@@ -13,7 +13,7 @@ interface ISortType {
     type: SortType
 }
 
-const query1 = (slug) => `
+const query = (slug) => `
 query GET_PRODUCTS_BY_CATEGORY_SLUG {    
     products(where: {category: {slug_starts_with: "${slug}"}}) {
         ${defaultFields}
@@ -27,7 +27,7 @@ const CategoryPageListContainer: FC = () => {
     const [activeCategory, setCategory] = useState("fruits")
     const [sortType, setSort] = useState<ISortType>({ type: priceLowToHigh, })
 
-    const { data, error, } = useSWR(query1(activeCategory), fetcher("products"))
+    const { data: products, error, } = useSWR(query(activeCategory), fetcher("products"))
 
     const toggleCategory = (slug: string) => () => {
         if (activeCategory === slug) setCategory("")
@@ -35,16 +35,16 @@ const CategoryPageListContainer: FC = () => {
     }
 
     if (error) return <SwrError error={error} />
-    if (!data) { return (<Loader h={645} />) }
+    if (!products) { return (<Loader h={645} />) }
 
-    data.sort(sortFN[sortType.type])
+    products.sort(sortFN[sortType.type])
 
     return (
         <CategoryPageList
             toggleCategory={toggleCategory}
             activeCategory={activeCategory}
-            title={activeCategory ? data[0].category.name : "All products"}
-            products={data}
+            title={activeCategory ? products[0].category.name : "All products"}
+            products={products}
             setSort={setSort}
             sortType={sortType.type}
         />

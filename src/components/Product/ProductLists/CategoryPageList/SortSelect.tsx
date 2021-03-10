@@ -1,8 +1,8 @@
-import React, { FC, ChangeEvent, useState, } from "react"
+import React, { FC, ChangeEvent, } from "react"
 import cx from "clsx"
-import Icon from "@material-ui/core/Icon"
-import { Box, FormControl, MenuItem, Select, Typography, } from "@material-ui/core"
+import { FormControl, MenuItem, Select, Typography, } from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles"
+import { SetSort, SortSelectItem, SortType, } from "../../types"
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         height: 36,
         display: "flex",
     },
-    menuItemLi: { height: 42, },
+    menuItemLi: { height: "auto", },
     menuItem: {
         display: "flex",
         alignItems: "center",
@@ -25,33 +25,30 @@ const useStyles = makeStyles((theme) => ({
         padding: `0 ${theme.spacing(1)}`,
     },
     root: {
-        background: theme.palette.background.default,
-        "&:focus": { background: theme.palette.background.default, },
+        background: theme.palette.background.paper,
+        "&:focus": { background: theme.palette.background.paper, },
     },
 }))
 
-type SelectItem = {
-    id: number,
-    title: string,
-}
 type Props = {
-    selectItems: SelectItem[]
+    selectItems: SortSelectItem[]
+    setSort: SetSort
+    sortType: SortType
 }
 
-const HeaderSelect: FC<Props> = ({ selectItems, }) => {
+const HeaderSelect: FC<Props> = ({ sortType, setSort, selectItems, }) => {
     const classes = useStyles()
-    const [field, setField] = useState(1)
 
     const handleChange = (event: ChangeEvent<{ value: unknown }>): void => {
-        setField(+event.target.value)
+        setSort({ type: event.target.value, })
     }
 
     return (
-        <FormControl className={cx(classes.formControl)}>
+        <FormControl className={cx(classes.formControl, "shadow1")}>
             <Select
                 disableUnderline
                 id="demo-simple-select-helper"
-                value={field}
+                value={sortType}
                 onChange={handleChange}
                 classes={{
                     select: classes.select,
@@ -59,14 +56,12 @@ const HeaderSelect: FC<Props> = ({ selectItems, }) => {
                 }}
             >
                 {selectItems.map((item) => (
-                    <MenuItem key={item.title} value={item.id} className={classes.menuItemLi}>
+                    <MenuItem
+                        key={item.title}
+                        value={item.type}
+                        className={classes.menuItemLi}
+                    >
                         <div className={classes.menuItem}>
-                            {field === item.id
-                                && (
-                                    <Box mr={0.5}>
-                                        <Icon>room</Icon>
-                                    </Box>
-                                )}
                             <Typography>
                                 {item.title}
                             </Typography>

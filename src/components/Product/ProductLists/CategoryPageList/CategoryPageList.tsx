@@ -26,7 +26,7 @@ const CategoryPageList: FC<IProps> = ({ error, products, sortType, }) => {
     const classes = useStyles()
     if (error) return <SwrError error={error} />
     const ratio = { xs: 0.813, sm: 1.565, md: 2.302, lg: 2.874, }
-    if (!products) return <Loader w="100%" ratio={ratio} />
+    if (!products) return <Loader w="100%" ratio={ratio} s={50} />
     if (products.length) products.sort(sortFN[sortType])
 
     return (

@@ -1,6 +1,5 @@
 import React, { FC, } from "react"
 import styled from "styled-components"
-import { withTheme, } from "@material-ui/core/styles"
 import { Box, } from "@material-ui/core"
 
 const Img = styled.img`
@@ -24,7 +23,9 @@ interface IProps {
     }
 }
 
-const Loading: FC<IProps> = ({ ratio, h = "auto", w = "auto", s = 50, }) => {
+const Loading: FC<IProps> = ({ ratio, h = "auto", w = "auto", s = 20, }) => {
+    console.log(s, "size")
+
     return (
         <Box
             pb={ratio && {

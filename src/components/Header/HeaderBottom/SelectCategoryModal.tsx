@@ -95,7 +95,7 @@ const SimpleModal: FC = () => {
 
     const { data, error, } = useCategories()
     if (error) return <SwrError error={error} />
-    if (!data?.categories) { return (<Loader w={190} h={64} s={20} />) }
+    if (data?.categories) { return (<Loader w={190} h={64} s={20} />) }
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)

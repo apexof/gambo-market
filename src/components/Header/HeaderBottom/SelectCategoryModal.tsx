@@ -90,66 +90,69 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const SimpleModal: FC = () => {
-    const classes = useStyles()
-    const [open, setOpen] = React.useState(false)
+    // const classes = useStyles()
+    // const [open, setOpen] = React.useState(false)
 
-    const { data, error, } = useCategories()
-    if (error) return <SwrError error={error} />
-    if (data?.categories) { return (<Loader w={190} h={64} s={20} />) }
+    // const { data, error, } = useCategories()
+    // if (error) return <SwrError error={error} />
 
-    const handleOpen = () => setOpen(true)
-    const handleClose = () => setOpen(false)
+    // if (!data?.categories) {
+    return (<Loader w={190} h={64} s={20} />)
+    // }
 
-    return (
-        <div>
-            <Button onClick={handleOpen} className={classes.btn}>
-                <AppsIcon />
-                <Typography component="span">
-                    Select Category
-                </Typography>
-            </Button>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-                className={classes.modal}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{ timeout: 1000, }}
-            >
-                <Slide direction="down" in={open}>
-                    <div className={classes.paper}>
-                        <CloseIcon
-                            fontSize="large"
-                            className={classes.closeIcon}
-                            onClick={handleClose}
-                        />
-                        <Typography variant="h4" className={classes.title}>
-                            Select Category
-                        </Typography>
-                        <Grid container className={classes.list}>
-                            {data.categories.map((item: Category) => (
-                                <Grid item key={item.id} className={classes.itemWrap} xs={6} md={4}>
-                                    <CategoryCard
-                                        key={item.id}
-                                        category={item}
-                                        closeModal={handleClose}
-                                    />
-                                </Grid>
-                            ))}
-                        </Grid>
-                        <Link className={classes.moreCategory} href="#">
-                            <AppsIcon />
-                            <Typography>
-                                More Category
-                            </Typography>
-                        </Link>
-                    </div>
-                </Slide>
-            </Modal>
-        </div>
-    )
+    // const handleOpen = () => setOpen(true)
+    // const handleClose = () => setOpen(false)
+
+    // return (
+    //     <div>
+    //         <Button onClick={handleOpen} className={classes.btn}>
+    //             <AppsIcon />
+    //             <Typography component="span">
+    //                 Select Category
+    //             </Typography>
+    //         </Button>
+    //         <Modal
+    //             open={open}
+    //             onClose={handleClose}
+    //             aria-labelledby="simple-modal-title"
+    //             aria-describedby="simple-modal-description"
+    //             className={classes.modal}
+    //             closeAfterTransition
+    //             BackdropComponent={Backdrop}
+    //             BackdropProps={{ timeout: 1000, }}
+    //         >
+    //             <Slide direction="down" in={open}>
+    //                 <div className={classes.paper}>
+    //                     <CloseIcon
+    //                         fontSize="large"
+    //                         className={classes.closeIcon}
+    //                         onClick={handleClose}
+    //                     />
+    //                     <Typography variant="h4" className={classes.title}>
+    //                         Select Category
+    //                     </Typography>
+    //                     <Grid container className={classes.list}>
+    //                         {data.categories.map((item: Category) => (
+    //                             <Grid item key={item.id} className={classes.itemWrap} xs={6} md={4}>
+    //                                 <CategoryCard
+    //                                     key={item.id}
+    //                                     category={item}
+    //                                     closeModal={handleClose}
+    //                                 />
+    //                             </Grid>
+    //                         ))}
+    //                     </Grid>
+    //                     <Link className={classes.moreCategory} href="#">
+    //                         <AppsIcon />
+    //                         <Typography>
+    //                             More Category
+    //                         </Typography>
+    //                     </Link>
+    //                 </div>
+    //             </Slide>
+    //         </Modal>
+    //     </div>
+    // )
 }
 
 export default SimpleModal

@@ -22,7 +22,7 @@ const ImgSlider: FC<IProps> = ({ items, }) => {
     const itemArray = newItems.map((img) => (
         <div key={img.url}>
             <Box display="flex" justifyContent="center" className={classes.imgWrapp}>
-                <Img src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
+                <Img webp={img.webp} src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
             </Box>
         </div>
     ))

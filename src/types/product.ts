@@ -1,6 +1,7 @@
 export type ProductImg = {
     lqip: string
     url: string
+    webp: string
     width: number
     height: number
 }

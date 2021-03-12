@@ -101,8 +101,7 @@ const ProductCard: FC<IProps> = ({ product, removeAllItemsFromCart, }) => {
             <div className={classes.cardFlex}>
                 <CardMedia className={classes.cardMedia}>
                     <Link href={`/product/${slug}`} className={classes.imgWrapper}>
-                        <ImgWithPreview src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
-
+                        <ImgWithPreview webp={img.webp} src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
                     </Link>
                 </CardMedia>
                 <CardContent className={classes.cardContent}>

@@ -23,6 +23,7 @@ interface IProps {
 const FullProduct: FC<IProps> = ({ product, }) => {
     const classes = useStyles()
     const { images, title, id, available, weight, price, oldPrice, } = product
+    console.log("FullProduct")
 
     return (
         <div className={classes.product}>

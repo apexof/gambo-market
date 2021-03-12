@@ -24,8 +24,6 @@ interface IProps {
 }
 
 const Loading: FC<IProps> = ({ ratio, h = "auto", w = "auto", s = 20, }) => {
-    console.log(s, "size")
-
     return (
         <Box
             pb={ratio && {

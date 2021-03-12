@@ -9,6 +9,7 @@ export const defaultFields = `
     slug
     images {
         lqip: url(transformation: {image: {resize: {height: 30, width: 30}}})
+        webp: url(transformation: { document: { output: { format: webp } } })
         url
         width
         height

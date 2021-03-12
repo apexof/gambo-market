@@ -1,38 +1,44 @@
 import React, { FC, useRef, useEffect, useState, } from "react"
 import styled from "styled-components"
+import { makeStyles, } from "@material-ui/core/styles"
 
-const Wrapper = styled.div`
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-`
-const Img = styled.img`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    object-fit: cover;
-    object-position: center;
-    filter: blur(5px);
-`
-const Source = styled(Img)`
-  opacity: ${(p) => (p.loaded ? 1 : 0)};
-  transition: all 1s ease;
-  filter: unset;
-`
+const useStyles = makeStyles((theme) => ({
+    wrapper: {
+        position: "relative",
+        overflow: "hidden",
+        width: "100%",
+        height: "100%",
+    },
+    img: {
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        objectFit: "cover",
+        objectPosition: "center",
+        filter: "blur(5px)",
+    },
+    source: {
+        opacity: (p) => p["data-loaded"],
+        transition: "all 1s ease",
+        filter: "unset",
+    },
+}))
 
 type Props = {
     lqip: string
     src: string
+    webp?: string
     aspectRatio: number
     alt?: string,
 }
 
-const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, }) => {
+const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, }) => {
+    // console.log(webp)
+    const classes = useStyles()
     const [loaded, setLoaded] = useState(false)
     const imgRef = useRef()
     useEffect(() => {
@@ -42,18 +48,19 @@ const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, }) => {
     }, [])
 
     return (
-        <Wrapper>
+        <div className={classes.wrapper}>
             <div style={{ paddingBottom: `${100 / aspectRatio}%`, }} />
-            <Img src={lqip} aria-hidden="true" alt="" />
-            <Source
+            <img className={classes.img} src={lqip} aria-hidden="true" alt="" />
+            <img
                 loading="lazy"
                 src={src}
                 alt={alt}
                 ref={imgRef}
-                loaded={loaded}
+                data-loaded={loaded ? 1 : 0}
+                className={`${classes.source} ${classes.img}`}
                 onLoad={() => setLoaded(true)}
             />
-        </Wrapper>
+        </div>
     )
 }
 

@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
         padding: `0 ${theme.spacing(1)}`,
     },
     root: {
-        background: theme.palette.background.default,
-        "&:focus": { background: theme.palette.background.default, },
+        background: theme.palette.primary.light,
+        "&:focus": { background: theme.palette.primary.light, },
     },
 }))
 

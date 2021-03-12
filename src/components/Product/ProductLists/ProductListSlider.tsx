@@ -1,9 +1,10 @@
 import { Box, Container, } from "@material-ui/core"
-import React from "react"
+import React, { FC, } from "react"
 import { makeStyles, } from "@material-ui/core/styles"
 import ProductCard from "../ProductCards/MainProductCard"
 import SectionTitle from "../../Elements/SectionTitle"
 import Slider from "../../SliderSimpleArrows"
+import { Product, } from "../../../types"
 
 const useStyles = makeStyles((theme) => ({
     list: {
@@ -32,13 +33,19 @@ const responsive = [
     }
 ]
 
-export default function ProductListSlider({ items, title, clarification, id, }) {
+interface IProps {
+    items: Product[]
+    title: string
+    clarification?: string
+    id: string
+}
+const ProductListSlider: FC<IProps> = ({ items, title, clarification = "For You", id, }) => {
     const classes = useStyles()
 
     return (
         <Container className="market-section" id={id}>
             <Box mb={1.5}>
-                <SectionTitle title={title} clarification={clarification} seeAllLink={`/category/${id}`} />
+                <SectionTitle title={title} clarification={clarification} />
             </Box>
             <div className={classes.list}>
                 <Slider slidesToShow={5} responsive={responsive}>
@@ -58,3 +65,5 @@ export default function ProductListSlider({ items, title, clarification, id, }) 
         </Container>
     )
 }
+
+export default ProductListSlider

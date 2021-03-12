@@ -14,13 +14,29 @@ const Img = styled.img`
 
 interface IProps {
     h?: number
-    w?: number
+    w?: number | string
     s?: number
+    ratio?: {
+        xs: number
+        sm: number
+        md: number
+        lg: number
+    }
 }
 
-const Loading: FC<IProps> = ({ h = "auto", w = "auto", s = 50, }) => {
+const Loading: FC<IProps> = ({ ratio, h = "auto", w = "auto", s = 50, }) => {
     return (
-        <Box height={h} width={w} position="relative">
+        <Box
+            pb={ratio && {
+                xs: `${100 / ratio.xs}%`,
+                sm: `${100 / ratio.sm}%`,
+                md: `${100 / ratio.md}%`,
+                lg: `${100 / ratio.lg}%`,
+            }}
+            height={h}
+            width={w}
+            position="relative"
+        >
             <Img size={s} src="/img/loader/preloader.gif" alt="Загрузка..." />
         </Box>
     )

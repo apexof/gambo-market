@@ -1,94 +1,65 @@
-import { Box, Button, Container, Grid, } from "@material-ui/core"
 import React, { FC, } from "react"
-import { Product, SetSort, SortType, SortSelectItem, } from "../../../../types"
-import Filter from "../../../Filters/Category/Filter"
+import { Box, Typography, } from "@material-ui/core"
+import { makeStyles, } from "@material-ui/core/styles"
+import Loader from "../../../Elements/Loader"
+import SwrError from "../../../Elements/SwrError"
+import { sortFN, } from "./sort"
 import ProductCard from "../../ProductCards/MainProductCard"
-import SectionTitle from "../../../Elements/SectionTitle"
-import Select1 from "./SortSelect"
+import { Product, SortType, } from "../../../../types"
 
-const sort: SortSelectItem[] = [
-    {
-        type: SortType.priceLowToHigh,
-        title: "Price - Low to High",
+const useStyles = makeStyles((theme) => ({
+    notFound: {
+        position: "absolute",
+        top: "calc(50% - 10px)",
+        left: "calc(50% - 90px)",
+        whiteSpace: "nowrap",
     },
-    {
-        type: SortType.priceHighToLow,
-        title: "Price - High to Low",
-    },
-    {
-        type: SortType.alphabetical,
-        title: "Alphabetical",
-    },
-    {
-        type: SortType.savingHighToLow,
-        title: "Saving - High to Low",
-    },
-    {
-        type: SortType.savingLowToHigh,
-        title: "Saving - Low to High",
-    },
-    {
-        type: SortType.discountHighToLow,
-        title: "% Off - High to Low",
-    }
-]
+}))
 
-type Props = {
+interface IProps {
+    error: any,
     products: Product[]
-    title: string
-    setSort: SetSort
     sortType: SortType
 }
 
-const CategoryPageList: FC<Props> = ({ sortType, setSort, products, title, toggleCategory, activeCategory, }) => {
+const CategoryPageList: FC<IProps> = ({ error, products, sortType, }) => {
+    const classes = useStyles()
+    if (error) return <SwrError error={error} />
+    const ratio = { xs: 0.813, sm: 1.565, md: 2.302, lg: 2.874, }
+    if (!products) return <Loader w="100%" ratio={ratio} />
+    if (products.length) products.sort(sortFN[sortType])
+
     return (
-        <Container>
-            <Box mb={1}>
-                <Grid container justify="space-between">
-                    <Grid item xs={12} sm={6}>
-                        <Box mb={3.5}>
-                            <SectionTitle title={title} seeAllLink={false} />
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <Box display="flex" flexDirection="row-reverse">
-                            <Box ml={2}>
-                                <Filter
-                                    toggleCategory={toggleCategory}
-                                    activeCategory={activeCategory}
-                                />
-                            </Box>
-                            <Select1
-                                selectItems={sort}
-                                sortType={sortType}
-                                setSort={setSort}
-                            />
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Box>
-            <Box m={-1.5} display="flex" flexWrap="wrap">
-                {products.map((item) => (
-                    <Box
-                        p={1.5}
-                        width={{
-                            xs: "100%", sm: "50%", md: "33.333%", lg: "25%",
-                        }}
-                        key={item.id}
-                    >
-                        <ProductCard
-                            product={item}
-                            shadow="shadow2"
-                        />
-                    </Box>
-                ))}
-            </Box>
-            <Box mt={6} mb={4} display="flex" justifyContent="center">
-                <Button variant="contained" color="secondary">
-                    Show More
-                </Button>
-            </Box>
-        </Container>
+        <Box m={-1.5} display="flex" flexWrap="wrap">
+            {!products.length && (
+                <Box
+                    position="relative"
+                    width="100%"
+                    pb={{
+                        xs: `${100 / ratio.xs}%`,
+                        sm: `${100 / ratio.sm}%`,
+                        md: `${100 / ratio.md}%`,
+                        lg: `${100 / ratio.lg}%`,
+                    }}
+                >
+                    <Typography variant="h2" color="secondary" className={classes.notFound}>
+                        No products found
+                    </Typography>
+                </Box>
+            )}
+            {products.length > 0 && products.map((item) => (
+                <Box
+                    p={1.5}
+                    width={{ xs: "100%", sm: "50%", md: "33.333%", lg: "25%", }}
+                    key={item.id}
+                >
+                    <ProductCard
+                        product={item}
+                        shadow="shadow2"
+                    />
+                </Box>
+            ))}
+        </Box>
     )
 }
 

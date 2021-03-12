@@ -1,4 +1,4 @@
-import React, { useState, FC, } from "react"
+import React, { FC, } from "react"
 import cx from "clsx"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Box, Typography, } from "@material-ui/core"
@@ -6,6 +6,7 @@ import Loader from "../../Elements/Loader"
 import { Category, } from "../../../types"
 import { useCategories, } from "../../../SWR/useCategories"
 import SwrError from "../../Elements/SwrError"
+import { SetFilter, } from "../../Product/ProductLists/CategoryPageList/CategoryPageListContainer"
 
 const useStyles = makeStyles((theme) => ({
     item: {
@@ -19,7 +20,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const CategoryList: FC = ({ toggleCategory, activeCategory, }) => {
+interface IProps {
+    activeCategory: string
+    setFilter: SetFilter
+}
+
+const CategoryList: FC<IProps> = ({ setFilter, activeCategory, }) => {
     const classes = useStyles()
 
     const { data, error, } = useCategories()
@@ -37,8 +43,8 @@ const CategoryList: FC = ({ toggleCategory, activeCategory, }) => {
                         key={item.id}
                         role="button"
                         tabIndex={0}
-                        onKeyPress={(e) => { if (e.key === "Enter") toggleActive(item.slug)() }}
-                        onClick={toggleCategory(item.slug)}
+                        onKeyPress={(e) => { if (e.key === "Enter") setFilter("category", item.slug)() }}
+                        onClick={setFilter("category", item.slug)}
                         className={cx(classes.item, item.slug === activeCategory && classes.itemActive)}
                     >
                         {item.name}

@@ -1,11 +1,15 @@
 import React, { FC, } from "react"
-import { FreshAndFruits, } from "./lists"
+import { Product, } from "../../../types"
 import ProductCard from "../ProductCards/CartProductCard"
 
-const CartList: FC = () => {
+interface Props {
+    items: Product[]
+}
+
+const CartList: FC<Props> = ({ items, }) => {
     return (
         <>
-            {FreshAndFruits.map((item) => (
+            {items.map((item) => (
                 <ProductCard
                     key={item.id}
                     product={item}

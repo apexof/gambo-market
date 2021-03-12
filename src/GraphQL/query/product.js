@@ -40,10 +40,39 @@ query GET_LAST_PRODUCTS {
   }
 `
 
+export const GET_MAX_DISCOUNT_PRODUCTS = `
+query GET_MAX_DISCOUNT_PRODUCTS {
+    products(orderBy: discount_DESC, first: 6) {
+        ${defaultFields}
+    }
+  }
+`
+
+export const GET_TOP_PRODUCTS = `
+query GET_TOP_PRODUCTS {
+    products(orderBy: price_DESC, first: 6) {
+        ${defaultFields}
+    }
+  }
+`
+
 export const GET_ALL_PRODUCT_SLUGS = `
     query GET_ALL_PRODUCT_SLUGS  {    
         products{ 
             slug
         }
     }
+`
+
+export const getFilteredProducts = ({ slug, price, discount, available, }) => `
+query {    
+    products(where: {
+        category: {slug_starts_with: "${slug}",}
+        price_gte: ${price.min}, ${price.max ? `price_lte: ${price.max}` : ""}
+        discount_gte: ${discount.min}, ${discount.max ? `discount_lte: ${discount.max}` : ""}
+        ${available !== null ? `available: ${available}` : ""}
+    }) {
+        ${defaultFields}
+    }
+}
 `

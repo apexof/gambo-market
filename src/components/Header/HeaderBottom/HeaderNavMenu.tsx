@@ -21,18 +21,17 @@ const menuItems = [
     },
     {
         id: 4,
-        title: "Fresh & Fruits",
-        alias: "fresh-and-fruits",
+        title: "Max discount",
+        alias: "max-discount",
     },
     {
         id: 5,
         title: "New Products",
         alias: "added-new-products",
     }
-
 ]
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     list: {
         flexDirection: "row",
         padding: 0,
@@ -65,7 +64,7 @@ const HederMenu: FC = () => {
 
     return (
         <List className={classes.list}>
-            {menuItems.map(item => (
+            {menuItems.map((item) => (
                 <ListItem key={item.id} className={classes.listItem}>
                     <Link
                         activeClass={classes.active}
@@ -84,4 +83,5 @@ const HederMenu: FC = () => {
         </List>
     )
 }
+
 export default HederMenu

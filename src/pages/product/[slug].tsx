@@ -1,11 +1,11 @@
 import { Box, Container, Grid, } from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles"
 import cx from "clsx"
-import { gql } from '@apollo/client';
+import { gql, } from "@apollo/client"
 import React, { FC, } from "react"
 import { GetStaticProps, GetStaticPaths, GetServerSideProps, } from "next"
-import { GET_PRODUCT_BY_SLUG, GET_ALL_PRODUCT_SLUGS, apolloClient, } from "../../GraphQL"
-import { getLqipManyImgs } from "../../helpers/getLqip"
+import { GET_PRODUCT_BY_SLUG, GET_ALL_PRODUCT_SLUGS, apolloClient, GET_LAST_PRODUCTS, } from "../../GraphQL"
+import { getLqipManyImgs, } from "../../helpers/getLqip"
 import { Product, } from "../../types"
 import { TopFeaturedProducts, } from "../../components/Product/ProductLists/lists"
 import CategoryLayout from "../../components/Layouts/CategoryLayout"
@@ -22,11 +22,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-type Props = {
+interface Props {
     item: Product
+    lastProducts: Product[]
 }
 
-const ProductPage: FC<Props> = ({ item, }) => {
+const ProductPage: FC<Props> = ({ item, lastProducts, }) => {
     const classes = useStyles()
 
     return (
@@ -39,12 +40,13 @@ const ProductPage: FC<Props> = ({ item, }) => {
                 </Box>
                 <Box mt={6}>
                     <Grid container spacing={4}>
-                        {/* <Grid item xs={12} md={4}>
+                        <Grid item xs={12} md={4}>
                             <BlockTitle>More Like This</BlockTitle>
                             <div className={cx(classes.cartList, "scrollstyle_4")}>
-                                <MoreList />
+
+                                <MoreList items={lastProducts} />
                             </div>
-                        </Grid> */}
+                        </Grid>
                         <Grid item xs={12} md={8}>
                             <Texts />
                         </Grid>
@@ -52,14 +54,13 @@ const ProductPage: FC<Props> = ({ item, }) => {
                 </Box>
             </Container>
 
-            {/* <Box mt={6}>
+            <Box mt={6}>
                 <ProductList
-                    title="Top Featured Products"
-                    items={TopFeaturedProducts}
-                    id="top-featured-products"
-                    clarification="For You"
+                    id="added-new-products"
+                    title="Added New Products"
+                    items={lastProducts}
                 />
-            </Box> */}
+            </Box>
         </CategoryLayout>
     )
 }
@@ -81,12 +82,17 @@ export const getStaticProps: GetStaticProps = async ({ params, }) => {
         query: gql(GET_PRODUCT_BY_SLUG),
         variables: { slug: params.slug, },
     })
+    const res1 = await apolloClient.query({ query: gql(GET_LAST_PRODUCTS), })
+
     if (!res.data.product) {
         return { notFound: true, }
     }
 
     return {
-        props: { item: res.data.product, },
+        props: {
+            item: res.data.product,
+            lastProducts: res1.data.products,
+        },
         revalidate: 60,
     }
 }

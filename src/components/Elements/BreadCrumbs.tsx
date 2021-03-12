@@ -3,7 +3,7 @@ import { makeStyles, } from "@material-ui/core/styles"
 import { useRouter, } from "next/router"
 import { Breadcrumbs, Typography, } from "@material-ui/core"
 import Link from "./Link"
-import { capitalizeFirstLetter, } from "../../helpers"
+import { slugToTitle, } from "../../helpers"
 
 const useStyles = makeStyles((theme) => ({
     currentItem: {
@@ -18,8 +18,7 @@ const BreadCrumbs: FC = () => {
     const router = useRouter()
     let breadArray = router.asPath.split("/")
     breadArray = breadArray.filter((item) => item.length)
-    breadArray = breadArray.map((item) => capitalizeFirstLetter(item))
-    breadArray = breadArray.map((item) => item.replace(/-/g, " "))
+    breadArray = breadArray.map((item) => slugToTitle(item))
 
     return (
         <Breadcrumbs aria-label="breadcrumb">

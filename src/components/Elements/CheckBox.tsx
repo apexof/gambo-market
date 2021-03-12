@@ -10,16 +10,17 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-type Props = {
+interface IProps {
     label: string
+    checked: boolean
+    onChange?: (param: any) => void
 }
 
-const CheckBox: FC<Props> = ({ label, }) => {
+const CheckBox: FC<IProps> = ({ label, onChange, checked, }) => {
     const classes = useStyles()
-    const [checked, setCheck] = React.useState(false)
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        setCheck(event.target.checked)
+        if (onChange) onChange(event.target.checked)
     }
 
     return (

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee6eb96b-8e3f-4417-abc3-78772a7ef4c2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Elements/Select1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Elements/Select1.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Product/ProductLists/CategoryPageList/CategoryPageList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Product/ProductLists/CategoryPageList/CategoryPageList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Product/ProductLists/CategoryPageList/CategoryPageListContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Product/ProductLists/CategoryPageList/CategoryPageListContainer.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="ee6eb96b-8e3f-4417-abc3-78772a7ef4c2" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -81,7 +76,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="X:/JOB/viel" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -111,23 +106,24 @@
       <updated>1613836555653</updated>
       <workItem from="1613836563602" duration="1212000" />
       <workItem from="1615303775003" duration="329000" />
+      <workItem from="1615628770421" duration="45000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1541000" />
+    <option name="totallyTimeSpent" value="1586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-8" width="1873" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TypeScript" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15422343" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.33195022" />
-      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32987553" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -136,6 +132,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TypeScript" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -148,6 +145,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/components/Elements/Select1.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json" />
     <entry file="file://$PROJECT_DIR$/src/components/Elements/Select1.tsx">
       <provider selected="true" editor-type-id="text-editor">

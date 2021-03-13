@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         right: 0,
         objectFit: "cover",
         objectPosition: "center",
-        transition: "all 3s ease",
+        transition: "all 1s ease",
     },
     source: { opacity: (p) => (p.loaded ? 1 : 0), },
 }))

@@ -1,6 +1,6 @@
 import React, { FC, ChangeEvent, useState, } from "react"
 import cx from "clsx"
-import Icon from "@material-ui/core/Icon"
+import RoomIcon from "@material-ui/icons/Room"
 import { Box, FormControl, MenuItem, Select, Typography, } from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles"
 
@@ -64,7 +64,7 @@ const HeaderSelect: FC<Props> = ({ selectItems, }) => {
                             {field === item.id
                                 && (
                                     <Box mr={0.5}>
-                                        <Icon>room</Icon>
+                                        <RoomIcon />
                                     </Box>
                                 )}
                             <Typography>

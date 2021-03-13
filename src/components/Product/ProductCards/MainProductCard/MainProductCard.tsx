@@ -72,7 +72,7 @@ const ProductCard: FC<Props> = ({ product, shadow, addToCart, }) => {
             </div>
             <CardMedia>
                 <Link href={`/product/${slug}`} className={classes.imgWrapper}>
-                    <Img webp={img.webp} src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
+                    <Img lazy webp={img.webp} src={img.url} lqip={img.lqip} aspectRatio={img.width / img.height} />
                 </Link>
             </CardMedia>
             <CardContent>

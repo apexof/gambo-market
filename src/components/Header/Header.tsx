@@ -1,5 +1,5 @@
 import { AppBar, Box, Toolbar, } from "@material-ui/core"
-import React, { FC } from "react"
+import React, { FC, } from "react"
 import { useRouter, } from "next/router"
 import { makeStyles, useTheme, } from "@material-ui/core/styles"
 import useMediaQuery from "@material-ui/core/useMediaQuery"

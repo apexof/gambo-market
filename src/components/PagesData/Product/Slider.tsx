@@ -34,7 +34,7 @@ const ImgSlider: FC<IProps> = ({ items, }) => {
             <Slider
                 speed={300}
                 asNavFor={state.nav2}
-                // lazyLoad="ondemand"
+                lazyLoad="ondemand"
                 ref={(slider) => { slider1 = slider }}
                 nextArrow={<SampleNextArrow border={false} />}
                 prevArrow={<SamplePrevArrow border={false} />}
@@ -44,7 +44,7 @@ const ImgSlider: FC<IProps> = ({ items, }) => {
             <Slider
                 speed={300}
                 asNavFor={state.nav1}
-                // lazyLoad="ondemand"
+                lazyLoad="ondemand"
                 ref={(slider) => { slider2 = slider }}
                 slidesToShow={4}
                 swipeToSlide

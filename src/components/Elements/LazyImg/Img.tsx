@@ -32,7 +32,7 @@ type Props = {
     webp?: string
     aspectRatio: number
     alt?: string,
-    lazy: boolean
+    lazy?: boolean
 }
 
 const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, lazy = false, }) => {

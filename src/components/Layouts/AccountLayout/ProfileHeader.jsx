@@ -1,15 +1,11 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import Image from 'next/image';
-import { Box, Button, Typography } from '@material-ui/core';
-import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
-import EditIcon from '@material-ui/icons/Edit';
-import BorderColorIcon from '@material-ui/icons/BorderColor';
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Box, Button, Typography, } from "@material-ui/core"
+import PhotoCameraIcon from "@material-ui/icons/PhotoCamera"
+import BorderColorIcon from "@material-ui/icons/BorderColor"
 
-const useStyles = makeStyles(theme => ({
-    avatarBox: {
-        position: "relative",
-    },
+const useStyles = makeStyles((theme) => ({
+    avatarBox: { position: "relative", },
     avatar: {
         borderRadius: "50%",
         border: "2px solid #fff",
@@ -26,7 +22,7 @@ const useStyles = makeStyles(theme => ({
         flexDirection: "column",
         justifyContent: "space-between",
         "&::before": {
-            content: '""',
+            content: "\"\"",
             background: "url(/img/account/banner.svg) no-repeat bottom",
             left: 0,
             right: 0,
@@ -36,7 +32,7 @@ const useStyles = makeStyles(theme => ({
             pointerEvents: "none",
             backgroundSize: "cover",
             opacity: 0.02,
-        }
+        },
     },
     uploadBtn: {
         // cursor: "pointer",
@@ -56,15 +52,13 @@ const useStyles = makeStyles(theme => ({
         "&:hover": {
             background: theme.palette.secondary.main,
             backgroundImage: "linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9))",
-        }
+        },
     },
     tel: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        "& svg": {
-            marginLeft: 5,
-        },
+        "& svg": { marginLeft: 5, },
     },
     pointsBlock: {
         fontSize: 16,
@@ -86,7 +80,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function ProfileHeader() {
-    const classes = useStyles();
+    const classes = useStyles()
 
     return (
         <div className={classes.bgc}>
@@ -100,7 +94,7 @@ export default function ProfileHeader() {
                     <input
                         accept="image/*"
                         className={classes.input}
-                        style={{ display: 'none' }}
+                        style={{ display: "none", }}
                         id="raised-button-file"
                         multiple
                         type="file"
@@ -115,10 +109,10 @@ export default function ProfileHeader() {
             <Box mb={3.5}>
                 <Typography variant="h2">
                     John Doe
-            </Typography>
+                </Typography>
             </Box>
             <Box className={classes.tel}>
-                <Typography variant="body1" >
+                <Typography variant="body1">
                     +91999999999
                 </Typography>
                 <BorderColorIcon fontSize="small" />

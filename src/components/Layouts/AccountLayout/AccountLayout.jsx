@@ -1,18 +1,15 @@
-import React from 'react'
-import Footer from '../../Footer'
-import CommonHead from '../CommonHead'
-import Header from '../../Header'
-import LeftNavMenu from './LeftNavMenu'
-import ProfileHeader from './ProfileHeader'
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, Container, Typography } from '@material-ui/core'
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Box, Container, Typography, } from "@material-ui/core"
+import Footer from "../../Footer"
+import CommonHead from "../CommonHead"
+import Header from "../../Header"
+import LeftNavMenu from "./LeftNavMenu"
+import ProfileHeader from "./ProfileHeader"
 
-const useStyles = makeStyles(theme => ({
-    page: {
-    },
-    containerMui: {
-        overflow: "visible",
-    },
+const useStyles = makeStyles((theme) => ({
+    page: {},
+    containerMui: { overflow: "visible", },
     container: {
         display: "flex",
         justifyContent: "space-between",
@@ -23,9 +20,7 @@ const useStyles = makeStyles(theme => ({
     menuWrap: {
         width: "100%",
         padding: theme.spacing(2),
-        [theme.breakpoints.up('md')]: {
-            width: "30%",
-        },
+        [theme.breakpoints.up("md")]: { width: "30%", },
     },
     menu: {
         position: "sticky",
@@ -34,14 +29,13 @@ const useStyles = makeStyles(theme => ({
     content: {
         padding: theme.spacing(2),
         width: "100%",
-        [theme.breakpoints.up('md')]: {
-            width: "70%",
-        },
+        [theme.breakpoints.up("md")]: { width: "70%", },
     },
 }))
 
-export default function AccountLayout({ children, title, rootPath = "/account" }) {
-    const classes = useStyles();
+export default function AccountLayout({ children, title, rootPath = "/account", }) {
+    const classes = useStyles()
+
     return (
         <div className={classes.page}>
             <CommonHead />
@@ -55,11 +49,12 @@ export default function AccountLayout({ children, title, rootPath = "/account" }
                         </div>
                     </div>
                     <div className={classes.content}>
-                        {title &&
-                            <Box mb={3.5}>
-                                <Typography variant="h2">{title}</Typography>
-                            </Box>
-                        }
+                        {title
+                            && (
+                                <Box mb={3.5}>
+                                    <Typography variant="h2">{title}</Typography>
+                                </Box>
+                            )}
                         {children}
                     </div>
                 </div>

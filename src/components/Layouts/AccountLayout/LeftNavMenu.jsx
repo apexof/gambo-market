@@ -1,13 +1,12 @@
-import React from 'react'
-import { menuItems } from '../../../menus/profileMenu'
-import { makeStyles } from '@material-ui/core/styles';
-import Link from '../../Elements/Link';
-import cx from 'clsx';
-import { useRouter } from 'next/router';
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import cx from "clsx"
+import { useRouter, } from "next/router"
+import { List, ListItem, ListItemIcon, ListItemText, } from "@material-ui/core"
+import Link from "../../Elements/Link"
+import { menuItems, } from "../../../menus/profileMenu"
 
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     menu: {
         borderRadius: 5,
         borderBottom: `1px solid ${theme.palette.grey["50"]}`,
@@ -20,9 +19,7 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         alignItems: "center",
         borderTop: `1px solid ${theme.palette.grey["50"]}`,
-        "&:hover": {
-            background: theme.palette.type === "dark" ? "#333" : "#ffecec",
-        }
+        "&:hover": { background: theme.palette.type === "dark" ? "#333" : "#ffecec", },
     },
     linkActive: {
         background: theme.palette.secondary.main,
@@ -32,10 +29,7 @@ const useStyles = makeStyles(theme => ({
             background: theme.palette.secondary.main,
             backgroundImage: "linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9))",
         },
-        "& svg": {
-            color: theme.palette.secondary.contrastText,
-
-        },
+        "& svg": { color: theme.palette.secondary.contrastText, },
     },
     item: {
         padding: 0,
@@ -44,13 +38,14 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function LeftNavMenu() {
-    const classes = useStyles();
-    const router = useRouter();
+    const classes = useStyles()
+    const router = useRouter()
 
     return (
         <List disablePadding className={cx(classes.menu, "shadow1")}>
-            {menuItems.map(item => {
-                const active = item.href === router.pathname;
+            {menuItems.map((item) => {
+                const active = item.href === router.pathname
+
                 return (
                     <ListItem key={item.id} className={classes.item}>
                         <Link href={item.href} className={cx(classes.link, active && classes.linkActive)}>

@@ -1,17 +1,14 @@
-import React from 'react'
-import Footer from '../Footer'
-import CommonHead from './CommonHead'
-import Header from '../Header'
-import BreadCrumbs from '../Elements/BreadCrumbs'
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import Footer from "../Footer"
+import CommonHead from "./CommonHead"
+import Header from "../Header"
 
-const useStyles = makeStyles(theme => ({
-    page: {
-    },
-}))
+const useStyles = makeStyles((theme) => ({ page: {}, }))
 
 export default function CategoryLayout({ children, }) {
-    const classes = useStyles();
+    const classes = useStyles()
+
     return (
         <div className={classes.page}>
             <CommonHead />

@@ -1,8 +1,8 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import { mergeDeep } from './helpers';
+import { createMuiTheme, } from "@material-ui/core/styles"
+import { mergeDeep, } from "./helpers"
 
 const commonTheme = {
-    spacing: factor => `${8 * factor}px`,
+    spacing: (factor) => `${8 * factor}px`,
     breakpoints: {
         // values: {
         //     xs: 540,
@@ -80,9 +80,7 @@ const WhiteThemeNotMerged = createMuiTheme({
             dark: "",
             contrastText: "#fff",
         },
-        grey: {
-            50: "#efefef",
-        },
+        grey: { 50: "#efefef", },
         // error: {},
         // warning: {},
         // info: {},
@@ -96,21 +94,15 @@ const WhiteThemeNotMerged = createMuiTheme({
         background: {
             paper: "#fff",
             default: "#f7f7f7",
-        }
+        },
     },
     typography: {
         h2: {
             // color: "#2b2f4c",
         },
-        h3: {
-            color: "#f55d2c",
-        },
-        subtitle1: {
-            color: "#2b2f4c",
-        },
-        subtitle2: {
-            color: "#8f91ac",
-        },
+        h3: { color: "#f55d2c", },
+        subtitle1: { color: "#2b2f4c", },
+        subtitle2: { color: "#8f91ac", },
     },
     // overrides: {
     //     MuiButton: {
@@ -122,8 +114,9 @@ const WhiteThemeNotMerged = createMuiTheme({
     //         }
     //     }
     // }
-});
-export const WhiteTheme = mergeDeep(WhiteThemeNotMerged, commonTheme);
+})
+
+export const WhiteTheme = mergeDeep(WhiteThemeNotMerged, commonTheme)
 
 const DarkThemeNotMerged = createMuiTheme({
     palette: {
@@ -150,23 +143,13 @@ const DarkThemeNotMerged = createMuiTheme({
             paper: "#242424",
             default: "#000",
         },
-        grey: {
-            50: "#333",
-        },
+        grey: { 50: "#333", },
     },
     typography: {
-        h2: {
-            color: "#fff",
-        },
-        h3: {
-            color: "#f55d2c",
-        },
-        subtitle1: {
-            color: "#fff",
-        },
-        subtitle2: {
-            color: "#c7c7c7",
-        },
+        h2: { color: "#fff", },
+        h3: { color: "#f55d2c", },
+        subtitle1: { color: "#fff", },
+        subtitle2: { color: "#c7c7c7", },
     },
     // overrides: {
     //     MuiButton: {
@@ -178,6 +161,6 @@ const DarkThemeNotMerged = createMuiTheme({
     //         }
     //     }
     // }
-});
+})
 
-export const DarkTheme = mergeDeep(DarkThemeNotMerged, commonTheme);
+export const DarkTheme = mergeDeep(DarkThemeNotMerged, commonTheme)

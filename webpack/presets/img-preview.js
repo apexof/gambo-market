@@ -8,10 +8,10 @@ const preset = (isServer) => ({
         lqipLoader,
         urlLoader(isServer)
     ],
-    exclude: (file) => {
+    include: (file) => {
         const filename = path.basename(file)
 
-        return filename.startsWith("_")
+        return filename.startsWith("lqip_")
     },
 })
 

@@ -2,8 +2,8 @@ import React, { FC, } from "react"
 import Slider from "react-slick"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Button, Typography, } from "@material-ui/core"
-import slideImg1 from "./slide-1.jpg"
-import slideImg2 from "./slide-2.jpg"
+import slideImg1 from "./lqip_slide-1.jpg"
+import slideImg2 from "./lqip_slide-2.jpg"
 import Img from "../Elements/LazyImg/Img"
 
 const slides = [

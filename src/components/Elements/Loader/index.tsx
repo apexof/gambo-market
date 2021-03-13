@@ -4,11 +4,11 @@ import { Box, } from "@material-ui/core"
 
 const Img = styled.img`
   position: absolute;
-  top: ${(props) => `calc(50% - ${props.size}px / 2)`};
-  left: ${(props) => `calc(50% - ${props.size}px / 2)`};
+  top: ${(props) => `calc(50% - ${props["data-size"]}px / 2)`};
+  left: ${(props) => `calc(50% - ${props["data-size"]}px / 2)`};
   z-index: 1;
-  width: ${(props) => `${props.size}px`};
-  height: ${(props) => `${props.size}px`};
+  width: ${(props) => `${props["data-size"]}px`};
+  height: ${(props) => `${props["data-size"]}px`};
 `
 
 interface IProps {
@@ -36,7 +36,7 @@ const Loading: FC<IProps> = ({ ratio, h = "auto", w = "auto", s = 20, }) => {
             width={w}
             position="relative"
         >
-            <Img size={s} src="/img/loader/preloader.gif" alt="Загрузка..." />
+            <Img data-size={s} src="/img/loader/preloader.gif" alt="Загрузка..." />
         </Box>
     )
 }

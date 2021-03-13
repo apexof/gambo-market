@@ -1,6 +1,7 @@
 import React, { FC, useRef, useEffect, useState, } from "react"
-import styled from "styled-components"
 import { makeStyles, } from "@material-ui/core/styles"
+import LazyLoad from "react-lazy-load"
+import cx from "clsx"
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -9,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         height: "100%",
     },
+    preview: { filter: (p) => (p.loaded ? "blur(0)" : "blur(5px)"), },
     img: {
         position: "absolute",
         width: "100%",
@@ -19,13 +21,9 @@ const useStyles = makeStyles((theme) => ({
         right: 0,
         objectFit: "cover",
         objectPosition: "center",
-        filter: "blur(5px)",
+        transition: "all 3s ease",
     },
-    source: {
-        opacity: (p) => p["data-loaded"],
-        transition: "all 1s ease",
-        filter: "unset",
-    },
+    source: { opacity: (p) => (p.loaded ? 1 : 0), },
 }))
 
 type Props = {
@@ -34,33 +32,41 @@ type Props = {
     webp?: string
     aspectRatio: number
     alt?: string,
+    lazy: boolean
 }
 
-const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, }) => {
-    // console.log(webp)
-    const classes = useStyles()
+const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, lazy = false, }) => {
     const [loaded, setLoaded] = useState(false)
+    const classes = useStyles({ loaded, })
     const imgRef = useRef()
     useEffect(() => {
         if (imgRef.current && imgRef.current.complete) {
             setLoaded(true)
         }
     }, [])
-
-    return (
+    const content = (
         <div className={classes.wrapper}>
             <div style={{ paddingBottom: `${100 / aspectRatio}%`, }} />
-            <img className={classes.img} src={lqip} aria-hidden="true" alt="" />
-            <img
-                loading="lazy"
-                src={src}
-                alt={alt}
-                ref={imgRef}
-                data-loaded={loaded ? 1 : 0}
-                className={`${classes.source} ${classes.img}`}
-                onLoad={() => setLoaded(true)}
-            />
+            <img className={cx(classes.img, classes.preview)} src={lqip} aria-hidden="true" alt="" />
+            <picture>
+                {webp && (<source type="image/webp" srcSet={webp} />)}
+                <img
+                    src={src}
+                    alt={alt}
+                    ref={imgRef}
+                    onLoad={() => setLoaded(true)}
+                    className={cx(classes.img, classes.source)}
+                />
+            </picture>
         </div>
+    )
+
+    if (!lazy) return content
+
+    return (
+        <LazyLoad offsetVertical={300} height="100%" width="100%">
+            {content}
+        </LazyLoad>
     )
 }
 

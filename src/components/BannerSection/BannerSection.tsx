@@ -84,7 +84,7 @@ const BannerSection: FC = () => {
                 <div className={classes.list}>
                     {banners.map((item: IItem) => (
                         <div key={item.id} className={cx(classes.imgWrap, item.full ? classes.imgWrapFull : classes.imgWrapPart)}>
-                            <Img src={item.img.src} lqip={item.img.preSrc} aspectRatio={item.aspectRatio} />
+                            <Img src={item.img.src} lqip={item.img.preSrc} aspectRatio={item.aspectRatio} lazy />
                         </div>
                     ))}
                 </div>

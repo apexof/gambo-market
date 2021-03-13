@@ -3,7 +3,7 @@ import { makeStyles, } from "@material-ui/core/styles"
 import { Box, Typography, } from "@material-ui/core"
 import Link from "./Link"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     link: {
         paddingBottom: 5,
         fontSize: 14,
@@ -29,6 +29,7 @@ type Props = {
 
 const SectionTitle: FC<Props> = ({ title, clarification, seeAllLink, }) => {
     const classes = useStyles()
+
     return (
         <div>
             <Typography variant="h3">{clarification}</Typography>

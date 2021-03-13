@@ -50,7 +50,7 @@ const HeaderSelect: FC<Props> = ({ selectItems, }) => {
         <FormControl className={cx(classes.formControl)}>
             <Select
                 disableUnderline
-                id="demo-simple-select-helper"
+                id="select1"
                 value={field}
                 onChange={handleChange}
                 classes={{

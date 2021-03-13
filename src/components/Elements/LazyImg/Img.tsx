@@ -44,9 +44,9 @@ const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, laz
             setLoaded(true)
         }
     }, [])
+
     const content = (
-        <div className={classes.wrapper}>
-            <div style={{ paddingBottom: `${100 / aspectRatio}%`, }} />
+        <>
             <img className={cx(classes.img, classes.preview)} src={lqip} aria-hidden="true" alt="" />
             <picture>
                 {webp && (<source type="image/webp" srcSet={webp} />)}
@@ -58,15 +58,20 @@ const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, laz
                     className={cx(classes.img, classes.source)}
                 />
             </picture>
-        </div>
+        </>
     )
 
-    if (!lazy) return content
-
     return (
-        <LazyLoad offsetVertical={300} height="100%" width="100%">
-            {content}
-        </LazyLoad>
+        <div className={classes.wrapper}>
+            <div style={{ paddingBottom: `${100 / aspectRatio}%`, }} />
+            {lazy
+                && (
+                    <LazyLoad offsetVertical={300} height="100%" width="100%">
+                        {content}
+                    </LazyLoad>
+                )}
+            {!lazy && content}
+        </div>
     )
 }
 

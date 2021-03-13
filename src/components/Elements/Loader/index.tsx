@@ -1,15 +1,17 @@
 import React, { FC, } from "react"
-import styled from "styled-components"
 import { Box, } from "@material-ui/core"
+import { makeStyles, } from "@material-ui/core/styles"
 
-const Img = styled.img`
-  position: absolute;
-  top: ${(props) => `calc(50% - ${props["data-size"]}px / 2)`};
-  left: ${(props) => `calc(50% - ${props["data-size"]}px / 2)`};
-  z-index: 1;
-  width: ${(props) => `${props["data-size"]}px`};
-  height: ${(props) => `${props["data-size"]}px`};
-`
+const useStyles = makeStyles({
+    img: (p) => ({
+        position: "absolute",
+        top: `calc(50% - ${p.size}px / 2)`,
+        left: `calc(50% - ${p.size}px / 2)`,
+        zIndex: 1,
+        width: p.size,
+        height: p.size,
+    }),
+})
 
 interface IProps {
     h?: number
@@ -24,6 +26,8 @@ interface IProps {
 }
 
 const Loading: FC<IProps> = ({ ratio, h = "auto", w = "auto", s = 20, }) => {
+    const classes = useStyles({ size: s, })
+
     return (
         <Box
             pb={ratio && {
@@ -36,7 +40,11 @@ const Loading: FC<IProps> = ({ ratio, h = "auto", w = "auto", s = 20, }) => {
             width={w}
             position="relative"
         >
-            <Img data-size={s} src="/img/loader/preloader.gif" alt="Загрузка..." />
+            <img
+                className={classes.img}
+                src="/img/loader/preloader.gif"
+                alt="Загрузка..."
+            />
         </Box>
     )
 }

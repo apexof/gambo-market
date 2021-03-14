@@ -44,13 +44,11 @@ const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, laz
             setLoaded(true)
         }
     }, [])
-
     const content = (
         <>
             <img className={cx(classes.img, classes.preview)} src={lqip} aria-hidden="true" alt="" />
             <picture>
                 {webp && (<source type="image/webp" srcSet={webp} />)}
-                {!webp && (<source type="image/webp" srcSet={`${src}?webp`} />)}
                 <img
                     src={src}
                     alt={alt}

@@ -1,15 +1,15 @@
-import React from 'react'
-import Link from '../Elements/Link'
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, ListItemIcon, ListItem, List, Typography, Box } from '@material-ui/core';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import DialpadIcon from '@material-ui/icons/Dialpad';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Container, ListItemIcon, ListItem, List, Typography, Box, } from "@material-ui/core"
+import InstagramIcon from "@material-ui/icons/Instagram"
+import FacebookIcon from "@material-ui/icons/Facebook"
+import LinkedInIcon from "@material-ui/icons/LinkedIn"
+import TwitterIcon from "@material-ui/icons/Twitter"
+import DialpadIcon from "@material-ui/icons/Dialpad"
+import MailOutlineIcon from "@material-ui/icons/MailOutline"
+import Link from "../Elements/Link"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     topFooter: {
         padding: "12px 0",
         borderBottom: `1px solid ${theme.palette.grey["50"]}`,
@@ -21,8 +21,8 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "space-between",
     },
     socMenu: {
-        display: 'flex',
-        flexDirection: 'row',
+        display: "flex",
+        flexDirection: "row",
         padding: 0,
     },
     iconWrap: {
@@ -37,9 +37,7 @@ const useStyles = makeStyles(theme => ({
             marginRight: "5px",
             color: theme.palette.secondary.main,
         },
-        "& + $contactsMenuItem": {
-            marginLeft: theme.spacing(2),
-        }
+        "& + $contactsMenuItem": { marginLeft: theme.spacing(2), },
     },
     contactsMenuText: {
         display: "flex",
@@ -50,32 +48,31 @@ const useStyles = makeStyles(theme => ({
     icon: {
         color: theme.palette.primary.contrastText,
         transition: "all 0.3s ease",
-        "&:hover": {
-            color: theme.palette.secondary.main,
-        }
-    }
+        "&:hover": { color: theme.palette.secondary.main, },
+    },
 }))
 
 export default function TopFooter() {
-    const classes = useStyles();
+    const classes = useStyles()
     const menuArray = [
         {
             id: 1,
-            icon: <FacebookIcon className={classes.icon} />
+            icon: <FacebookIcon className={classes.icon} />,
         },
         {
             id: 2,
-            icon: <InstagramIcon className={classes.icon} />
+            icon: <InstagramIcon className={classes.icon} />,
         },
         {
             id: 3,
-            icon: <TwitterIcon className={classes.icon} />
+            icon: <TwitterIcon className={classes.icon} />,
         },
         {
             id: 4,
-            icon: <LinkedInIcon className={classes.icon} />
-        },
+            icon: <LinkedInIcon className={classes.icon} />,
+        }
     ]
+
     return (
         <div className={classes.topFooter}>
             <Container>
@@ -91,11 +88,11 @@ export default function TopFooter() {
                             <MailOutlineIcon />
                             <Typography className={classes.contactsMenuText}>
                                 [email protected]
-                        </Typography>
+                            </Typography>
                         </Link>
                     </Box>
                     <List className={classes.socMenu}>
-                        {menuArray.map(item => (
+                        {menuArray.map((item) => (
                             <ListItem key={item.id} disableGutters>
                                 <Link href="#">
                                     <ListItemIcon className={classes.iconWrap}>

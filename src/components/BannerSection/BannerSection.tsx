@@ -3,10 +3,6 @@ import React, { FC, } from "react"
 import cx from "clsx"
 import { makeStyles, } from "@material-ui/core/styles"
 import Img from "../Elements/LazyImg/Img"
-import banner1 from "./lqip_banner-1.jpg"
-import banner2 from "./lqip_banner-2.jpg"
-import banner3 from "./lqip_banner-3.jpg"
-import banner4 from "./lqip_banner-4.jpg"
 import SectionTitle from "../Elements/SectionTitle"
 
 const useStyles = makeStyles((theme) => ({
@@ -38,27 +34,33 @@ const useStyles = makeStyles((theme) => ({
     imgWrapFull: { width: "100%", },
 }))
 
+const imgList = (name, index) => ({
+    img: require(`./${name}${index}.jpg`),
+    lqip: require(`./${name}${index}.jpg?lqip`),
+    webp: require(`./${name}${index}.jpg?webp`),
+})
+
 const banners = [
     {
         id: 1,
-        img: banner1,
         aspectRatio: 370 / 290,
+        ...imgList("lqip_banner-", 1),
     },
     {
         id: 2,
-        img: banner2,
         aspectRatio: 370 / 290,
+        ...imgList("lqip_banner-", 2),
     },
     {
         id: 3,
-        img: banner3,
         aspectRatio: 370 / 290,
+        ...imgList("lqip_banner-", 3),
     },
     {
         id: 4,
-        img: banner4,
         full: true,
         aspectRatio: 8,
+        ...imgList("lqip_banner-", 4),
     }
 ]
 
@@ -66,10 +68,9 @@ interface IItem {
     id: number
     full?: boolean
     aspectRatio: number
-    img: {
-        src: string
-        preSrc: string
-    }
+    img: string
+    lqip: string
+    webp: string
 }
 
 const BannerSection: FC = () => {
@@ -84,7 +85,13 @@ const BannerSection: FC = () => {
                 <div className={classes.list}>
                     {banners.map((item: IItem) => (
                         <div key={item.id} className={cx(classes.imgWrap, item.full ? classes.imgWrapFull : classes.imgWrapPart)}>
-                            <Img src={item.img.src} lqip={item.img.preSrc} aspectRatio={item.aspectRatio} lazy />
+                            <Img
+                                src={item.img}
+                                lqip={item.lqip}
+                                webp={item.webp}
+                                aspectRatio={item.aspectRatio}
+                                lazy
+                            />
                         </div>
                     ))}
                 </div>

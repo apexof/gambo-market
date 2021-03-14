@@ -2,49 +2,53 @@ import React, { FC, } from "react"
 import Slider from "react-slick"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Button, Typography, } from "@material-ui/core"
-import slideImg1 from "./lqip_slide-1.jpg"
-import slideImg2 from "./lqip_slide-2.jpg"
 import Img from "../Elements/LazyImg/Img"
+
+const imgList = (name, index) => ({
+    img: require(`./${name}${index}.jpg`),
+    lqip: require(`./${name}${index}.jpg?lqip`),
+    webp: require(`./${name}${index}.jpg?webp`),
+})
 
 const slides = [
     {
         id: 0,
-        img: slideImg1,
+        ...imgList("lqip_slide-", 1),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 1,
-        img: slideImg2,
+        ...imgList("lqip_slide-", 2),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 2,
-        img: slideImg1,
+        ...imgList("lqip_slide-", 1),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 3,
-        img: slideImg2,
+        ...imgList("lqip_slide-", 2),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 4,
-        img: slideImg1,
+        ...imgList("lqip_slide-", 1),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 5,
-        img: slideImg2,
+        ...imgList("lqip_slide-", 2),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
@@ -116,11 +120,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 interface ISlide {
-    id: number,
-    img: {
-        src: string
-        preSrc: string
-    },
+    id: number
+    img: string
+    lqip: string
+    webp: string
     discount: string,
     title: string,
     description: string,
@@ -135,7 +138,7 @@ const TopSlider: FC = () => {
         slidesToShow: 5,
         slidesToScroll: 1,
         lazyLoad: "ondemand",
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 1500,
         draggable: false,
         pauseOnHover: false,
@@ -167,7 +170,12 @@ const TopSlider: FC = () => {
                         <div key={item.id}>
                             <div className={classes.imgWrap}>
                                 <div className={classes.imgBorder}>
-                                    <Img src={item.img.src} lqip={item.img.preSrc} aspectRatio={500 / 320} />
+                                    <Img
+                                        src={item.img}
+                                        lqip={item.lqip}
+                                        webp={item.webp}
+                                        aspectRatio={500 / 320}
+                                    />
                                 </div>
                                 <div className={classes.slideContent}>
                                     <Typography className={classes.discount}>

@@ -1,8 +1,10 @@
+const optimizedImages = require("next-optimized-images")
 const { img, imgPreview, } = require("./webpack/presets")
+const { ImageMin, Copy, } = require("./webpack/plugins")
 
 const config = {
     webpack: (webpackConfig, { isServer, }) => {
-        const { module, } = webpackConfig
+        const { module, plugins, } = webpackConfig
 
         return {
             ...webpackConfig,
@@ -13,6 +15,12 @@ const config = {
                     img, imgPreview(isServer)
                 ],
             },
+            plugins: [
+                ...plugins,
+                optimizedImages
+                // Copy,
+                // ImageMin
+            ],
         }
     },
 }

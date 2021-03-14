@@ -2,7 +2,7 @@ import React, { FC, } from "react"
 import { Tooltip, } from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles"
 
-const useStylesBootstrap = makeStyles(theme => ({
+const useStylesBootstrap = makeStyles((theme) => ({
     arrow: { color: theme.palette.text.primary, },
     tooltip: {
         padding: theme.spacing(1),
@@ -12,6 +12,10 @@ const useStylesBootstrap = makeStyles(theme => ({
         fontWeight: 700,
     },
 }))
+
+interface IProps {
+
+}
 
 const MyTooltip: FC = (props: any) => {
     const classes = useStylesBootstrap()

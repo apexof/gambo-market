@@ -35,37 +35,16 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 interface IProps {
-    product: Product,
-    wishList: Product[],
-    addToWishList: AddToCart
-    removeFromWishList: RemoveFromCart
+    wished?: boolean
 }
 
-const WishIcon: FC<IProps> = ({ addToWishList, product, wishList, removeFromWishList, }) => {
-    let wished = false
-    if (product) {
-        wished = haveItemInWishList(wishList, product.id)
-    }
-
-    const classes = useStyles({ wished, })
-    const handleClick = () => {
-        if (product) {
-            if (wished) {
-                removeFromWishList(product.id)
-            } else {
-                addToWishList(product)
-            }
-        }
-    }
+const WishIcon: FC<IProps> = ({ wished = false, }) => {
+    const classes = useStyles()
 
     return (
-        <Button
-            className={cx(classes.iconBox, wished && classes.wished)}
-            onClick={handleClick}
-            title={wished ? "Remove from wish list" : "Add to wish list"}
-        >
+        <span className={cx(classes.iconBox, wished && classes.wished)}>
             <FavoriteBorderIcon fontSize="small" />
-        </Button>
+        </span>
     )
 }
 

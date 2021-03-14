@@ -3,11 +3,9 @@ import { makeStyles, } from "@material-ui/core/styles"
 import cx from "clsx"
 import { gql, } from "@apollo/client"
 import React, { FC, } from "react"
-import { GetStaticProps, GetStaticPaths, GetServerSideProps, } from "next"
+import { GetStaticProps, GetStaticPaths, } from "next"
 import { GET_PRODUCT_BY_SLUG, GET_ALL_PRODUCT_SLUGS, apolloClient, GET_LAST_PRODUCTS, } from "../../GraphQL"
-import { getLqipManyImgs, } from "../../helpers/getLqip"
 import { Product, } from "../../types"
-import { TopFeaturedProducts, } from "../../components/Product/ProductLists/lists"
 import CategoryLayout from "../../components/Layouts/CategoryLayout"
 import ProductList from "../../components/Product/ProductLists/ProductListSlider"
 import BlockTitle from "../../components/Elements/BlockTitle"
@@ -34,16 +32,13 @@ const ProductPage: FC<Props> = ({ item, lastProducts, }) => {
         <CategoryLayout>
             <Container>
                 <Box mt={6}>
-                    <FullProduct
-                        product={item}
-                    />
+                    <FullProduct product={item} />
                 </Box>
                 <Box mt={6}>
                     <Grid container spacing={4}>
                         <Grid item xs={12} md={4}>
                             <BlockTitle>More Like This</BlockTitle>
                             <div className={cx(classes.cartList, "scrollstyle_4")}>
-
                                 <MoreList items={lastProducts} />
                             </div>
                         </Grid>

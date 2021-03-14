@@ -1,10 +1,9 @@
 const path = require("path")
-const { urlLoader, sqipLoader, lqipLoader, } = require("../loaders")
+const { urlLoader, lqipLoader, } = require("../loaders")
 
 const preset = (isServer) => ({
     test: /\.(jpe?g|png|gif|svg)$/i,
     use: [
-        // "cache-loader",
         lqipLoader,
         urlLoader(isServer)
     ],

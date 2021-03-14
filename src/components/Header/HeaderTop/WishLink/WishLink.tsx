@@ -1,14 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Link from '../../../Elements/Link';
-import WishIcon from '../../../Elements/WishIcon';
+import { makeStyles, } from "@material-ui/core/styles"
+import React, { FC, } from "react"
+import { Product, } from "../../../../types"
+import Link from "../../../Elements/Link"
+import WishIcon from "../../../Elements/WishBtn/WishIcon"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     wishLink: {
         position: "relative",
         margin: "0 10px",
-        [theme.breakpoints.down('sm')]: {
-            marginLeft: "auto",
-        },
+        [theme.breakpoints.down("sm")]: { marginLeft: "auto", },
     },
     countWishes: {
         background: "#f55d2c",
@@ -27,8 +27,12 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function WishLink({ wishList }) {
-    const classes = useStyles();
+interface IProps {
+    wishList: Product[]
+}
+
+const WishLink: FC<IProps> = ({ wishList, }) => {
+    const classes = useStyles()
 
     return (
         <Link href="/account/shopping-wishlist" className={classes.wishLink}>
@@ -37,3 +41,5 @@ export default function WishLink({ wishList }) {
         </Link>
     )
 }
+
+export default WishLink

@@ -57,15 +57,17 @@ export default function HeaderMenu() {
                 aria-controls="simple-menu"
                 aria-haspopup="true"
                 onClick={handleClick}
+                startIcon={(
+                    <span className={classes.img}>
+                        <Image
+                            src="/profile-logo.jpg"
+                            alt=""
+                            height={30}
+                            width={30}
+                        />
+                    </span>
+                )}
             >
-                <Box className={classes.img}>
-                    <Image
-                        src="/profile-logo.jpg"
-                        alt=""
-                        height={30}
-                        width={30}
-                    />
-                </Box>
                 <Typography variant="body2" component="span">
                     John Doe
                 </Typography>

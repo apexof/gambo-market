@@ -1,11 +1,10 @@
-import { connect } from "react-redux"
+import { connect, } from "react-redux"
 import Component from "./CartDrawer"
 
 function mapStateToProps(state) {
-    return {
-        cart: state.cart
-    }
+    return { cart: state.cart, }
 }
+
 const mapDispatchToProps = {}
 
 const ConnectedComponent = connect(

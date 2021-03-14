@@ -1,13 +1,12 @@
-import React from 'react'
-import CartControls from '../../../Product/ProductCards/CartControls'
-import Price from '../../../Elements/Price'
-import WishIcon from '../../../Elements/WishIcon'
-import OldPrice from '../../../Elements/OldPrice'
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, Button, Typography } from '@material-ui/core';
-import { connect } from "react-redux"
+import React from "react"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Box, Button, Typography, } from "@material-ui/core"
+import CartControls from "../../../Product/ProductCards/CartControls"
+import Price from "../../../Elements/Price"
+import WishBtn from "../../../Elements/WishBtn"
+import OldPrice from "../../../Elements/OldPrice"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         background: theme.palette.background.default,
         width: "100%",
@@ -15,13 +14,11 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(3),
         marginBottom: theme.spacing(3),
     },
-    lineThrough: {
-        textDecoration: "line-through",
-    }
+    lineThrough: { textDecoration: "line-through", },
 }))
 
-function PriceBlock({ price, oldPrice, product, addToCart }) {
-    const classes = useStyles();
+const PriceBlock = ({ price, oldPrice, product, addToCart, }) => {
+    const classes = useStyles()
 
     return (
         <div className={classes.root}>
@@ -39,7 +36,7 @@ function PriceBlock({ price, oldPrice, product, addToCart }) {
             <Box display="flex" my={3}>
                 <CartControls product={product} />
                 <Box ml={2}>
-                    <WishIcon product={product} />
+                    <WishBtn product={product} />
                 </Box>
             </Box>
             <Box display="flex">
@@ -49,12 +46,11 @@ function PriceBlock({ price, oldPrice, product, addToCart }) {
                 <Box ml={2}>
                     <Button variant="outlined" color="secondary" className={classes.btn}>
                         Order Now
-                </Button>
+                    </Button>
                 </Box>
             </Box>
         </div>
     )
 }
-
 
 export default PriceBlock

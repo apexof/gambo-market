@@ -135,7 +135,7 @@ const TopSlider: FC = () => {
         slidesToShow: 5,
         slidesToScroll: 1,
         lazyLoad: "ondemand",
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 1500,
         draggable: false,
         pauseOnHover: false,

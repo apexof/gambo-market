@@ -4,7 +4,7 @@ import cx from "clsx"
 import { makeStyles, } from "@material-ui/core/styles"
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCartOutlined"
 import Link from "../../../Elements/Link"
-import WishIcon from "../../../Elements/WishIcon"
+import WishBtn from "../../../Elements/WishBtn"
 import Price from "../../../Elements/Price"
 import Img from "../../../Elements/LazyImg/Img"
 import OldPrice from "../../../Elements/OldPrice"
@@ -68,7 +68,7 @@ const ProductCard: FC<Props> = ({ product, shadow, addToCart, }) => {
                 <Discount>{discount}</Discount>
             </div>
             <div className={classes.wishIcon}>
-                <WishIcon product={product} />
+                <WishBtn product={product} />
             </div>
             <CardMedia>
                 <Link href={`/product/${slug}`} className={classes.imgWrapper}>

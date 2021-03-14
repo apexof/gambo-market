@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         height: "100%",
     },
-    preview: { filter: (p) => (p.loaded ? "blur(0)" : "blur(5px)"), },
+    preview: { filter: "blur(5px)", },
     img: {
         position: "absolute",
         width: "100%",
@@ -50,6 +50,7 @@ const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, laz
             <img className={cx(classes.img, classes.preview)} src={lqip} aria-hidden="true" alt="" />
             <picture>
                 {webp && (<source type="image/webp" srcSet={webp} />)}
+                {!webp && (<source type="image/webp" srcSet={`${src}?webp`} />)}
                 <img
                     src={src}
                     alt={alt}
@@ -66,7 +67,7 @@ const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, laz
             <div style={{ paddingBottom: `${100 / aspectRatio}%`, }} />
             {lazy
                 && (
-                    <LazyLoad offsetVertical={300} height="100%" width="100%">
+                    <LazyLoad offsetVertical={200} height="100%" width="100%">
                         {content}
                     </LazyLoad>
                 )}

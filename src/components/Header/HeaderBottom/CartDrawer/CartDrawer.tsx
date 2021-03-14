@@ -1,16 +1,17 @@
-import React from 'react';
-import cx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import CartList from '../../../Product/ProductLists/CartList';
-import { Box, Toolbar, Typography } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-import Price from '../../../Elements/Price';
-import OldPrice from '../../../Elements/OldPrice';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import React, { FC, useState, } from "react"
+import cx from "clsx"
+import { makeStyles, } from "@material-ui/core/styles"
+import Drawer from "@material-ui/core/Drawer"
+import Button from "@material-ui/core/Button"
+import { Box, Toolbar, Typography, } from "@material-ui/core"
+import CloseIcon from "@material-ui/icons/Close"
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined"
+import CartList from "../../../Product/ProductLists/CartList"
+import Price from "../../../Elements/Price"
+import OldPrice from "../../../Elements/OldPrice"
+import { Product, } from "../../../../types"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     cartList: {
         overflowY: "scroll",
         maxHeight: "calc(100% - 231px)",
@@ -30,23 +31,21 @@ const useStyles = makeStyles(theme => ({
         minHeight: "100%",
         justifyContent: "space-between",
     },
-    fullList: {
-        width: 'auto',
-    },
+    fullList: { width: "auto", },
     btn: {
         width: 154,
         height: 64,
         background: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,
         borderRadius: 0,
-        '&:hover': {
+        "&:hover": {
             background: theme.palette.secondary.main,
-            backgroundImage: "linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9))"
-        }
+            backgroundImage: "linear-gradient(to right, rgba(230, 92, 91, 0.9), rgba(245, 93, 44, 0.9))",
+        },
     },
     closeIcon: {
         cursor: "pointer",
-        color: "#fff"
+        color: "#fff",
     },
     footer: {
         marginTop: "auto",
@@ -62,9 +61,7 @@ const useStyles = makeStyles(theme => ({
         padding: "0 20px",
         justifyContent: "space-between",
     },
-    headerItemsCount: {
-        color: "#f69733",
-    },
+    headerItemsCount: { color: "#f69733", },
     footerConfirm: {
         width: "100%",
         display: "flex",
@@ -74,14 +71,16 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "space-between",
         borderTop: `1px solid ${theme.palette.grey["50"]}`,
     },
-    confirmBtn: {
-        flexShrink: 0,
-    },
+    confirmBtn: { flexShrink: 0, },
 }))
 
-export default function TemporaryDrawer({ cart }) {
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+interface IProps {
+    cart: Product[]
+}
+
+const CartDrawer: FC<IProps> = ({ cart, }) => {
+    const classes = useStyles()
+    const [open, setOpen] = useState(false)
 
     const toggleDrawer = () => setOpen(!open)
     const handleClose = () => setOpen(false)
@@ -93,18 +92,14 @@ export default function TemporaryDrawer({ cart }) {
         <>
             <Button onClick={toggleDrawer} className={classes.btn}>
                 <ShoppingCartOutlinedIcon />
-                <Box ml={1.5}>
-                    Cart
-                </Box>
+                <Box ml={1.5} component="span">Cart</Box>
             </Button>
             <Drawer anchor="left" open={open} onClose={toggleDrawer}>
-                <div
-                    className={`${classes.drawer} `}
-                    role="presentation"
-                >
+                <div className={classes.drawer} role="presentation">
                     <Toolbar className={classes.header}>
                         <Typography>
-                            My Cart<span className={classes.headerItemsCount}>{` (${cart.length} Items)`}</span>
+                            My Cart
+                            <span className={classes.headerItemsCount}>{` (${cart.length} Items)`}</span>
                         </Typography>
                         <CloseIcon
                             fontSize="large"
@@ -117,21 +112,15 @@ export default function TemporaryDrawer({ cart }) {
                     </div>
                     <Toolbar className={classes.footer}>
                         <div className={classes.footerPrice}>
-                            <Typography>
-                                Total Saving
-                            </Typography>
+                            <Typography>Total Saving</Typography>
                             <OldPrice>{totalSave}</OldPrice>
                         </div>
                         <div className={classes.footerPrice}>
-                            <Typography variant="h4">
-                                Total
-                            </Typography>
+                            <Typography variant="h4">Total</Typography>
                             <Price>{totalSumm}</Price>
                         </div>
                         <div className={classes.footerConfirm}>
-                            <Typography variant="body1">
-                                Have a promocode?
-                            </Typography>
+                            <Typography variant="body1">Have a promocode?</Typography>
                             <Button variant="contained" color="secondary" className={classes.confirmBtn}>
                                 Checkout
                             </Button>
@@ -140,5 +129,7 @@ export default function TemporaryDrawer({ cart }) {
                 </div>
             </Drawer>
         </>
-    );
+    )
 }
+
+export default CartDrawer

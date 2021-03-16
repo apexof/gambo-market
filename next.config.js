@@ -1,12 +1,28 @@
-const withPlugins = require("next-compose-plugins")
-const optimizedImages = require("next-optimized-images")
+const { imgResize, webpResize, imgOptimized, } = require("./webpack/presets")
+const { ImageMin, } = require("./webpack/plugins")
 
-module.exports = withPlugins([
-    [optimizedImages, {
-        mozjpeg: { quality: 85, },
-        webp: {
-            preset: "default",
-            quality: 85,
-        },
-    }]
-])
+const config = {
+    webpack: (webpackConfig, { isServer, }) => {
+        const { module, plugins, } = webpackConfig
+
+        return {
+            ...webpackConfig,
+            module: {
+                ...module,
+                rules: [
+                    ...module.rules,
+                    // imgResize(),
+                    webpResize()
+                    // imgOptimized()
+                ],
+            },
+            plugins: [
+                ...plugins,
+                // Copy,
+                ImageMin
+            ],
+        }
+    },
+}
+
+module.exports = config

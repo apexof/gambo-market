@@ -2,51 +2,53 @@ import React, { FC, } from "react"
 import Slider from "react-slick"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Button, Typography, } from "@material-ui/core"
-import slide1 from "./slide-1.jpg"
-// import logo from "./min-logo.svg"
 import ImgWebpack from "../Elements/LazyImg/ImgWebpack"
 
-const imgList = (name, index) => ({ img: `./${name}${index}.jpg`, })
+const imgList = (name, index) => ({
+    img: require(`./${name}${index}.jpg`),
+    lqip: require(`./${name}${index}.jpg?lqip`),
+    webp: require(`./${name}${index}.jpg?webp`),
+})
 
 const slides = [
     {
         id: 0,
-        ...imgList("slide-", 1),
+        ...imgList("lqip_slide-", 1),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 1,
-        ...imgList("slide-", 2),
+        ...imgList("lqip_slide-", 2),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 2,
-        ...imgList("slide-", 1),
+        ...imgList("lqip_slide-", 1),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 3,
-        ...imgList("slide-", 2),
+        ...imgList("lqip_slide-", 2),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 4,
-        ...imgList("slide-", 1),
+        ...imgList("lqip_slide-", 1),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
     },
     {
         id: 5,
-        ...imgList("slide-", 2),
+        ...imgList("lqip_slide-", 2),
         discount: "3",
         title: "Buy More & Save More",
         description: "Nuts & Snacks",
@@ -120,6 +122,8 @@ const useStyles = makeStyles((theme) => ({
 interface ISlide {
     id: number
     img: string
+    lqip: string
+    webp: string
     discount: string,
     title: string,
     description: string,
@@ -157,31 +161,29 @@ const TopSlider: FC = () => {
             }
         ],
     }
-    // const original = require("./slide-1.jpg")
+    // const original = require("./lqip_slide-1.jpg")
     // console.log("original: ", original)
-    // const fileName = "./slide-1-6f408624bf0f8906a73ebb0c1a6117f2.jpg"
-    // const resized = require("./slide-1.jpg?resize&size=300")
+    // const fileName = "./lqip_slide-1-6f408624bf0f8906a73ebb0c1a6117f2.jpg"
+    // const resized = require("./lqip_slide-1.jpg?resize&size=300")
     // console.log("resized: ", resized.src)
     // const resized2 = require(resized.src)
     // console.log("resized2: ", resized2)
     // const requireWebpImage = require.context("../../../.next/static/images/?webp", false, /\.jpg$/)
     // const webpImg = requireWebpImage(fileName)
-    // console.log(slides)
+    console.log(webpImg)
 
     return (
         <div className={classes.topSlider}>
-            {/* <img src={logo} alt="" /> */}
             <div className={classes.list}>
                 <Slider {...settings}>
                     {slides.map((item: ISlide) => (
                         <div key={item.id}>
                             <div className={classes.imgWrap}>
                                 <div className={classes.imgBorder}>
-                                    <img src={slide1} alt="" />
-                                    {/* <ImgWebpack
+                                    <ImgWebpack
                                         src={item.img}
                                         aspectRatio={500 / 320}
-                                    /> */}
+                                    />
                                 </div>
                                 <div className={classes.slideContent}>
                                     <Typography className={classes.discount}>

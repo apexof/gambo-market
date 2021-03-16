@@ -1,8 +1,8 @@
 {
     "watch": [
-        "./next.config.js",
-        "./babel.config.json",
-        "./tsconfig.json",
-        "./wepback/"
+        "next.config.js",
+        "babel.config.json",
+        "tsconfig.json",
+        "wepback/**/*.js"
     ]
 }

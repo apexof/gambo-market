@@ -1,4 +1,5 @@
-const img = require("./img")
-const imgPreview = require("./img-preview")
+const imgResize = require("./imgResize")
+const webpResize = require("./webpResize")
+const imgOptimized = require("./imgOptimized")
 
-module.exports = { img, imgPreview, }
+module.exports = { imgResize, webpResize, imgOptimized, }

@@ -27,3 +27,7 @@ export const slugToTitle = (slug) => {
 
     return replacedSlug
 }
+
+export const getFileName = (str) => {
+    return str.split("\\").pop().split("/").pop()
+}

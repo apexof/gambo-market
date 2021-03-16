@@ -7,9 +7,9 @@ export default function MainLayout({ children, }) {
     return (
         <div>
             <CommonHead />
-            <Header />
+            {/* <Header /> */}
             {children}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

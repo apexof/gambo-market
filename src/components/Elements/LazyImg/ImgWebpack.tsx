@@ -27,15 +27,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 type Props = {
-    lqip: string
     src: string
-    webp?: string
     aspectRatio: number
     alt?: string,
     lazy?: boolean
+    context?: any
 }
 
-const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, lazy = false, }) => {
+const ImgWithPreview: FC<Props> = ({ src, alt = "", aspectRatio, lazy = false, }) => {
     const [loaded, setLoaded] = useState(false)
     const classes = useStyles({ loaded, })
     const imgRef = useRef()
@@ -44,22 +43,15 @@ const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, laz
             setLoaded(true)
         }
     }, [])
+    console.log(src)
+    const webp = src
+    const lqip = src
 
     const content = (
         <>
             <img className={cx(classes.img, classes.preview)} src={lqip} aria-hidden="true" alt="" />
             <picture>
                 {webp && (<source type="image/webp" srcSet={webp} />)}
-                {/* {webp && (
-                    <source
-                        type="image/webp"
-                        // srcSet={webp}
-                        srcSet={`${wp} 520w,
-                                ${wp2} 800w`}
-                        sizes="(max-width: 520px) 280px,
-                                800px"
-                    />
-                )} */}
                 <img
                     src={src}
                     alt={alt}

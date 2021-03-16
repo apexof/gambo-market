@@ -2,11 +2,13 @@ import React, { FC, } from "react"
 import Slider from "react-slick"
 import { makeStyles, } from "@material-ui/core/styles"
 import { Button, Typography, } from "@material-ui/core"
-import slide1 from "./slide-1.jpg"
-// import logo from "./min-logo.svg"
-import ImgWebpack from "../Elements/LazyImg/ImgWebpack"
+import Img from "../Elements/LazyImg/Img"
 
-const imgList = (name, index) => ({ img: `./${name}${index}.jpg`, })
+const imgList = (name, index) => ({
+    img: require(`./${name}${index}.jpg`),
+    lqip: require(`./${name}${index}.jpg?lqip`),
+    webp: require(`./${name}${index}.jpg?webp`),
+})
 
 const slides = [
     {
@@ -120,6 +122,8 @@ const useStyles = makeStyles((theme) => ({
 interface ISlide {
     id: number
     img: string
+    lqip: string
+    webp: string
     discount: string,
     title: string,
     description: string,
@@ -157,31 +161,21 @@ const TopSlider: FC = () => {
             }
         ],
     }
-    // const original = require("./slide-1.jpg")
-    // console.log("original: ", original)
-    // const fileName = "./slide-1-6f408624bf0f8906a73ebb0c1a6117f2.jpg"
-    // const resized = require("./slide-1.jpg?resize&size=300")
-    // console.log("resized: ", resized.src)
-    // const resized2 = require(resized.src)
-    // console.log("resized2: ", resized2)
-    // const requireWebpImage = require.context("../../../.next/static/images/?webp", false, /\.jpg$/)
-    // const webpImg = requireWebpImage(fileName)
-    // console.log(slides)
 
     return (
         <div className={classes.topSlider}>
-            {/* <img src={logo} alt="" /> */}
             <div className={classes.list}>
                 <Slider {...settings}>
                     {slides.map((item: ISlide) => (
                         <div key={item.id}>
                             <div className={classes.imgWrap}>
                                 <div className={classes.imgBorder}>
-                                    <img src={slide1} alt="" />
-                                    {/* <ImgWebpack
+                                    <Img
                                         src={item.img}
+                                        lqip={item.lqip}
+                                        webp={item.webp}
                                         aspectRatio={500 / 320}
-                                    /> */}
+                                    />
                                 </div>
                                 <div className={classes.slideContent}>
                                     <Typography className={classes.discount}>

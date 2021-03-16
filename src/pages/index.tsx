@@ -21,7 +21,7 @@ const Home: FC<IProps> = ({ lastProducts, categories, topProducts, maxDiscountPr
     return (
         <MainLayout>
             <TopSlider />
-            {/* <CategorySlider categories={categories} />
+            <CategorySlider categories={categories} />
             <Box mt={5}>
                 <ProductListSlider
                     id="top-featured-products"
@@ -45,7 +45,7 @@ const Home: FC<IProps> = ({ lastProducts, categories, topProducts, maxDiscountPr
                     title="Added New Products"
                     items={lastProducts}
                 />
-            </Box> */}
+            </Box>
         </MainLayout>
     )
 }

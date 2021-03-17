@@ -68,7 +68,7 @@ const SliderSimpleArrows: FC<IProps> = ({ children, slidesToShow, responsive, })
         slidesToShow,
         slidesToScroll: 1,
         draggable: false,
-        lazyLoad: "ondemand",
+        // lazyLoad: "ondemand",
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
         responsive,

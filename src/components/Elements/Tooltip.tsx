@@ -1,8 +1,8 @@
-import React, { FC, } from "react"
+import React, { FC, ReactElement, } from "react"
 import { Tooltip, } from "@material-ui/core"
 import { makeStyles, } from "@material-ui/core/styles"
 
-const useStylesBootstrap = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
     arrow: { color: theme.palette.text.primary, },
     tooltip: {
         padding: theme.spacing(1),
@@ -14,13 +14,14 @@ const useStylesBootstrap = makeStyles((theme) => ({
 }))
 
 interface IProps {
-
+    title: string
+    children: ReactElement
 }
 
-const MyTooltip: FC = (props: any) => {
-    const classes = useStylesBootstrap()
+const MyTooltip: FC<IProps> = ({ title, children, }) => {
+    const classes = useStyles()
 
-    return <Tooltip arrow classes={classes} {...props} />
+    return <Tooltip arrow classes={classes} title={title}>{children}</Tooltip>
 }
 
 export default MyTooltip

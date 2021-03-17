@@ -4,7 +4,8 @@ import DashboardIcon from "@material-ui/icons/Dashboard"
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcard"
 import ViewListIcon from "@material-ui/icons/ViewList"
 import HelpIcon from "@material-ui/icons/Help"
-import React, { FC, } from "react"
+import React, { FC, ReactElement, } from "react"
+import { SvgIconProps, } from "@material-ui/core/SvgIcon"
 import Tooltip from "../../../Elements/Tooltip"
 import OverviewBox from "./OverviewBox"
 import Link from "../../../Elements/Link"
@@ -46,26 +47,33 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
+interface IMenu {
+    id: number
+    title: string
+    href: string
+    icon: ReactElement<SvgIconProps>
+}
+
 const Overview: FC = () => {
     const classes = useStyles()
-    const menu = [
+    const menu: IMenu[] = [
         {
             id: 2,
             title: "Points Earning",
             href: "/account",
-            icon: <ViewListIcon className={classes.walletIconImg} />,
+            icon: <ViewListIcon />,
         },
         {
             id: 1,
             title: "3 offers Active",
             href: "/account/my-orders",
-            icon: <DashboardIcon className={classes.walletIconImg} />,
+            icon: <DashboardIcon />,
         },
         {
             id: 4,
             title: "Payment Methods",
             href: "/account/my-rewards",
-            icon: <CardGiftcardIcon className={classes.walletIconImg} />,
+            icon: <CardGiftcardIcon />,
         }
     ]
 

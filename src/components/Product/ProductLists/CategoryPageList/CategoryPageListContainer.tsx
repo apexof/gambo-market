@@ -39,7 +39,7 @@ const CategoryPageListContainer: FC = () => {
         discount: { min: 0, max: null, },
         available: null,
     }
-    const filterDefault = { ...filterAllProducts, category: router.query.slug.toString(), }
+    const filterDefault = { ...filterAllProducts, category: router.query.slug?.toString() || "", }
     const [filter, setFilterField] = useState(filterDefault)
     const [sortType, setSort] = useState<ISortType>({ type: SortType.priceLowToHigh, })
 

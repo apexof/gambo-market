@@ -94,7 +94,7 @@ const SimpleModal: FC = () => {
     const [open, setOpen] = React.useState(false)
 
     const { data, error, } = useCategories()
-    if (error) return <SwrError error={error} />
+    if (error) return <SwrError error={error} variant="body1" />
     if (!data?.categories) { return (<Loader w={190} h={64} s={20} />) }
 
     const handleOpen = () => setOpen(true)

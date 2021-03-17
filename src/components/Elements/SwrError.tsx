@@ -1,23 +1,22 @@
 import React, { FC, } from "react"
-import styled from "styled-components"
-import { withTheme, } from "@material-ui/core/styles"
-import { Typography, } from "@material-ui/core"
+import { makeStyles, } from "@material-ui/core/styles"
+import { Typography, TypographyClassKey, } from "@material-ui/core"
 
-const Text = withTheme(styled(Typography)`
-    color: ${(p) => p.theme.palette.secondary.main};
-`)
+const useStyles = makeStyles((theme) => ({ root: { color: theme.palette.secondary.main, }, }))
 
 type Props = {
     error: any
+    variant?: TypographyClassKey
 }
 
-const SwrError: FC<Props> = ({ error, }) => {
-    console.log("SwrError", error)
+const SwrError: FC<Props> = ({ error, variant = "h2", }) => {
+    console.log("SwrError: ", error)
+    const classes = useStyles()
 
     return (
-        <Text variant="h2">
+        <Typography variant={variant} className={classes.root}>
             Произошла ошибка
-        </Text>
+        </Typography>
     )
 }
 

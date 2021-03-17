@@ -46,24 +46,22 @@ const ImgWithPreview: FC<Props> = ({ lqip, src, alt = "", aspectRatio, webp, laz
     }, [])
 
     const content = (
-        <>
-            <img className={cx(classes.img, classes.preview)} src={lqip} aria-hidden="true" alt="" />
-            <picture>
-                {webp && (<source type="image/webp" srcSet={webp} />)}
-                <img
-                    src={src}
-                    alt={alt}
-                    ref={imgRef}
-                    onLoad={() => setLoaded(true)}
-                    className={cx(classes.img, classes.source)}
-                />
-            </picture>
-        </>
+        <picture>
+            {webp && (<source type="image/webp" srcSet={webp} />)}
+            <img
+                src={src}
+                alt={alt}
+                ref={imgRef}
+                onLoad={() => setLoaded(true)}
+                className={cx(classes.img, classes.source)}
+            />
+        </picture>
     )
 
     return (
         <div className={classes.wrapper}>
             <div style={{ paddingBottom: `${100 / aspectRatio}%`, }} />
+            <img className={cx(classes.img, classes.preview)} src={lqip} aria-hidden="true" alt="" />
             {lazy
                 && (
                     <LazyLoad offsetVertical={200} height="100%" width="100%">

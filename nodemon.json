@@ -2,7 +2,6 @@
     "watch": [
         "next.config.js",
         "babel.config.json",
-        "tsconfig.json",
-        "wepback/**/*.js"
+        "tsconfig.json"
     ]
 }

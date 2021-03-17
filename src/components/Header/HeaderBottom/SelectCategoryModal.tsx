@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
     list: {
         width: "100%",
         background: theme.palette.primary.main,
+        alignContent: "flex-start",
         height: "100%",
         [theme.breakpoints.up("sm")]: { height: "auto", },
     },
